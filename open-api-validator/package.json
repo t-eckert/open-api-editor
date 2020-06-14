@@ -1,7 +1,7 @@
 {
   "name": "",
   "version": "",
-  "scripts" : {
+  "scripts": {
     "build": "tsc",
     "build:production": "npm run prestart && npm prune --production",
     "watch": "tsc --w",
