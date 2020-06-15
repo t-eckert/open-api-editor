@@ -1,29 +1,26 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div id="app" class="bg-gray-400 h-screen">
+    <div class="grid grid-cols-4 p-2 gap-2 h-full">
+      <ThePalette />
+      <TheEditor class="col-span-2" />
+      <TheMonitor />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import Vue from "vue";
+import ThePalette from "./components/ThePalette.vue";
+import TheEditor from "./components/TheEditor.vue";
+import TheMonitor from "./components/TheMonitor.vue";
 
 export default Vue.extend({
-  name: 'App',
+  name: "App",
+
   components: {
-    HelloWorld
+    ThePalette,
+    TheEditor,
+    TheMonitor
   }
 });
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
