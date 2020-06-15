@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "monaco-editor": "^0.20.0",
     "register-service-worker": "^1.7.1",
+    "tailwindcss": "^1.4.6",
     "vue": "^2.6.11",
     "vuex": "^3.4.0"
   },
@@ -29,6 +31,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue-cli-plugin-tailwind": "^1.4.1",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
