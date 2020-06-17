@@ -22,7 +22,6 @@ export default Vue.extend({
   data() {
     return {
       theme: "vs",
-      language: "yaml",
       options: {
         fontSize: 14,
         autoIndent: 2,
@@ -41,6 +40,7 @@ export default Vue.extend({
         wordWrap: "on",
         wrappingIndent: "same",
         renderLineHighlight: "gutter",
+        automaticLayout: true
       },
     };
   },
