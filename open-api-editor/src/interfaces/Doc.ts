@@ -1,5 +1,5 @@
 interface Doc {
-  openapi: string;
+  openapi?: string;
 }
 
 export default Doc;
