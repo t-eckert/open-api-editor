@@ -4,12 +4,12 @@
     <div class="overflow-auto">
       <ErrorCard
         v-for="(error, index) in errors"
-        :key="index"
+        :key="'error-' + index"
         :message="error.message"
       />
       <WarningCard
         v-for="(warning, index) in warnings"
-        :key="index"
+        :key="'warning-' + index"
         :message="warning.message"
       />
     </div>
@@ -23,6 +23,7 @@ import ControlPanel from "@/components/monitor/ControlPanel.vue";
 import ErrorCard from "@/components/monitor/ErrorCard.vue";
 import WarningCard from "@/components/monitor/WarningCard.vue";
 import AboutPanel from "@/components/monitor/AboutPanel.vue";
+import { mapState } from "vuex";
 
 export default Vue.extend({
   name: "TheMonitor",
@@ -31,26 +32,9 @@ export default Vue.extend({
     ControlPanel,
     ErrorCard,
     WarningCard,
-    AboutPanel
+    AboutPanel,
   },
 
-  data() {
-    return {
-      errors: [
-        { message: "Error 1" },
-        { message: "Error 2" },
-        { message: "Error 3" },
-        { message: "Error 4" },
-        { message: "Error 5" }
-      ],
-      warnings: [
-        { message: "Warning 1" },
-        { message: "Warning 2" },
-        { message: "Warning 3" },
-        { message: "Warning 4" },
-        { message: "Warning 5" }
-      ]
-    };
-  }
+  computed: mapState(["errors", "warnings"]),
 });
 </script>
