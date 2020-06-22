@@ -1,17 +1,20 @@
 <template>
-  <div class="bg-gray-100 p-4 rounded">
-    <h1>The Palette</h1>
+  <div>
+    <AddOpenApiVersionCard />
     <pre>{{ suggestions }}</pre>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import AddOpenApiVersionCard from "@/components/palette/AddOpenApiVersionCard.vue";
 import { mapGetters } from "vuex";
 
 export default Vue.extend({
   name: "ThePalette",
 
-  computed: mapGetters(["suggestions"]),
+  components: { AddOpenApiVersionCard },
+
+  computed: mapGetters(["suggestions"])
 });
 </script>
