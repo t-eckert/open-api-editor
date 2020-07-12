@@ -1,0 +1,33 @@
+{
+  "name": "open-api-engine",
+  "version": "0.1.0",
+  "description": "Suggestion and validation engine for writing Open API specs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t-eckert/open-api-editor.git"
+  },
+  "keywords": [
+    "open",
+    "api",
+    "engine"
+  ],
+  "author": "Thomas Eckert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t-eckert/open-api-editor/issues"
+  },
+  "homepage": "https://github.com/t-eckert/open-api-editor#readme",
+  "dependencies": {
+    "openapi-types": "^1.3.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.6"
+  }
+}
