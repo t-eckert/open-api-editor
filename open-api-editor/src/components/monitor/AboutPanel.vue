@@ -1,17 +1,18 @@
 <template>
-  <div class="bg-gray-100 p-4 rounded mb-2">
+  <div class="bg-gray-100 p-2 rounded">
     <div v-if="isExpanded" class="mb-4">
       <p>A project by Thomas Eckert.</p>
-      <p>Version {{ version }} released {{ released }}</p>
       <a>Source code</a>
     </div>
-    <button v-if="isDonatable">Donate</button>
-    <button
-      @click="isExpanded = !isExpanded"
-      class="px-4 py-1 font-medium bg-blue-200 rounded-sm border-gray-800"
-    >
-      About
-    </button>
+    <div class="flex items-baseline justify-between w-full">
+      <button
+        @click="isExpanded = !isExpanded"
+        class="px-4 py-1 font-medium text-gray-800 hover:bg-gray-400 rounded-sm"
+      >
+        About
+      </button>
+      <div class="px-4">{{ version }}</div>
+    </div>
   </div>
 </template>
 
@@ -27,8 +28,8 @@ export default Vue.extend({
       isDonatable: false,
       isExpanded: false,
       version,
-      released,
+      released
     };
-  },
+  }
 });
 </script>
