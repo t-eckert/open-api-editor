@@ -1,0 +1,44 @@
+:root {
+  --text-primary: #4a5568;
+  --background-page: #edf2f7;
+  --background-card: #ffffff;
+}
+
+/* @media (prefers-color-scheme: dark) {
+   TODO build the dark mode 
+  :root {
+    --text-primary: #ffffff;
+  }
+} */
+
+html {
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: var(--text-primary);
+  background-color: var(--background-page);
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+  max-width: 88rem;
+}
+
+.card {
+  background-color: var(--background-card);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  max-width: 16rem;
+}
