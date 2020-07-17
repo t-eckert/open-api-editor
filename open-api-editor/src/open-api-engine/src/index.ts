@@ -1,5 +1,7 @@
 import Suggestion from "./interfaces/Suggestion";
 import suggestions from "./suggestions";
+import { OpenAPIV3 } from "openapi-types";
+export { OpenAPIV3 };
 
 /** `process` function
  *
