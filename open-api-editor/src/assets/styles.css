@@ -1,7 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 :root {
-  --text-primary: #4a5568;
-  --background-page: #edf2f7;
+  --text-primary: #21262e;
+  --background-page: #f3f3f3;
   --background-card: #ffffff;
+  --shadow-low: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+  --shadow-high: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+
+  /* Colors */
+  --color-background-button: #edf2f7;
+  --color-background-button__hover: #e2e8f0;
+
+  --color-foreground-get: #44337a;
+  --color-background-get: #faf5ff;
+  --color-background-get__hover: #e9d8fd;
+
+  --color-foreground-post: #22543d;
+  --color-background-post: #f0fff4;
+  --color-background-post__hover: #c6f6d5;
+
+  --color-foreground-put: #7b341e;
+  --color-background-put: #fffaf0;
+  --color-background-put__hover: #feebc8;
+
+  --color-foreground-patch: #744210;
+  --color-background-patch: #fffff0;
+  --color-background-patch__hover: #fefcbf;
+
+  --color-foreground-delete: #742a2a;
+  --color-background-delete: #fff5f5;
+  --color-background-delete__hover: #fed7d7;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -11,24 +43,168 @@
   }
 } */
 
+body {
+}
+
 html {
   font-size: 16px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: var(--text-primary);
   background-color: var(--background-page);
 }
 
-code {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-    monospace;
-}
+/* Typography */
 
 h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
+  margin-bottom: 0.25rem;
+}
+
+.display-1 {
+  font-size: 2.5rem;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0.25rem;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+/* Inputs */
+
+select {
+  font-size: 1rem;
+  padding: 0.2rem 0.4rem;
+  margin-bottom: 0.5rem;
+  border: solid 1px #e2e8f0;
+}
+
+input {
+  font-size: 1rem;
+  padding: 0.2rem 0.4rem;
+  margin-bottom: 0.5rem;
+  border: solid 1px #e2e8f0;
+}
+
+textarea {
+  font-size: 1rem;
+  padding: 0.2rem 0.4rem;
+  margin-bottom: 0.5rem;
+  border: solid 1px #e2e8f0;
+}
+
+/* Buttons */
+
+button,
+.button {
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.3rem 0.5rem;
+  background-color: var(--color-background-button);
+  margin-right: 0.5rem;
+  letter-spacing: 0.125px;
+}
+
+button:hover,
+.button:hover {
+  background-color: var(--color-background-button__hover);
+}
+
+.button__get {
+  color: var(--color-foreground-get);
+  background-color: var(--color-background-get);
+}
+
+.button__get:hover {
+  background-color: var(--color-background-get__hover);
+}
+
+.button__post {
+  color: var(--color-foreground-post);
+  background-color: var(--color-background-post);
+}
+
+.button__post:hover {
+  background-color: var(--color-background-post__hover);
+}
+
+.button__put {
+  color: var(--color-foreground-put);
+  background-color: var(--color-background-put);
+}
+
+.button__put:hover {
+  background-color: var(--color-background-put__hover);
+}
+
+.button__patch {
+  color: var(--color-foreground-patch);
+  background-color: var(--color-background-patch);
+}
+
+.button__patch:hover {
+  background-color: var(--color-background-patch__hover);
+}
+
+.button__delete {
+  color: var(--color-foreground-delete);
+  background-color: var(--color-background-delete);
+}
+
+.button__delete:hover {
+  background-color: var(--color-background-delete__hover);
+}
+
+/* Layout */
+.app__layout__sidebar-visible {
+  display: grid;
+  grid-template-columns: 26rem auto;
+  height: 100vh;
+  box-shadow: var(--shadow-low);
+}
+
+.app__layout__sidebar-hidden {
+}
+
+.sidebar {
+  background-color: var(--background-card);
+}
+
+.sidebar__layout {
+  padding: 1rem;
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.palette__layout {
+  padding: 1rem;
+}
+
+.server-editor-card {
+  max-width: 30rem;
+}
+
+.path-editor-card {
+  max-width: 30rem;
 }
 
 .container {
@@ -40,5 +216,14 @@ h1 {
   background-color: var(--background-card);
   border-radius: 0.25rem;
   padding: 0.5rem;
-  max-width: 16rem;
+  box-shadow: var(--shadow-low);
+}
+
+.card__selected {
+  box-shadow: var(--shadow-high);
+}
+
+.label-input-group {
+  display: flex;
+  flex-direction: column;
 }
