@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="app__layout__sidebar-visible">
+    <div class="app__layout app__layout__sidebar-visible">
       <TheSidebar />
       <ThePalette />
     </div>
