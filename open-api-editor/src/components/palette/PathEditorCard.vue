@@ -2,11 +2,20 @@
   <div class="card path-editor-card">
     <div class="paths-editor-card__header">
       <h1>Path</h1>
-      <button>X</button>
+      <button @click="deletePath()">X</button>
     </div>
     <div class="label-input-group">
-      <label for="">Path</label>
-      <div><span>/&nbsp;</span><input type="text" /></div>
+      <label :for="`paths__${id}__path`">Path</label>
+      <div>
+        <span>/&nbsp;</span>
+        <input
+          :value="path"
+          @input="path"
+          type="text"
+          :id="`paths__${id}__path`"
+          placeholder="{posts}"
+        />
+      </div>
     </div>
     <div class="label-input-group">
       <!-- If summary is set here, it overwrites the summaries in the operation objects -->
@@ -43,13 +52,17 @@ import Verb from "@/constants/enums/Verb";
 
 export default Vue.extend({
   components: {
-    OperationEditorSection,
+    OperationEditorSection
+  },
+
+  props: {
+    index: Number
   },
 
   data() {
     return {
       variables: [{ enumeration: "", defaultValue: "", description: "" }],
-      operations: [],
+      operations: []
     };
   },
 
@@ -58,6 +71,9 @@ export default Vue.extend({
       console.log(verb);
       // this.$store.commit("CREATE_OPERATION", { verb });
     },
-  },
+    deletePath() {
+      this.$store.commit("DELETE_PATH", this.index);
+    }
+  }
 });
 </script>
