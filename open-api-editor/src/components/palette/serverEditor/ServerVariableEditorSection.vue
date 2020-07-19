@@ -23,7 +23,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { OpenAPIV3 } from "@/open-api-engine/src";
 
 export default Vue.extend({
   props: {
