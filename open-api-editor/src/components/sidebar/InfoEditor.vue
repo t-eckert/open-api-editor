@@ -60,13 +60,13 @@ export default Vue.extend({
 
   computed: {
     ...mapState({
-      info: (state: any) => state.doc.info,
+      info: (state: any) => state.info,
     }),
   },
 
   methods: {
     setTitle(e: any) {
-      this.$store.commit("SET_TITLE", e.target.value);
+      this.$store.commit("UPDATE_TITLE", e.target.value);
     },
   },
 });
