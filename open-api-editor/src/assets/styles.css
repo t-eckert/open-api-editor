@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-  --text-primary: #21262e;
   --background-page: #f3f3f3;
   --background-card: #ffffff;
   --shadow-low: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -10,6 +9,10 @@
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
+
+  /* Text */
+  --text-primary: #21262e;
+  --text-secondary: #718096;
 
   /* Colors */
   --color-background-button: #edf2f7;
@@ -43,9 +46,6 @@
   }
 } */
 
-body {
-}
-
 html {
   font-size: 16px;
   color: var(--text-primary);
@@ -70,6 +70,10 @@ h2 {
 
 .display-1 {
   font-size: 2.5rem;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
 }
 
 p {
@@ -169,19 +173,25 @@ button:hover,
   background-color: var(--color-background-delete__hover);
 }
 
-/* Layout */
-.app__layout__sidebar-visible {
-  display: grid;
-  grid-template-columns: 26rem auto;
-  height: 100vh;
-  box-shadow: var(--shadow-low);
-}
-
-.app__layout__sidebar-hidden {
-}
+/* Elements */
 
 .sidebar {
   background-color: var(--background-card);
+  box-shadow: var(--shadow-low);
+}
+
+/* Layout */
+.app__layout {
+  display: grid;
+  height: 100vh;
+}
+
+.app__layout__sidebar-visible {
+  grid-template-columns: 26rem calc(100vw - 26rem);
+}
+
+.app__layout__sidebar-hidden {
+  grid-template-columns: 100vw;
 }
 
 .sidebar__layout {
@@ -234,7 +244,7 @@ button:hover,
 
 .palette__servers__editor-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(88rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
   gap: 1rem;
   margin-bottom: 1rem;
 }
@@ -254,7 +264,7 @@ button:hover,
 
 .palette__paths__editor-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(88rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
   gap: 1rem;
   margin-bottom: 1rem;
 }
