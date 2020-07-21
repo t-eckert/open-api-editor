@@ -2,7 +2,7 @@
   <div class="card server-editor-card">
     <div class="server-editor-card__header">
       <h1>Server</h1>
-      <button @click="deleteServer()">X</button>
+      <unicon @click="deleteServer()" name="times" class="icon__times" />
     </div>
     <div class="label-input-group">
       <label :for="'server__' + index + '__url'">Url</label>
