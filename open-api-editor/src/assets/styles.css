@@ -37,6 +37,9 @@
   --color-foreground-delete: #742a2a;
   --color-background-delete: #fff5f5;
   --color-background-delete__hover: #fed7d7;
+
+  /* Layout */
+  --sidebar-width: 24rem;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -187,7 +190,7 @@ button:hover,
 }
 
 .app__layout__sidebar-visible {
-  grid-template-columns: 26rem calc(100vw - 26rem);
+  grid-template-columns: var(--sidebar-width) calc(100vw - var(--sidebar-width));
 }
 
 .app__layout__sidebar-hidden {
