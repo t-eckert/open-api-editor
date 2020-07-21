@@ -1,5 +1,7 @@
+import State from "@/constants/types/State";
+
 /** `state` Vuex State */
-const state = () => ({
+const state = (): State => ({
   openapi: "3.0.3",
   info: {
     title: "",
@@ -16,14 +18,12 @@ const state = () => ({
     },
     version: "",
   },
-  servers: [],
+  servers: [{ url: "", description: "", variables: [] }],
   paths: [],
   components: [],
   security: [],
   tags: [],
   externalDocs: {},
 });
-
-export type RootState = ReturnType<typeof state>;
 
 export default state;
