@@ -3,8 +3,8 @@
     <div class="label-input-group">
       <label for="info__title">Title</label>
       <input
-        :value="title"
-        @input="setTitle"
+        :value="info.title"
+        @input="updateTitle"
         type="text"
         id="info__title"
         name="info__title"
@@ -14,8 +14,8 @@
     <div class="label-input-group">
       <label for="info__description">Description</label>
       <textarea
-        :value="description"
-        @input="setDescription"
+        :value="info.description"
+        @input="updateDescription"
         name="info__description"
         id="info__description"
         rows="5"
@@ -25,8 +25,8 @@
     <div class="label-input-group">
       <label for="into__version">Version</label>
       <input
-        :value="version"
-        @input="setVersion"
+        :value="info.version"
+        @input="updateVersion"
         type="text"
         id="info__version"
         name="info__version"
@@ -59,14 +59,21 @@ export default Vue.extend({
   },
 
   computed: {
-    ...mapState({
-      info: (state: any) => state.info,
-    }),
+    ...mapState(["info"]),
   },
 
   methods: {
-    setTitle(e: any) {
+    createDescription() {
+      this.$store.commit("CREATE_DESCRIPTION");
+    },
+    updateTitle(e: any) {
       this.$store.commit("UPDATE_TITLE", e.target.value);
+    },
+    updateDescription(e: any) {
+      this.$store.commit("UPDATE_DESCRIPTION", e.target.value);
+    },
+    updateVersion(e: any) {
+      this.$store.commit("UPDATE_VERSION", e.target.value);
     },
   },
 });
