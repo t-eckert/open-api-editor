@@ -2,25 +2,32 @@
   <div class="card server-editor-card">
     <div class="server-editor-card__header">
       <h1>Server</h1>
-      <button>X</button>
+      <button @click="deleteServer()">X</button>
     </div>
     <div class="label-input-group">
-      <label for="">Url</label>
-      <input type="text" />
+      <label :for="'server__' + index + '__url'">Url</label>
+      <input
+        :value="servers[index].url"
+        @input="updateServerUrl"
+        type="text"
+        :name="'server__' + index + '__url'"
+        :id="'server__' + index + '__url'"
+        placeholder="https://server.com"
+      />
     </div>
     <div class="label-input-group">
-      <label for="">Description</label>
-      <textarea name="" id="" rows="5"></textarea>
+      <label :for="'server__' + index + '__description'">Description</label>
+      <textarea
+        :value="servers[index].description"
+        @input="updateServerDescription"
+        :name="'server__' + index + '__description'"
+        :id="'server__' + index + '__description'"
+        rows="3"
+        placeholder="A description of my server."
+      ></textarea>
     </div>
     <div class="server-editor-card__variables">
-      <ServerVariables />
-    </div>
-    <div>
-      <ServerVariableEditorSection
-        v-for="(variable, index) in variables"
-        :key="'variable-' + index"
-        :variable="variable"
-      />
+      <ServerVariables :index="index" />
     </div>
     <button @click="createVariable()">Add variable</button>
   </div>
@@ -30,20 +37,33 @@
 import Vue from "vue";
 import ServerVariableEditorSection from "@/components/palette/serverEditor/ServerVariableEditorSection.vue";
 import ServerVariables from "@/components/palette/serverEditor/ServerVariables.vue";
+import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default Vue.extend({
+  props: { index: Number },
+
   components: { ServerVariableEditorSection, ServerVariables },
 
-  data() {
-    return {
-      variables: [],
-    };
-  },
+  computed: { ...mapState(["servers"]) },
 
   methods: {
     createVariable() {
-      console.log("New variable");
-      // this.$store.commit("CREATE_VARIABLE", {});
+      this.$store.commit("CREATE_VARIABLE", {});
+    },
+    deleteServer() {
+      this.$store.commit("DELETE_SERVER", this.index);
+    },
+    updateServerUrl(e: any) {
+      this.$store.commit("UPDATE_SERVER_URL", {
+        url: e.target.value,
+        index: this.index,
+      });
+    },
+    updateServerDescription(e: any) {
+      this.$store.commit("UPDATE_SERVER_DESCRIPTION", {
+        description: e.target.value,
+        index: this.index,
+      });
     },
   },
 });
