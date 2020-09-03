@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import store from "./store";
-import "./assets/tailwind.css";
+import "./assets/normalize.css";
 import "./assets/styles.css";
 import Unicon from "vue-unicons";
 import {
@@ -23,7 +23,7 @@ import {
   uniMultiply,
   uniMinus,
   uniPlus,
-  uniTimes,
+  uniTimes
   // @ts-ignore
 } from "vue-unicons/src/icons";
 
@@ -47,7 +47,7 @@ Unicon.add([
   uniMultiply,
   uniMinus,
   uniPlus,
-  uniTimes,
+  uniTimes
 ]);
 Vue.use(Unicon);
 
@@ -57,5 +57,5 @@ export const version = "0.1.0";
 
 new Vue({
   store,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");
