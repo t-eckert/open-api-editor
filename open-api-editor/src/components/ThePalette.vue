@@ -1,8 +1,11 @@
 <template>
   <div class="palette__layout">
-    <h1 class="display-1">{{ info.title || "Welcome to your API" }}</h1>
+    <h1 class="palette__header">{{ info.title || "Welcome to your API" }}</h1>
     <div class="palette__servers__section">
-      <h1 class="text-secondary">Servers</h1>
+      <div class="palette__servers__header">
+        <h1 class="text-secondary mr-4">Servers</h1>
+        <button @click="createServer()">Add server</button>
+      </div>
       <div class="palette__servers__editor-cards">
         <ServerEditorCard
           v-for="(server, index) in servers"
@@ -10,7 +13,6 @@
           :index="index"
         />
       </div>
-      <button @click="createServer()">Add server</button>
     </div>
     <div class="palette__paths__section">
       <h1 class="text-secondary">Paths</h1>
