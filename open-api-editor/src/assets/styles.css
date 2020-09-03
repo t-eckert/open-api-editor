@@ -1,6 +1,5 @@
 :root {
-  --background-page: #f3f3f3;
-  --background-card: #ffffff;
+  --background-page: #ffffff;
   --shadow-low: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048);
   --shadow-high: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -36,6 +35,9 @@
   --color-background-delete: #fff5f5;
   --color-background-delete__hover: #fed7d7;
 
+  --color-background-card-primary: #ffffff;
+  --color-background-card-secondary: #edf2f7;
+
   /* Layout */
   --sidebar-width: 24rem;
 
@@ -63,19 +65,18 @@ h1 {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
-  margin-bottom: 0.25rem;
 }
 
 h2 {
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
-  margin-bottom: 0.25rem;
 }
 
-.display-1 {
-  font-weight: 400;
-  font-size: 2.5rem;
+h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
 }
 
 .text-secondary {
@@ -92,16 +93,23 @@ label {
   margin-bottom: 0.25rem;
 }
 
-/* Inputs */
+/* === Inputs === */
 
-select {
+/* Text Input */
+
+input {
   font-size: 1rem;
   padding: 0.2rem 0.4rem;
   margin-bottom: 0.5rem;
   border: solid 1px #e2e8f0;
 }
 
-input {
+.text-input {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
   font-size: 1rem;
   padding: 0.2rem 0.4rem;
   margin-bottom: 0.5rem;
@@ -120,11 +128,10 @@ textarea {
 button,
 .button {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
   border-radius: 0.25rem;
-  padding: 0.3rem 0.5rem;
-  background-color: var(--color-background-button);
+  padding: 0.3rem 0.8rem;
   margin-right: 0.5rem;
   letter-spacing: 0.125px;
 }
@@ -192,7 +199,7 @@ button:hover,
 /* Elements */
 
 .sidebar {
-  background-color: var(--background-card);
+  background-color: var(--color-background-card-primary);
   box-shadow: var(--shadow-low);
 }
 
@@ -200,6 +207,31 @@ button:hover,
 .app__layout {
   display: grid;
   height: 100vh;
+}
+
+.header {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.header__top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.header__intro > p {
+  font-size: 1.5rem;
+  text-align: center;
+  max-width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.header__intro > div {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .app__layout__sidebar-visible {
@@ -225,6 +257,12 @@ button:hover,
   padding: 1rem;
 }
 
+.palette__header {
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 .server-editor-card {
   max-width: 30rem;
 }
@@ -239,7 +277,7 @@ button:hover,
 }
 
 .card {
-  background-color: var(--background-card);
+  background-color: var(--color-background-card-primary);
   border-radius: 0.25rem;
   padding: 0.5rem;
   box-shadow: var(--shadow-low);
@@ -258,6 +296,12 @@ button:hover,
   margin-bottom: 1rem;
 }
 
+.palette__servers__header {
+  display: flex;
+  justify-items: center;
+  margin-bottom: 0.5rem;
+}
+
 .palette__servers__editor-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
@@ -268,6 +312,9 @@ button:hover,
 .server-editor-card__header {
   display: flex;
   justify-content: space-between;
+  margin: -0.5rem -0.5rem 0 -0.5rem;
+  padding: 0.5rem;
+  background-color: var(--color-background-card-secondary);
 }
 
 .server-editor-card__variables {
