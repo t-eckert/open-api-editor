@@ -3,7 +3,7 @@
     <div class="card__header">
       <h2 class="text-secondary">Information</h2>
     </div>
-    <div class="card__body grid col-2 gap">
+    <div class="card__body grid col-auto gap">
       <div>
         <TextInput
           label="Title"
@@ -15,6 +15,7 @@
       <div>
         <TextInput label="API Version" placeholder="1.0.0" value="" />
         <TextArea label="Description" />
+        <TextInput label="Terms of Service" />
         <TheLicenseSection />
       </div>
     </div>
