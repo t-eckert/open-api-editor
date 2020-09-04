@@ -250,17 +250,21 @@ button:hover,
 
 nav {
   position: fixed;
+  display: flex;
+  flex-direction: column;
   left: 1rem;
+  justify-items: center;
+  height: 100vh;
 }
 
-nav > div {
+.nav-sections {
   background-color: var(--color-background-secondary);
   padding: 0.25rem;
   margin-bottom: 0.5rem;
   box-shadow: var(--shadow-low);
 }
 
-nav > div > div > .nav-link {
+.nav-link {
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
@@ -273,12 +277,16 @@ nav > div > div > .nav-link {
   display: grid;
 }
 
-.col-2 {
-  grid-template-columns: 1fr 1fr;
+.col-auto {
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 .gap {
   gap: 1rem;
+}
+
+.mb {
+  margin-bottom: 1rem;
 }
 
 /* === Elements === */
