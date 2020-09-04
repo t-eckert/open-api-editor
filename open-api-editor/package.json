@@ -15,7 +15,6 @@
     "js-yaml": "^3.14.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.12",
-    "vue-unicons": "^2.3.0",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
