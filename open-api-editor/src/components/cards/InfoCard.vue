@@ -1,22 +1,22 @@
 <template>
   <div class="card">
-    <div class="card__header">
+    <div class="card-header">
       <h2 class="text-secondary">Information</h2>
     </div>
-    <div class="card__body grid col-auto gap">
+    <div class="card-body grid col-auto gap">
       <div>
         <TextInput
           label="Title"
           placeholder="The title of the API"
           :value="info.title"
         />
-        <TheContactSection />
+        <ContactSection />
       </div>
       <div>
         <TextInput label="API Version" placeholder="1.0.0" value="" />
         <TextArea label="Description" />
         <TextInput label="Terms of Service" />
-        <TheLicenseSection />
+        <LicenseSection />
       </div>
     </div>
   </div>
@@ -25,17 +25,17 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState } from "vuex";
-import TheContactSection from "@/components/sections/TheContactSection.vue";
-import TheLicenseSection from "@/components/sections/TheLicenseSection.vue";
+import ContactSection from "@/components/sections/ContactSection.vue";
+import LicenseSection from "@/components/sections/LicenseSection.vue";
 import TextArea from "@/components/inputs/TextArea.vue";
 import TextInput from "@/components/inputs/TextInput.vue";
 
 export default Vue.extend({
-  name: "TheInfoCard",
+  name: "InfoCard",
 
   components: {
-    TheContactSection,
-    TheLicenseSection,
+    ContactSection,
+    LicenseSection,
     TextArea,
     TextInput
   },

@@ -1,9 +1,9 @@
 <template>
   <div class="card">
-    <div class="card__header">
+    <div class="card-header">
       <h2 class="text-secondary">Server</h2>
     </div>
-    <div class="card__body">
+    <div class="card-body">
       <TextInput
         label="URL"
         placeholder="https://development.gigantic-server.com/v1"

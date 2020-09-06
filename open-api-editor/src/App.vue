@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <TheNavBar />
+    <NavBar />
     <div class="container mx-auto">
-      <TheHeader />
-      <TheInfoCard class="mb" />
+      <Header />
+      <InfoCard class="mb" />
       <div class="flex">
         <h2>Servers</h2>
         <button>Add server</button>
@@ -17,18 +17,18 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TheHeader from "./components/TheHeader.vue";
-import TheInfoCard from "./components/cards/TheInfoCard.vue";
-import TheNavBar from "./components/TheNavBar.vue";
+import Header from "./components/Header.vue";
+import InfoCard from "./components/cards/InfoCard.vue";
+import NavBar from "./components/NavBar.vue";
 import ServerCard from "./components/cards/ServerCard.vue";
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    TheHeader,
-    TheInfoCard,
-    TheNavBar,
+    Header,
+    InfoCard,
+    NavBar,
     ServerCard
   },
 

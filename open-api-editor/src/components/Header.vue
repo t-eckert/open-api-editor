@@ -1,10 +1,10 @@
 <template>
   <div class="header">
-    <div class="header__top-bar">
+    <div class="header-top-bar">
       <h1>Open API Editor</h1>
       <button @click="openFeedbackModal">Feedback</button>
     </div>
-    <div class="header__intro">
+    <div class="header-intro">
       <p>
         The Open API Editor helps you build and maintain your Open API documents
         without needing to know the specification.
@@ -21,7 +21,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "TheHeader",
+  name: "Header",
 
   methods: {
     openFeedbackModal() {
