@@ -13,12 +13,14 @@
         Optional
       </div>
     </div>
+    <div>{{ value }}</div>
     <div class="relative rounded-md shadow-sm">
       <input
+        type="text"
+        :value="value"
+        @input="updateValue($event.target.value)"
         :id="escapedLabel"
-        class="block appearance-none w-full bg-white border border-gray-400
-          hover:border-gray-500 px-3 py-2 rounded leading-tight
-          focus:outline-none focus:shadow-outline"
+        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded leading-tight focus:outline-none focus:shadow-outline"
         :placeholder="placeholder"
         :aria-describedby="escapedLabel + '-description'"
       />
@@ -40,6 +42,7 @@ export default defineComponent({
   name: "TextInput",
 
   props: {
+    value: { type: Object, required: true },
     label: { type: String, required: true },
     placeholder: String,
     description: String,
@@ -49,6 +52,12 @@ export default defineComponent({
   computed: {
     escapedLabel(): string {
       return this.label.toLowerCase();
+    }
+  },
+
+  methods: {
+    updateValue(value: string) {
+      this.$emit("update:value", value);
     }
   }
 });
