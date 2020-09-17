@@ -9,7 +9,7 @@
       <div>
         <div>{{ title }}</div>
         <text-input
-          v-model="title"
+          v-model:value="title"
           label="Title"
           placeholder="The title of the API"
           class="mb-2"
