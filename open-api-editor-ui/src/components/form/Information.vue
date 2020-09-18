@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white overflow-hidden shadow rounded-lg">
     <div
-      class="block px-4 py-2 text-sm font-medium leading-5 text-gray-700 bg-gray-100 border-b border-gray-200"
+      class="block px-4 pt-2 pb-1 text-sm font-medium leading-5 text-gray-700 bg-gray-100 border-b border-gray-200"
     >
       <h2>Information</h2>
     </div>
