@@ -13,7 +13,12 @@
           placeholder="The title of the API"
           class="mb-2"
         />
-        <text-input label="Version" placeholder="1.0.0" class="mb-4" />
+        <text-input
+          v-model:value="version"
+          label="Version"
+          placeholder="1.0.0"
+          class="mb-4"
+        />
         <div class="bg-gray-100 rounded-lg p-2">
           <div class="flex justify-between">
             <h3 class="mb-2 text-sm font-medium leading-5 text-gray-700">
@@ -90,6 +95,7 @@ import TextInput from "@/components/inputs/TextInput.vue";
 import TextArea from "@/components/inputs/TextArea.vue";
 import {
   title,
+  version,
   contactInformation,
   description,
   termsOfService,
@@ -107,6 +113,7 @@ export default defineComponent({
   data() {
     return {
       title,
+      version,
       contactInformation,
       description,
       termsOfService,

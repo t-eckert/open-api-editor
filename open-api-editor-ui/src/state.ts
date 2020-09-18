@@ -1,6 +1,7 @@
 import { reactive, ref } from "vue";
 
 export const title = ref("");
+export const version = ref("");
 export const contactInformation = reactive({
   name: "",
   email: "",
