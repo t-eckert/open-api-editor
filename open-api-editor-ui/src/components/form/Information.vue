@@ -7,7 +7,6 @@
     </div>
     <div class="p-4 sm:p-6 grid grid-cols-2 gap-4">
       <div>
-        <div>{{ title }}</div>
         <text-input
           v-model:value="title"
           label="Title"
@@ -24,13 +23,20 @@
               Optional
             </div>
           </div>
-          <text-input label="Name" placeholder="Bill Posters" class="mb-2" />
           <text-input
+            v-model:value="contactInformation.name"
+            label="Name"
+            placeholder="Bill Posters"
+            class="mb-2"
+          />
+          <text-input
+            v-model:value="contactInformation.email"
             label="Email"
             placeholder="bill.posters@gmail.com"
             class="mb-2"
           />
           <text-input
+            v-model:value="contactInformation.website"
             label="Website"
             placeholder="billposters.com"
             class="mb-2"
@@ -38,8 +44,14 @@
         </div>
       </div>
       <div>
-        <text-area label="Description" class="mb-2" />
+        <text-area
+          v-model:value="description"
+          placeholder="A short description of your Open API document."
+          label="Description"
+          class="mb-2"
+        />
         <text-input
+          v-model:value="termsOfService"
           label="Terms of service"
           placeholder="https://tos.com"
           isOptional
@@ -54,8 +66,18 @@
               Optional
             </div>
           </div>
-          <text-input label="Name" placeholder="MIT" />
-          <text-input label="URL" placeholder="https://mitlicense.com" />
+          <text-input
+            v-model="license.name"
+            label="Name"
+            placeholder="MIT"
+            class="mb-2"
+          />
+          <text-input
+            v-model="license.url"
+            label="URL"
+            placeholder="https://mitlicense.com"
+            class="mb-2"
+          />
         </div>
       </div>
     </div>
@@ -66,7 +88,13 @@
 import { defineComponent } from "vue";
 import TextInput from "@/components/inputs/TextInput.vue";
 import TextArea from "@/components/inputs/TextArea.vue";
-import { title } from "@/state";
+import {
+  title,
+  contactInformation,
+  description,
+  termsOfService,
+  license
+} from "@/state";
 
 export default defineComponent({
   name: "Information",
@@ -78,7 +106,11 @@ export default defineComponent({
 
   data() {
     return {
-      title
+      title,
+      contactInformation,
+      description,
+      termsOfService,
+      license
     };
   }
 });
