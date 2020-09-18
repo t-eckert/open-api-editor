@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.-z-10 {
+    z-index: -10;
+}
+
+.h-192 {
+    height: 48rem;
+}
+
+.w-128 {
+    width: 32rem;
+}
