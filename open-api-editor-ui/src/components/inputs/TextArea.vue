@@ -16,9 +16,10 @@
     <div class="relative rounded-md shadow-sm">
       <textarea
         :id="escapedLabel"
-        class="block appearance-none w-full bg-white border border-gray-400
-          hover:border-gray-500 px-3 py-2 rounded leading-tight
-          focus:outline-none focus:shadow-outline"
+        :value="value"
+        @input="updateValue($event.target.value)"
+        rows="3"
+        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded leading-tight focus:outline-none focus:shadow-outline"
         :placeholder="placeholder"
         :aria-describedby="escapedLabel + '-description'"
       />
@@ -40,6 +41,7 @@ export default defineComponent({
   name: "TextArea",
 
   props: {
+    value: { type: String, required: true },
     label: { type: String, required: true },
     placeholder: String,
     description: String,
@@ -49,6 +51,12 @@ export default defineComponent({
   computed: {
     escapedLabel(): string {
       return this.label.toLowerCase();
+    }
+  },
+
+  methods: {
+    updateValue(value: string) {
+      this.$emit("update:value", value);
     }
   }
 });

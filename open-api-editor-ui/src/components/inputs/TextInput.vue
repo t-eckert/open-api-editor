@@ -42,7 +42,7 @@ export default defineComponent({
   name: "TextInput",
 
   props: {
-    value: { type: Object, required: true },
+    value: { type: String, required: true },
     label: { type: String, required: true },
     placeholder: String,
     description: String,
