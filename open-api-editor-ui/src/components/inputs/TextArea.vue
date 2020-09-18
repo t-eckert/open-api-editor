@@ -2,6 +2,7 @@
   <div>
     <div class="mb-1 w-full flex justify-between">
       <label
+        v-if="label"
         :for="escapedLabel"
         class="block text-sm font-medium leading-5 text-gray-700"
         >{{ label }}</label
@@ -42,7 +43,7 @@ export default defineComponent({
 
   props: {
     value: { type: String, required: true },
-    label: { type: String, required: true },
+    label: String,
     placeholder: String,
     description: String,
     isOptional: Boolean
@@ -50,7 +51,7 @@ export default defineComponent({
 
   computed: {
     escapedLabel(): string {
-      return this.label.toLowerCase();
+      return this.label?.toLowerCase() || "asdf";
     }
   },
 
