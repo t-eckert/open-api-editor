@@ -4,7 +4,7 @@
       <p>
         Thanks for checking out the site. It's still a work in progress.<br />-Thomas
         Eckert
-        <a href="mailto:thomas.james.eckert@gmail.com" class="underline"
+        <a href="mailto:openapieditor@gmail.com" class="underline"
           >email</a
         >
       </p>
