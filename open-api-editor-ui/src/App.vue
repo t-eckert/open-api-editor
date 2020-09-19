@@ -5,8 +5,12 @@
     <div class="container mx-auto">
       <splash class="mb-4" />
       <information class="mx-16 mb-8" />
-      <servers>
-        <server />
+      <servers class="mb-8">
+        <server
+          v-for="(server, index) in servers"
+          :key="index"
+          :index="index"
+        />
       </servers>
     </div>
   </div>
@@ -19,7 +23,7 @@ import Splash from "@/components/Splash.vue";
 import Information from "@/components/form/Information.vue";
 import Servers from "@/components/slots/Servers.vue";
 import Server from "@/components/form/Server.vue";
-import { ui } from "@/state";
+import { ui, servers } from "@/state";
 
 export default defineComponent({
   name: "App",
@@ -33,7 +37,7 @@ export default defineComponent({
   },
 
   data() {
-    return { ui };
+    return { ui, servers };
   }
 });
 </script>
