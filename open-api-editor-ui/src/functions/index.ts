@@ -1,3 +1,3 @@
-import addServer from "@/functions/AddServer"
+import { addServer, removeServer } from "@/functions/server"
 
-export { addServer };
+export { addServer, removeServer };
