@@ -25,3 +25,17 @@ export const servers = reactive([
     variables: []
   }
 ]);
+
+export const paths = reactive([
+  {
+    path: "",
+    summary: "",
+    description: ""
+  }
+])
+
+export const security = reactive([{
+  type: "",
+  description: "",
+  scheme: ""
+}])
