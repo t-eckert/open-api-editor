@@ -14,7 +14,6 @@
         Optional
       </div>
     </div>
-    <div>{{ value }}</div>
     <div class="relative rounded-md shadow-sm">
       <input
         type="text"
