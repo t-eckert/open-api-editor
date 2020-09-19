@@ -1,9 +1,25 @@
 <template>
   <div class="bg-white overflow-hidden shadow rounded-lg">
     <div
-      class="block px-4 pt-2 pb-1 text-sm font-medium leading-5 text-gray-700 bg-gray-100 border-b border-gray-200"
+      class="flex justify-between items-center block px-4 pt-2 pb-1 text-sm font-medium leading-5 text-gray-700 bg-gray-100 border-b border-gray-200"
     >
       <h2>{{ server.url || "Server" }}</h2>
+      <div @click="removeServer" class="pointer hover:bg-indigo-100">
+        <svg
+          class="h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </div>
     </div>
     <div class="p-4 sm:p-6">
       <text-input
@@ -26,6 +42,7 @@ import { defineComponent } from "vue";
 import TextInput from "@/components/inputs/TextInput.vue";
 import TextArea from "@/components/inputs/TextArea.vue";
 import { servers } from "@/state";
+import { removeServer } from "@/functions";
 
 export default defineComponent({
   name: "Information",
@@ -46,6 +63,12 @@ export default defineComponent({
     return {
       server: servers[this.index]
     };
+  },
+
+  methods: {
+    removeServer() {
+      removeServer(this.index);
+    }
   }
 });
 </script>
