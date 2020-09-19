@@ -5,6 +5,8 @@
     <div class="container mx-auto">
       <splash class="mb-4" />
       <information class="mx-16 mb-8" />
+    </div>
+    <div>
       <servers class="mb-8">
         <server
           v-for="(server, index) in servers"
@@ -12,7 +14,18 @@
           :index="index"
         />
       </servers>
+      <paths class="mb-8">
+        <Path v-for="(server, index) in paths" :key="index" :index="index" />
+      </paths>
+      <Securities class="mb-8">
+        <Security
+          v-for="(server, index) in security"
+          :key="index"
+          :index="index"
+        />
+      </Securities>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -23,7 +36,12 @@ import Splash from "@/components/Splash.vue";
 import Information from "@/components/form/Information.vue";
 import Servers from "@/components/slots/Servers.vue";
 import Server from "@/components/form/Server.vue";
-import { ui, servers } from "@/state";
+import Paths from "@/components/slots/Paths.vue";
+import Path from "@/components/form/Path.vue";
+import Securities from "@/components/slots/Securities.vue";
+import Security from "@/components/form/Security.vue";
+import Footer from "@/components/Footer.vue";
+import { title, ui, servers, paths, security } from "@/state";
 
 export default defineComponent({
   name: "App",
@@ -33,11 +51,22 @@ export default defineComponent({
     Splash,
     Information,
     Servers,
-    Server
+    Server,
+    Paths,
+    Path,
+    Securities,
+    Security,
+    Footer
   },
 
   data() {
-    return { ui, servers };
+    return { title, ui, servers, paths, security };
+  },
+
+  watch: {
+    title: function() {
+      document.title = title.value || "Open API Editor";
+    }
   }
 });
 </script>
