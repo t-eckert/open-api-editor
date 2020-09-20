@@ -8,16 +8,31 @@
       >
         <h2>Feedback</h2>
       </div>
-      <div class="p-4 sm:p-6">
-        <div class="mb-4">
-          <text-area
-            v-model:value="feedback"
-            placeholder="Tell me what you think."
+      <form
+        name="feedback"
+        method="POST"
+        data-netlify="true"
+        class="p-4 sm:p-6"
+      >
+        <div class="mb-1 w-full flex justify-between">
+          <label
+            for="feedback"
+            class="block text-sm font-medium leading-5 text-gray-700"
+            >Feedback</label
+          >
+        </div>
+        <div class="relative rounded-md shadow-sm">
+          <textarea
+            id="escapedLabel"
+            rows="3"
+            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Let me know what you think"
+            aria-describedby=""
           />
         </div>
         <div class="flex justify-end">
           <button
-            @click="submit"
+            type="submit"
             class="mr-4 px-3 py-2 rounded-lg block font-medium leading-5 text-gray-900 bg-indigo-200 hover:bg-indigo-300"
           >
             Submit
@@ -29,28 +44,17 @@
             Cancel
           </button>
         </div>
-      </div>
+      </form>
     </div>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TextArea from "@/components/inputs/TextArea.vue";
 import { ui } from "@/state";
 
 export default defineComponent({
-  name: "Information",
-
-  components: {
-    TextArea
-  },
-
-  data() {
-    return {
-      feeback: ""
-    };
-  },
+  name: "Feedback",
 
   methods: {
     submit(): void {
