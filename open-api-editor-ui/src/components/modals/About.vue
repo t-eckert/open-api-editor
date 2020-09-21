@@ -81,7 +81,7 @@
             </div>
             <div class="mb-2 w-full flex justify-between items-center">
               <label
-                for="email"
+                for="feedback-email"
                 class="block text-md font-medium leading-5 text-gray-700"
                 >Email</label
               >
@@ -92,10 +92,12 @@
             <div class="mb-4 relative rounded-md shadow-sm">
               <input
                 type="text"
-                id="email"
+                id="feedback-email"
+                name="feedback-email"
                 class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded leading-tight focus:outline-none focus:shadow-outline"
                 placeholder="bill.posters@gmail.com"
                 aria-describedby=""
+                optional
               />
             </div>
             <button
