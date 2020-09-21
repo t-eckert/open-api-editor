@@ -8,18 +8,6 @@
     <title>Open API Editor</title>
   </head>
   <body>
-    <!-- This form does not render in the UI. It is used to set up Netlify forms at build time. -->
-    <form
-      name="feedback"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      hidden
-    >
-      <input type="hidden" name="form-name" value="feedback" />
-      <textarea id="feedback-text" name="feedback-text"></textarea>
-      <input type="text" id="feedback-email" name="feedback-email" />
-    </form>
     <noscript>
       <strong
         >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
