@@ -3,20 +3,20 @@
     <div class="-z-10 absolute w-full h-192 bg-red-100"></div>
     <About v-if="ui.feedbackModal === 'visible'" />
     <div class="container mx-auto">
-      <splash class="mb-4" />
-      <information class="mx-16 mb-8" />
+      <Splash class="mb-2 sm:mb-4" />
+      <Information class="mx-2 md:mx-16 mb-8" />
     </div>
     <div>
-      <servers class="mb-8">
-        <server
+      <Servers class="mb-8">
+        <Server
           v-for="(server, index) in servers"
           :key="index"
           :index="index"
         />
-      </servers>
-      <paths class="mb-8">
+      </Servers>
+      <Paths class="mb-8">
         <Path v-for="(server, index) in paths" :key="index" :index="index" />
-      </paths>
+      </Paths>
       <Securities class="mb-8">
         <Security
           v-for="(server, index) in security"

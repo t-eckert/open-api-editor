@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="m-1 sm:m-0">
     <div class="z-10 mb-4 pt-4 sticky top-0 bg-white bg-opacity-75">
       <div class="container mx-auto flex justify-between">
         <h2 class="text-xl">Servers</h2>
@@ -11,7 +11,9 @@
         </button>
       </div>
     </div>
-    <div class="container mx-auto grid gap-4 grid-cols-3">
+    <div
+      class="container mx-auto grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+    >
       <slot />
     </div>
   </section>

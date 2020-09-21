@@ -5,7 +5,7 @@
     >
       <h2>Information</h2>
     </div>
-    <div class="p-4 sm:p-6 grid grid-cols-2 gap-4">
+    <div class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <text-input
           v-model:value="title"
