@@ -6,7 +6,7 @@
         @click="ui.feedbackModal = 'visible'"
         class="px-2 py-1 rounded-lg block font-medium leading-5 text-gray-800 hover:bg-indigo-200 hover:text-gray-900"
       >
-        Feedback
+        About
       </button>
     </div>
     <div class="ml-16 mb-16">

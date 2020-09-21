@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="-z-10 absolute w-full h-192 bg-red-100"></div>
-    <feedback v-if="ui.feedbackModal === 'visible'" />
+    <About v-if="ui.feedbackModal === 'visible'" />
     <div class="container mx-auto">
       <splash class="mb-4" />
       <information class="mx-16 mb-8" />
@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Feedback from "@/components/modals/Feedback.vue";
+import About from "@/components/modals/About.vue";
 import Splash from "@/components/Splash.vue";
 import Information from "@/components/form/Information.vue";
 import Servers from "@/components/slots/Servers.vue";
@@ -47,7 +47,7 @@ export default defineComponent({
   name: "App",
 
   components: {
-    Feedback,
+    About,
     Splash,
     Information,
     Servers,

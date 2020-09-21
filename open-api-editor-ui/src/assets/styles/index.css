@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 .-z-10 {
-    z-index: -10;
+  z-index: -10;
 }
 
 .h-192 {
-    height: 48rem;
+  height: 48rem;
+}
+
+.h-144 {
+  height: 36rem;
 }
 
 .w-128 {
-    width: 32rem;
+  width: 32rem;
 }
