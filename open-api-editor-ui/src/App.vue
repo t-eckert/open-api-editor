@@ -1,10 +1,12 @@
 <template>
+  <About v-if="ui.feedbackModal === 'visible'" />
+  <NavBar />
+  <Action class="z-20 fixed bottom-16 right-16" />
   <div>
     <div class="-z-10 absolute w-full h-192 bg-red-100"></div>
-    <About v-if="ui.feedbackModal === 'visible'" />
     <div class="container mx-auto">
       <Splash class="mb-2 sm:mb-4" />
-      <Information class="mx-2 md:mx-16 mb-8" />
+      <Information class="mx-2 md:mx-16 mb-4" />
     </div>
     <div>
       <Servers class="mb-8">
@@ -32,6 +34,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import About from "@/components/modals/About.vue";
+import NavBar from "@/components/NavBar.vue";
+import Action from "@/components/Action.vue";
 import Splash from "@/components/Splash.vue";
 import Information from "@/components/form/Information.vue";
 import Servers from "@/components/slots/Servers.vue";
@@ -48,6 +52,8 @@ export default defineComponent({
 
   components: {
     About,
+    NavBar,
+    Action,
     Splash,
     Information,
     Servers,
