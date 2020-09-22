@@ -12,7 +12,7 @@
       </button>
     </div>
     <div class="pl-2 md:pl-16 mb-16">
-      <p class="mb-8 text-xl md:text-3xl text-gray-900">
+      <p class="mb-12 text-xl md:text-3xl text-gray-900">
         The <em>Open API Editor</em> helps you<br />build and maintain<br />your
         Open API documents<br />without needing to know the specification.
       </p>
