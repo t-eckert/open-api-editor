@@ -21,7 +21,7 @@
         </svg>
       </div>
     </div>
-    <div class="p-4 sm:p-6 grid grid-cols-2 gap-4">
+    <div class="p-2 sm:p-4 grid grid-cols-2 gap-4">
       <div>
         <text-input
           v-model:value="path.path"
