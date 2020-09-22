@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <div class="z-10 mb-4 pt-4 sticky top-0 bg-white bg-opacity-75">
+  <section class="m-1 sm:m-0">
+    <div class="z-10 mb-2 pt-4 sticky top-0 bg-white bg-opacity-75">
       <div class="container mx-auto flex justify-between">
         <h2 class="text-xl">Security</h2>
         <button
@@ -11,7 +11,7 @@
         </button>
       </div>
     </div>
-    <div class="container mx-auto grid gap-4 grid-cols-2">
+    <div class="mb-4 container mx-auto grid gap-4 grid-cols-2">
       <slot />
     </div>
   </section>
