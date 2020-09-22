@@ -1,6 +1,6 @@
 <template>
   <section
-    class="absolute z-20 w-full h-full flex justify-center items-center bg-indigo-100 bg-opacity-50"
+    class="absolute z-40 w-full h-full flex justify-center items-center bg-indigo-100 bg-opacity-50"
   >
     <div
       class="h-screen md:h-auto w-full max-w-screen-md bg-white overflow-hidden shadow-md rounded-lg"
