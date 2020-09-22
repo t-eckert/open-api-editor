@@ -3,7 +3,7 @@
     <div class="mb-1 w-full flex justify-between">
       <label
         v-if="label"
-        :for="escapedLabel"
+        :for="idValue"
         class="block text-sm font-medium leading-5 text-gray-700"
         >{{ label }}</label
       >
@@ -19,16 +19,16 @@
         type="text"
         :value="value"
         @input="updateValue($event.target.value)"
-        :id="escapedLabel"
+        :id="idValue"
         class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded leading-tight focus:outline-none focus:shadow-outline"
         :placeholder="placeholder"
-        :aria-describedby="escapedLabel + '-description'"
+        :aria-describedby="idValue + '-description'"
       />
     </div>
     <p
       v-if="description"
       class="mt-2 text-sm text-gray-500"
-      :id="escapedLabel + '-description'"
+      :id="idValue + '-description'"
     >
       {{ description }}
     </p>
@@ -45,13 +45,15 @@ export default defineComponent({
     value: { type: String, required: true },
     label: String,
     placeholder: String,
+    id: String,
     description: String,
     isOptional: Boolean
   },
 
   computed: {
-    escapedLabel(): string {
-      return this.label?.toLowerCase() || "asdf";
+    idValue(): string {
+      const value = this.id ? this.id : this.label ? this.label : "";
+      return value.toLowerCase();
     }
   },
 
