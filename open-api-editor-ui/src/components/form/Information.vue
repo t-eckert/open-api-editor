@@ -5,7 +5,7 @@
     >
       <h2>Information</h2>
     </div>
-    <div class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="p-2 sm:p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <text-input
           v-model:value="title"
@@ -20,8 +20,8 @@
           class="mb-4"
         />
         <div class="bg-gray-100 rounded-lg p-2">
-          <div class="flex justify-between">
-            <h3 class="mb-2 text-sm font-medium leading-5 text-gray-700">
+          <div class="mb-4 flex justify-between items-center">
+            <h3 class="block font-medium leading-5 text-gray-700">
               Contact information
             </h3>
             <div class="block text-sm font-medium leading-5 text-gray-600">
@@ -31,18 +31,21 @@
           <text-input
             v-model:value="contactInformation.name"
             label="Name"
+            id="contact-information-name"
             placeholder="Bill Posters"
             class="mb-2"
           />
           <text-input
             v-model:value="contactInformation.email"
             label="Email"
+            id="contact-information-email"
             placeholder="bill.posters@gmail.com"
             class="mb-2"
           />
           <text-input
             v-model:value="contactInformation.website"
             label="Website"
+            id="contact-information-website"
             placeholder="billposters.com"
             class="mb-2"
           />
@@ -63,8 +66,8 @@
           class="mb-4"
         />
         <div class="bg-gray-100 rounded-lg p-2">
-          <div class="flex justify-between">
-            <h3 class="mb-2 text-sm font-medium leading-5 text-gray-700">
+          <div class="mb-4 flex justify-between items-center">
+            <h3 class="block font-medium leading-5 text-gray-700">
               License
             </h3>
             <div class="block text-sm font-medium leading-5 text-gray-600">
@@ -72,14 +75,16 @@
             </div>
           </div>
           <text-input
-            v-model="license.name"
+            v-model:value="license.name"
             label="Name"
+            id="license-name"
             placeholder="MIT"
             class="mb-2"
           />
           <text-input
-            v-model="license.url"
+            v-model:value="license.url"
             label="URL"
+            id="license-url"
             placeholder="https://mitlicense.com"
             class="mb-2"
           />
