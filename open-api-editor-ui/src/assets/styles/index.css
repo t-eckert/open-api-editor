@@ -17,3 +17,11 @@
 .w-128 {
   width: 32rem;
 }
+
+.bottom-16 {
+  bottom: 4rem;
+}
+
+.right-16 {
+  right: 4rem;
+}
