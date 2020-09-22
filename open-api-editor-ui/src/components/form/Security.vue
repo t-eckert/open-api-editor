@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white overflow-hidden shadow rounded-lg">
     <div
-      class="flex justify-between items-center block px-4 pt-2 pb-1 text-sm font-medium leading-5 text-gray-700 bg-gray-100 border-b border-gray-200"
+      class="flex justify-between items-center block px-2 sm:px-4 pt-2 pb-1 text-sm font-medium leading-5 text-gray-700 bg-gray-100 border-b border-gray-200"
     >
       <h2>Security</h2>
       <div @click="removeSecurity" class="pointer hover:bg-indigo-100">
@@ -21,12 +21,13 @@
         </svg>
       </div>
     </div>
-    <div class="p-4 sm:p-6">
+    <div class="p-2 sm:p-4">
       <text-area
         v-model:value="security.description"
         label="Description"
         placeholder="A description of your security"
         class="mb-2"
+        isOptional
       />
       <text-input
         v-model:value="security.scheme"
