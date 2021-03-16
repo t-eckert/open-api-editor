@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-      <div className="bg-yellow-50 min-h-screen">
+      <div className="bg-yellow-50 min-h-screen overflow-x-hidden">
         <Header documentName="" showCommandPalette={false} user="" />
         <Main documents={documents} />
         {showBlobs ? <Blobs /> : ""}
