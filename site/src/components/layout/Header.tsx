@@ -1,6 +1,6 @@
-import UserToken from "../Tokens/UserToken";
-import CommandPalette from "../CommandPalette";
-import TitleToken from "../Tokens/TitleToken";
+import UserToken from "../tokens/UserToken";
+import CommandPalette from "../commandPalette/CommandPalette";
+import TitleToken from "../tokens/TitleToken";
 
 type Props = {
   documentName: string;
