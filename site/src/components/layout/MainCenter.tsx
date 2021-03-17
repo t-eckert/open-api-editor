@@ -1,5 +1,5 @@
 const MainCenter = (props: any) => {
-  return <main className="flex-grow">{props.children}</main>;
+  return <div className="flex-grow">{props.children || ""}</div>;
 };
 
 export default MainCenter;
