@@ -1,33 +1,36 @@
-import Button from "../inputs/Button";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Navigation = () => {
   const navItems = [
     {
       title: "Info",
-      action: () => {},
+      anchor: "#info",
     },
     {
       title: "Servers",
-      action: () => {},
+      anchor: "#servers",
     },
     {
       title: "Paths",
-      action: () => {},
+      anchor: "#paths",
     },
     {
       title: "Security",
-      actions: () => {},
+      anchor: "#security",
     },
   ].map((navItem) => (
     <li key={navItem.title}>
-      <Button role="link" action={navItem.action}>
+      <AnchorLink
+        className="cursor-pointer font-medium text-gray-600 hover:text-gray-900 transition"
+        href={navItem.anchor}
+      >
         {navItem.title}
-      </Button>
+      </AnchorLink>
     </li>
   ));
 
   return (
-    <nav>
+    <nav className="sticky">
       <ul>{navItems}</ul>
     </nav>
   );
