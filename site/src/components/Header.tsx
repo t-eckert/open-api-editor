@@ -11,7 +11,7 @@ type Props = {
 
 const Header = (props: Props) => {
   return (
-    <header className="w-full px-2 py-2 grid grid-cols-4 grid-rows-2 gap-2 md:grid-rows-1">
+    <header className="sticky top-0 w-full px-2 py-2 grid grid-cols-4 grid-rows-2 gap-2 md:grid-rows-1">
       <div className="col-start-1 col-span-2 md:col-span-1">
         <TitleToken text={"Open API Editor"} />
       </div>
