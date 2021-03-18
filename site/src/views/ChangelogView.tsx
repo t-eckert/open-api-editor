@@ -14,8 +14,14 @@ const ChangelogView = (): JSX.Element => {
   }, [setChangelog])
 
   return (
-    <article className="mx-auto mt-8 max-w-4xl">
-      <ReactMarkdown className="markdown">{changelog}</ReactMarkdown>
+    <article className="mx-auto mt-8 max-w-xl">
+      {changelog ? (
+        <ReactMarkdown className="markdown p-6 rounded-xl bg-white shadow">
+          {changelog}
+        </ReactMarkdown>
+      ) : (
+        <div></div>
+      )}
     </article>
   )
 }

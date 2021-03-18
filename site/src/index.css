@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.markdown h1 {
+  @apply font-medium text-2xl;
+}
+
+.markdown h2 {
+  @apply font-medium text-lg mt-4 mb-1;
+}
+
+.markdown code {
+  @apply font-mono text-yellow-600;
+}
+
+.markdown p {
+  @apply mb-1;
+}
+
+.markdown ul {
+  @apply ml-6 list-disc;
+}
