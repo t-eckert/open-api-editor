@@ -1,7 +1,7 @@
-import UserToken from "./tokens/UserToken";
-import CommandPalette from "./commandPalette/CommandPalette";
-import PathToken from "./tokens/PathToken";
-import MenuToken from "./tokens/MenuToken";
+import UserToken from "./tokens/UserToken"
+import CommandPalette from "./commandPalette/CommandPalette"
+import PathToken from "./tokens/PathToken"
+import MenuToken from "./tokens/MenuToken"
 
 const Header = () => {
   return (
@@ -19,7 +19,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
