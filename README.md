@@ -4,5 +4,5 @@
 
 My goal here is to empower users to create Open API documents without having to know the Open API specification.
 
-[Figma design document](https://www.figma.com/file/UHD2c1h5Duw0sBqdNO4NcE/Open-API-Editor?node-id=13%3A2)
+[Figma design document](https://www.figma.com/file/p2eYTPYIgx6TeOJPLt34ct/Open-API-Editor?node-id=990%3A26733)
 
