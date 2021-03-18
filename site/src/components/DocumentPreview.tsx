@@ -1,3 +1,5 @@
+import { observer } from "mobx-react-lite";
+
 import Button from "./inputs/Button";
 
 type Props = {
@@ -13,7 +15,7 @@ const classes = [
   "md:w-44 md:h-60 md:flex-col md:items-start md:border-none md:shadow md:rounded-md md:hover:shadow-xl", // Large width
 ].join(" ");
 
-const DocumentPreview = (props: Props) => {
+const DocumentPreview = observer((props: Props) => {
   return (
     <div className={classes}>
       <div>
@@ -25,6 +27,6 @@ const DocumentPreview = (props: Props) => {
       </Button>
     </div>
   );
-};
+});
 
 export default DocumentPreview;
