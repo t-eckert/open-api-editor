@@ -1,6 +1,7 @@
 import UserToken from "./tokens/UserToken";
 import CommandPalette from "./commandPalette/CommandPalette";
 import TitleToken from "./tokens/TitleToken";
+import MenuToken from "./tokens/MenuToken";
 
 type Props = {
   documentName: string;
@@ -18,7 +19,10 @@ const Header = (props: Props) => {
         {props.showCommandPalette ? <CommandPalette /> : <div></div>}
       </div>
       <div className="col-start-3 col-span-2 md:col-start-4 md:col-span-1 flex justify-end">
-        <UserToken />
+        <div className="z-10 shadow rounded-xl flex flex-row items-start justify-self-start">
+          <UserToken />
+          <MenuToken />
+        </div>
       </div>
     </header>
   );
