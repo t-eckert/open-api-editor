@@ -1,5 +1,5 @@
 import { API } from "../config"
-import { OpenApiDocument } from "../interfaces/openApiDocument"
+// import { OpenApiDocument } from "../interfaces/openApiDocument"
 
 const createDocument = async (): Promise<any> /* Promise<OpenApiDocument | null>*/ => {
   const response = await fetch(API + "/documents", { method: "post" })
