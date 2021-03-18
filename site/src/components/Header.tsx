@@ -1,6 +1,6 @@
 import UserToken from "./tokens/UserToken";
 import CommandPalette from "./commandPalette/CommandPalette";
-import TitleToken from "./tokens/TitleToken";
+import PathToken from "./tokens/PathToken";
 import MenuToken from "./tokens/MenuToken";
 
 type Props = {
@@ -13,7 +13,7 @@ const Header = (props: Props) => {
   return (
     <header className="sticky top-0 w-full px-2 py-2 grid grid-cols-4 grid-rows-2 gap-2 md:grid-rows-1">
       <div className="col-start-1 col-span-2 md:col-span-1">
-        <TitleToken text={"Open API Editor"} />
+        <PathToken />
       </div>
       <div className="row-start-2 col-span-4 sm:col-span-2 sm:col-start-2 md:row-start-1 md:col-span-2 md:col-start-2">
         {props.showCommandPalette ? <CommandPalette /> : <div></div>}
