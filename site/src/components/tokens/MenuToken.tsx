@@ -1,44 +1,52 @@
-import { observer } from "mobx-react-lite";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
-import Menu, { MenuItem } from "../Menu";
+import Menu from "../Menu";
 import MenuIcon from "../icons/MenuIcon";
 import FeedbackIcon from "../icons/FeedbackIcon";
 import SettingsIcon from "../icons/SettingsIcon";
 import LogoutIcon from "../icons/LogoutIcon";
-import { UiStoreContext } from "../../stores/ui";
 
-const MenuToken = observer(() => {
-  const uiStore = useContext(UiStoreContext);
+const menuToggleClasses = (showMenu: boolean) =>
+  "border-l pl-1 pr-2 py-1.5 rounded-r-xl cursor-pointer hover:bg-gray-100 " +
+  (showMenu ? "bg-gray-100" : "bg-white");
 
+type MenuItem = {
+  text: string;
+  icon: any;
+  link: string;
+  classes?: string;
+};
+
+const itemClasses =
+  "flex flex-row items-center gap-3 w-full text-left px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 ";
+
+const menuItems = [
+  {
+    text: "Feedback",
+    icon: FeedbackIcon({ classes: "h-4 w-4 text-gray-700" }),
+    link: "/feedback",
+  },
+  {
+    text: "Settings",
+    icon: SettingsIcon({ classes: "h-4 w-4 text-gray-700" }),
+    link: "/settings",
+  },
+].map((menuItem: MenuItem) => (
+  <button className={itemClasses} role="menuitem">
+    {menuItem.icon}
+    {menuItem.text}
+  </button>
+));
+
+menuItems.push(
+  <button className={itemClasses}>
+    <LogoutIcon classes="h-4 w-4 text-gray-700" />
+    Logout
+  </button>
+);
+
+const MenuToken = () => {
   let [showMenu, setShowMenu] = useState(false);
-
-  const menuItems: MenuItem[] = [
-    {
-      text: "Feedback",
-      icon: FeedbackIcon({ classes: "h-4 w-4 text-gray-700" }),
-      onClick: () => {},
-    },
-    {
-      text: "Settings",
-      icon: SettingsIcon({ classes: "h-4 w-4 text-gray-700" }),
-      onClick: () => {
-        uiStore.updateView("settings");
-      },
-    },
-    {
-      text: "Logout",
-      classes: "border-t border-gray-200",
-      icon: LogoutIcon({
-        classes: "h-4 w-4 text-gray-700",
-      }),
-      onClick: () => {},
-    },
-  ];
-
-  const menuToggleClasses = (showMenu: boolean) =>
-    "border-l pl-1 pr-2 py-1.5 rounded-r-xl cursor-pointer hover:bg-gray-100 " +
-    (showMenu ? "bg-gray-100" : "bg-white");
 
   return (
     <div>
@@ -59,6 +67,6 @@ const MenuToken = observer(() => {
       )}
     </div>
   );
-});
+};
 
 export default MenuToken;
