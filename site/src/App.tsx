@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Router>
       <div className="bg-yellow-50 min-h-screen overflow-x-hidden">
-        <Header documentName="" showCommandPalette={true} user="" />
+        <Header />
         <View />
       </div>
       <Footer />
