@@ -1,6 +1,8 @@
 import { observer } from "mobx-react-lite";
+import { useContext } from "react";
 
-import Button from "./inputs/Button";
+import { UiStoreContext } from "../../stores/ui";
+import Button from "../inputs/Button";
 
 type Props = {
   document: {
@@ -16,13 +18,20 @@ const classes = [
 ].join(" ");
 
 const DocumentPreview = observer((props: Props) => {
+  const uiStore = useContext(UiStoreContext);
+
   return (
     <div className={classes}>
       <div>
         <h2 className="font-medium">{props.document.title}</h2>
         <h3 className="font-medium text-gray-600">{props.document.version}</h3>
       </div>
-      <Button role="tertiary">
+      <Button
+        role="tertiary"
+        action={() => {
+          uiStore.updateView("editor");
+        }}
+      >
         <span className="px-3 md:px-0">Edit</span>
       </Button>
     </div>
