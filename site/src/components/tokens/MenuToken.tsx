@@ -43,6 +43,7 @@ const MenuToken = observer(() => {
   return (
     <div>
       <div
+        tabIndex={1}
         onClick={() => setShowMenu(!showMenu)}
         className={menuToggleClasses(showMenu)}
       >
