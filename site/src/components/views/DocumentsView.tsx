@@ -2,7 +2,7 @@ import MainLeading from "../layout/MainLeading";
 import MainCenter from "../layout/MainCenter";
 import MainFollowing from "../layout/MainFollowing";
 
-import Documents from "../Documents";
+import Documents from "../documents/Documents";
 
 const documents = [
   { title: "One document", version: "1.0.2" },
@@ -20,4 +20,5 @@ const DocumentsView = () => {
     </main>
   );
 };
+
 export default DocumentsView;
