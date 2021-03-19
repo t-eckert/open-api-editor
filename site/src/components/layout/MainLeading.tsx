@@ -1,5 +1,5 @@
 const MainLeading = (props: any) => {
-  return <div className="w-20"></div>;
+  return <div className="w-20 md:w-40">{props.children || ""}</div>;
 };
 
 export default MainLeading;

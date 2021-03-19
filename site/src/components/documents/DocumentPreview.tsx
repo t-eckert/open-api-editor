@@ -1,0 +1,41 @@
+import { observer } from "mobx-react-lite";
+import { useContext } from "react";
+
+import { UiStoreContext } from "../../stores/ui";
+import Button from "../inputs/Button";
+
+type Props = {
+  document: {
+    title: string;
+    version: string;
+  };
+};
+
+const classes = [
+  "z-10 p-3 flex bg-white shadow justify-between transition", // Both widths
+  "w-full h-15 flex-row items-center border-b border-yellow first:rounded-t-md last:border-none", // Small width
+  "md:w-44 md:h-60 md:flex-col md:items-start md:border-none md:shadow md:rounded-md md:hover:shadow-xl", // Large width
+].join(" ");
+
+const DocumentPreview = observer((props: Props) => {
+  const uiStore = useContext(UiStoreContext);
+
+  return (
+    <div className={classes}>
+      <div>
+        <h2 className="font-medium">{props.document.title}</h2>
+        <h3 className="font-medium text-gray-600">{props.document.version}</h3>
+      </div>
+      <Button
+        role="tertiary"
+        action={() => {
+          uiStore.updateView("editor");
+        }}
+      >
+        <span className="px-3 md:px-0">Edit</span>
+      </Button>
+    </div>
+  );
+});
+
+export default DocumentPreview;

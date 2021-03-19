@@ -1,31 +1,27 @@
-const UserToken = (user: any /* User */) => {
+import { observer } from "mobx-react-lite";
+import { useContext } from "react";
+
+import { UserStoreContext } from "../../stores/user";
+
+import { User } from "../../interfaces";
+
+const UserToken = observer(() => {
+  const userStore = useContext(UserStoreContext);
+
+  const user: User = userStore.user;
+
   return (
-    <div className="bg-white shadow rounded-xl flex flex-row items-center">
-      <div className="px-4 py-2 flex flex-row gap-2 items-center">
+    <div className="flex flex-row items-center rounded-xl">
+      <div className="bg-white rounded-l-xl flex flex-row items-center">
         <img
-          className="w-8 h-8 bg-gray-300 rounded-full flex-shrink-0"
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
-          alt=""
+          className="w-8 h-8 bg-gray-300 rounded-l-xl flex-shrink-0 object-cover"
+          src={user.profileIcon}
+          alt={`The profile for ${user.name}`}
         />
-        <div className="font-medium text-sm">Jane Cooper</div>
-      </div>
-      <div className="border-l">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
+        <div className="font-medium text-sm px-2">{user.name}</div>
       </div>
     </div>
   );
-};
+});
 
 export default UserToken;
