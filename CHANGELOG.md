@@ -1,6 +1,6 @@
 # Open API Editor Changelog
 
-## Version 0.1.0
+## Version `0.1.0`
 
 This is the initial version of the app. You can now
 
