@@ -1,17 +1,21 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import View from "./components/View";
+import { BrowserRouter as Router } from "react-router-dom"
+
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import View from "./View"
 
 const App = () => {
   return (
-    <div>
+    <Router>
+      <div id="page-top" />
       <div className="bg-yellow-50 min-h-screen overflow-x-hidden">
-        <Header documentName="" showCommandPalette={true} user="" />
+        <Header />
         <View />
       </div>
       <Footer />
-    </div>
-  );
-};
+      <div id="page-bottom" />
+    </Router>
+  )
+}
 
-export default App;
+export default App

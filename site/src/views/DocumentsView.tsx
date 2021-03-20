@@ -1,13 +1,13 @@
-import MainLeading from "../layout/MainLeading";
-import MainCenter from "../layout/MainCenter";
-import MainFollowing from "../layout/MainFollowing";
+import MainLeading from "../components/layout/MainLeading"
+import MainCenter from "../components/layout/MainCenter"
+import MainFollowing from "../components/layout/MainFollowing"
 
-import Documents from "../documents/Documents";
+import Documents from "../components/documents/Documents"
 
 const documents = [
   { title: "One document", version: "1.0.2" },
   { title: "Two document", version: "3.0.2" },
-];
+]
 
 const DocumentsView = () => {
   return (
@@ -18,7 +18,7 @@ const DocumentsView = () => {
       </MainCenter>
       <MainFollowing />
     </main>
-  );
-};
+  )
+}
 
-export default DocumentsView;
+export default DocumentsView

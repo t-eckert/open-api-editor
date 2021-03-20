@@ -1,8 +1,4 @@
-import { observer } from "mobx-react-lite";
-import { useContext } from "react";
-
-import { UiStoreContext } from "../../stores/ui";
-import Button from "../inputs/Button";
+import { Link } from "react-router-dom";
 
 type Props = {
   document: {
@@ -17,25 +13,21 @@ const classes = [
   "md:w-44 md:h-60 md:flex-col md:items-start md:border-none md:shadow md:rounded-md md:hover:shadow-xl", // Large width
 ].join(" ");
 
-const DocumentPreview = observer((props: Props) => {
-  const uiStore = useContext(UiStoreContext);
-
+const DocumentPreview = (props: Props) => {
   return (
     <div className={classes}>
       <div>
         <h2 className="font-medium">{props.document.title}</h2>
         <h3 className="font-medium text-gray-600">{props.document.version}</h3>
       </div>
-      <Button
-        role="tertiary"
-        action={() => {
-          uiStore.updateView("editor");
-        }}
+      <Link
+        className="font-medium text-yellow-500 hover:text-yellow-600 transition"
+        to="/editor/2"
       >
-        <span className="px-3 md:px-0">Edit</span>
-      </Button>
+        Edit
+      </Link>
     </div>
   );
-});
+};
 
 export default DocumentPreview;
