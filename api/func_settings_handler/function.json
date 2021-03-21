@@ -1,0 +1,19 @@
+{
+  "scriptFile": "__init__.py",
+  "entryPoint": "handle_settings_request",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "request",
+      "methods": ["get", "post", "put", "delete"],
+      "route": "settings/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
