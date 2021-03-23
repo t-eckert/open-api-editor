@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useState } from "react"
 
 import Menu from "../Menu"
@@ -32,10 +33,10 @@ const menuItems = [
     link: "/settings",
   },
 ].map((menuItem: MenuItem) => (
-  <button className={itemClasses} role="menuitem">
+  <Link className={itemClasses} role="menuitem" to={menuItem.link}>
     {menuItem.icon}
     {menuItem.text}
-  </button>
+  </Link>
 ))
 
 menuItems.push(
