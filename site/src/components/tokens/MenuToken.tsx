@@ -33,14 +33,19 @@ const menuItems = [
     link: "/settings",
   },
 ].map((menuItem: MenuItem) => (
-  <Link className={itemClasses} role="menuitem" to={menuItem.link}>
+  <Link
+    className={itemClasses}
+    role="menuitem"
+    key={menuItem.link}
+    to={menuItem.link}
+  >
     {menuItem.icon}
     {menuItem.text}
   </Link>
 ))
 
 menuItems.push(
-  <button className={itemClasses}>
+  <button className={itemClasses} role="menuitem" key="logout">
     <LogoutIcon classes="h-4 w-4 text-gray-700" />
     Logout
   </button>
