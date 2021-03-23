@@ -26,6 +26,7 @@ class UserStore {
   setUserFromJwt(jwt: string) {
     this.user = jwt_decode<User>(jwt)
     this.jwt = jwt
+    localStorage.setItem("JWT", jwt)
   }
 }
 
