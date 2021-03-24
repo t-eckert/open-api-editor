@@ -2,10 +2,10 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 
 import Menu from "../Menu"
+import LogoutButton from "../buttons/LogoutButton"
 import MenuIcon from "../icons/MenuIcon"
 import FeedbackIcon from "../icons/FeedbackIcon"
 import SettingsIcon from "../icons/SettingsIcon"
-import LogoutIcon from "../icons/LogoutIcon"
 
 const menuToggleClasses = (showMenu: boolean) =>
   "border-l pl-1 pr-2 py-1.5 rounded-r-xl cursor-pointer hover:bg-gray-100 " +
@@ -44,12 +44,7 @@ const menuItems = [
   </Link>
 ))
 
-menuItems.push(
-  <button className={itemClasses} role="menuitem" key="logout">
-    <LogoutIcon classes="h-4 w-4 text-gray-700" />
-    Logout
-  </button>
-)
+menuItems.push(<LogoutButton className={itemClasses} />)
 
 const MenuToken = () => {
   let [showMenu, setShowMenu] = useState(false)

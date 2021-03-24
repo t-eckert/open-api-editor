@@ -1,11 +1,11 @@
 import { observer } from "mobx-react-lite"
 import { useContext } from "react"
 
-import { GITHUB_APP_CLIENT_ID } from "../config"
-import { generateRandomString } from "../functions"
-import { UserStoreContext } from "../stores/user"
+import { UserStoreContext } from "../../stores/user"
+import { GITHUB_APP_CLIENT_ID } from "../../config"
+import { generateRandomString } from "../../functions"
 
-const LoginWithGitHub = observer(() => {
+const LoginWithGitHubButton = observer(() => {
   const userStore = useContext(UserStoreContext)
 
   const state = generateRandomString()
@@ -26,4 +26,4 @@ const LoginWithGitHub = observer(() => {
   )
 })
 
-export default LoginWithGitHub
+export default LoginWithGitHubButton
