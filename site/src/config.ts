@@ -5,11 +5,11 @@ const environment = process.env.NODE_ENV
 
 let API: string
 if ("production" === environment) {
-  API = "https://api.openapieditor.com"
+  API = "https://api.openapieditor.com/api"
 } else if ("development" === environment) {
-  API = "http://localhost:7071"
+  API = "http://localhost:7071/api"
 } else {
-  API = "http://localhost:7071"
+  API = "http://localhost:7071/api"
 }
 
 export { API }
