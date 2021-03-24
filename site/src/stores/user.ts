@@ -1,4 +1,5 @@
 import jwt_decode from "jwt-decode"
+import { makeAutoObservable } from "mobx";
 import { createContext } from "react";
 import { User } from "../interfaces/user";
 // Some test user data
@@ -16,6 +17,8 @@ class UserStore {
   stateToken: string = ""
 
   constructor() {
+    makeAutoObservable(this)
+
     this.jwt = localStorage.getItem("JWT")
     if (this.jwt)
       this.user = jwt_decode<User>(this.jwt)
@@ -27,6 +30,12 @@ class UserStore {
     this.user = jwt_decode<User>(jwt)
     this.jwt = jwt
     localStorage.setItem("JWT", jwt)
+  }
+
+  logoutUser() {
+    this.user = null
+    this.jwt = null
+    localStorage.removeItem("JWT")
   }
 }
 
