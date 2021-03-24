@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite"
 import { useContext } from "react"
 
 import { UserStoreContext } from "../../stores/user"
-import LoginWithGitHub from "../LoginWithGitHub"
+import LoginWithGitHub from "../buttons/LoginWithGitHubButton"
 
 import { User } from "../../interfaces"
 
