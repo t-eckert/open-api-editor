@@ -31,11 +31,20 @@ elif environment == "development":
     GITHUB_USER_API: str = "https://api.github.com/user"
     GITHUB_CLIENT_SECRET: Optional[str] = os.getenv("GITHUB_CLIENT_SECRET")
 
-else:  # Test mode
+elif environment == "test":
     # Database
-    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv("DB_CONNECTION_LOCAL")
+    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv("DB_CONNECTION_TEST")
 
     # GitHub
     GITHUB_OAUTH_API: str = ""
     GITHUB_USER_API: str = ""
     GITHUB_CLIENT_SECRET: str = ""
+
+else:  # Local mode
+    # Database
+    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv("DB_CONNECTION_LOCAL")
+
+    # GitHub
+    GITHUB_OAUTH_API: str = "https://github.com/login/oauth/access_token"
+    GITHUB_USER_API: str = "https://api.github.com/user"
+    GITHUB_CLIENT_SECRET: Optional[str] = os.getenv("GITHUB_CLIENT_SECRET")
