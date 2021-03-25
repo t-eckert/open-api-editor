@@ -47,7 +47,7 @@ def handle_post(request: HttpRequest) -> HttpResponse:
     try:
         body: dict = request.get_json()
     except ValueError:
-        return HttpResponse("Pass JSON, please", status_code=400)
+        return HttpResponse("Format body as JSON", status_code=400)
 
     try:
         name: Union[str, None] = body["name"]
