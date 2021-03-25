@@ -45,15 +45,15 @@ def handle_post(request: HttpRequest) -> HttpResponse:
         HttpResponse:           reponse to send to the client
     """
 
-    user_id: str = request.params["user-id"]
+    user_id: str = request.params["user_id"]
 
     if not user_id:
-        return HttpResponse("`user-id` parameter required", status_code=400)
+        return HttpResponse("`user_id` parameter required", status_code=400)
 
     user: User = User.objects(id=user_id)
 
     if not user:
-        return HttpResponse("`user-id` not found", status_code=400)
+        return HttpResponse("`user_id` not found", status_code=400)
 
     if not user.can_create_document():
         return HttpResponse("User cannot create document", status_code=403)
