@@ -1,4 +1,9 @@
-from lib.config import GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
+from lib.config import (
+    GITHUB_CLIENT_ID,
+    GITHUB_CLIENT_SECRET,
+    GITHUB_OAUTH_API,
+    GITHUB_USER_API,
+)
 from requests import Response
 from typing import Optional
 
@@ -18,7 +23,7 @@ def fetch_access_token(code: str, state: str) -> Optional[str]:
     """
 
     response: Response = requests.post(
-        "https://github.com/login/oauth/access_token",
+        GITHUB_OAUTH_API,
         headers={"Accept": "application/json"},
         params={
             "client_id": GITHUB_CLIENT_ID,
@@ -46,8 +51,12 @@ def fetch_user_data(access_token: str) -> Optional[dict]:
     """
 
     response: Response = requests.get(
-        "https://api.github.com/user",
+        GITHUB_USER_API,
         headers={"Authorization": f"token {access_token}"},
     )
+
+    if response.status_code != 200:
+        logging.error("Request for user data from GitHub failed")
+        return None
 
     return response.json()

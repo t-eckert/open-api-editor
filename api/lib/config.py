@@ -8,22 +8,34 @@ import os
 env_path = Path(__file__).parent.parent / ".env"
 load_dotenv(env_path)
 
-environment = os.getenv("FLASK_ENV")
+environment: Optional[str] = os.getenv("FUNC_ENV")
 
 MAX_FREE_DOCUMENTS: int = 2
 GITHUB_CLIENT_ID: str = "d2e20ee498c0e3d317fe"
 
-GITHUB_CLIENT_SECRET: Optional[str] = os.getenv("GITHUB_CLIENT_SECRET")
-
 if environment == "production":
-    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv(
-        "DATABASE_CONNECTION_STRING_PRODUCTION"
-    )
+    # Database
+    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv("DB_CONNECTION_PRODUCTION")
+
+    # GitHub
+    GITHUB_OAUTH_API: str = "https://github.com/login/oauth/access_token"
+    GITHUB_USER_API: str = "https://api.github.com/user"
+    GITHUB_CLIENT_SECRET: Optional[str] = os.getenv("GITHUB_CLIENT_SECRET")
+
 elif environment == "development":
-    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv(
-        "DATABASE_CONNECTION_STRING_DEVELOPMENT"
-    )
+    # Database
+    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv("DB_CONNECTION_DEVELOPMENT")
+
+    # GitHub
+    GITHUB_OAUTH_API: str = "https://github.com/login/oauth/access_token"
+    GITHUB_USER_API: str = "https://api.github.com/user"
+    GITHUB_CLIENT_SECRET: Optional[str] = os.getenv("GITHUB_CLIENT_SECRET")
+
 else:  # Test mode
-    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv(
-        "DATABASE_CONNECTION_STRING_LOCAL"
-    )
+    # Database
+    DATABASE_CONNECTION_STRING: Optional[str] = os.getenv("DB_CONNECTION_LOCAL")
+
+    # GitHub
+    GITHUB_OAUTH_API: str = ""
+    GITHUB_USER_API: str = ""
+    GITHUB_CLIENT_SECRET: str = ""
