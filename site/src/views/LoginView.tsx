@@ -13,7 +13,7 @@ const LoginView = observer(() => {
   // @ts-ignore The return type of `Promise<void>` is not strictly allowed here
   useEffect(async () => {
     if (code) {
-      const jwt = await loginUser(code)
+      const jwt = await loginUser(code, userStore.stateToken)
       userStore.setUserFromJwt(jwt)
     }
   })
