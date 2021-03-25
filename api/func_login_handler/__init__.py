@@ -1,3 +1,4 @@
+import json
 from typing import Optional
 from azure.functions import HttpRequest, HttpResponse
 from lib.auth import github
@@ -30,11 +31,10 @@ def handle_login_request(request: HttpRequest) -> HttpResponse:
 
     user_data: dict = github.fetch_user_data(access_token)
 
-    user: Optional[User] = User.objects(github_id=user_data["id"])
+    # user: Optional[User] = User.objects(github_id=user_data["id"])
 
-    if not user:
-        user = User.from_github_data(user_data)
+    user = User.from_github_data(**user_data)
 
-    token = jwt.encode(user_data, "")
+    token = jwt.encode(json.loads(user.to_json()), "")
 
     return HttpResponse(token)
