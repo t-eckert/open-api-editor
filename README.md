@@ -1,4 +1,4 @@
-# [Open API Editor](https://openapieditor.com)
+# [Open API Editor](https://www.openapieditor.com)
 
 > A web-based editor for creating OpenAPI documents.
 
