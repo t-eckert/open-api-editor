@@ -1,0 +1,19 @@
+{
+  "scriptFile": "__init__.py",
+  "entryPoint": "handle_login_request",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "request",
+      "methods": ["post"],
+      "route": "login"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
