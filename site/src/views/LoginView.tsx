@@ -11,15 +11,15 @@ const LoginView = observer(() => {
   const code = new URLSearchParams(window.location.search).get("code")
   const state = userStore.stateToken
 
-  // @ts-ignore The return type of `Promise<void>` is not strictly allowed here
-  useEffect(async () => {
-    if (code) {
-      const jwt = await loginUser(code, state)
+  useEffect(() => {
+    const login = async () => {
+      if (code) {
+        const jwt = await loginUser(code, state)
 
-      if (jwt) userStore.setUserFromJwt(jwt)
-
-      // TODO when notifications are done, flag a notification that login failed
+        if (jwt) userStore.setUserFromJwt(jwt)
+      }
     }
+    login()
   })
 
   return <Redirect to="/" />

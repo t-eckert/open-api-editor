@@ -4,8 +4,6 @@ import { useContext } from "react"
 import { UserStoreContext } from "../../stores/user"
 import LoginWithGitHub from "../buttons/LoginWithGitHubButton"
 
-import { User } from "../../interfaces"
-
 const UserToken = observer(() => {
   const userStore = useContext(UserStoreContext)
   const user = userStore.user
