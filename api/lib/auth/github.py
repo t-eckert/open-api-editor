@@ -11,7 +11,7 @@ import logging
 import requests
 
 
-def fetch_access_token(code: str, state: str) -> Optional[str]:
+def fetch_access_token(code: str, state: str) -> Response:  # Optional[str]:
     """Queries the GitHub access token API with a code and state, returns an access token for the user if valid
 
     Args:

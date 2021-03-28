@@ -38,4 +38,4 @@ def handle_login_request(request: HttpRequest) -> HttpResponse:
 
     # token = jwt.encode(json.loads(user.to_json()), "")
 
-    return HttpResponse(response)
+    return HttpResponse(response.text)
