@@ -1,9 +1,9 @@
 import json
-from typing import Optional
 from azure.functions import HttpRequest, HttpResponse
 from lib.auth import github
 from lib.models import User
 
+import lib.config
 import jwt
 import logging
 
