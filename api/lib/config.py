@@ -13,7 +13,6 @@ load_dotenv(env_path)
 environment: str = os.getenv("FUNC_ENV", "local")
 
 MAX_FREE_DOCUMENTS: int = 2
-GITHUB_CLIENT_ID: str = "d2e20ee498c0e3d317fe"
 SENTRY_URL: Optional[str] = os.getenv("SENTRY_URL")
 
 sentry_sdk.init(SENTRY_URL, traces_sample_rate=1.0)
@@ -49,6 +48,7 @@ if environment == "production":
     # GitHub
     GITHUB_OAUTH_API: str = "https://github.com/login/oauth/access_token"
     GITHUB_USER_API: str = "https://api.github.com/user"
+    GITHUB_CLIENT_ID: str = get_required_env_var("GITHUB_CLIENT_ID")
     GITHUB_CLIENT_SECRET: str = get_required_env_var("GITHUB_CLIENT_SECRET")
 
 elif environment == "development":
@@ -58,6 +58,7 @@ elif environment == "development":
     # GitHub
     GITHUB_OAUTH_API: str = "https://github.com/login/oauth/access_token"
     GITHUB_USER_API: str = "https://api.github.com/user"
+    GITHUB_CLIENT_ID: str = get_required_env_var("GITHUB_CLIENT_ID")
     GITHUB_CLIENT_SECRET: str = get_required_env_var("GITHUB_CLIENT_SECRET")
 
 elif environment == "test":
@@ -67,6 +68,7 @@ elif environment == "test":
     # GitHub
     GITHUB_OAUTH_API: str = ""
     GITHUB_USER_API: str = ""
+    GITHUB_CLIENT_ID: str = ""
     GITHUB_CLIENT_SECRET: str = ""
 
 else:  # Local mode
@@ -76,4 +78,5 @@ else:  # Local mode
     # GitHub
     GITHUB_OAUTH_API: str = "https://github.com/login/oauth/access_token"
     GITHUB_USER_API: str = "https://api.github.com/user"
+    GITHUB_CLIENT_ID: str = get_required_env_var("GITHUB_CLIENT_ID")
     GITHUB_CLIENT_SECRET: str = get_required_env_var("GITHUB_CLIENT_SECRET")
