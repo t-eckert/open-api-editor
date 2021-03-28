@@ -2,14 +2,15 @@ from dotenv import load_dotenv
 from pathlib import Path
 from typing import Optional
 
-import sentry_sdk
+import logging
 import os
+import sentry_sdk
 
 # Load environment variables from a file at `../.env`
 env_path = Path(__file__).parent.parent / ".env"
 load_dotenv(env_path)
 
-environment: Optional[str] = os.getenv("FUNC_ENV")
+environment: str = os.getenv("FUNC_ENV", "local")
 
 MAX_FREE_DOCUMENTS: int = 2
 GITHUB_CLIENT_ID: str = "d2e20ee498c0e3d317fe"
@@ -38,6 +39,8 @@ def get_required_env_var(env_var: str) -> str:
 
     return value
 
+
+logging.info(f"Loading environment variables for {environment}")
 
 if environment == "production":
     # Database
