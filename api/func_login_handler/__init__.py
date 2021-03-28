@@ -1,13 +1,17 @@
-import json
 from azure.functions import HttpRequest, HttpResponse
 from lib.auth import github
 from lib.models import User
+from lib.sentry import connect_to_sentry, serverless_function
 
-import lib.config
+
+import json
 import jwt
 import logging
 
+connect_to_sentry()
 
+
+@serverless_function
 def handle_login_request(request: HttpRequest) -> HttpResponse:
     """Parses a POST request and uses the code and state values in the JSON body to authenticate the user with GitHub
 
@@ -17,6 +21,8 @@ def handle_login_request(request: HttpRequest) -> HttpResponse:
     Returns:
         HttpResponse:           response containing the user data encoded as a JWT
     """
+
+    logging.info("api/login called")
 
     try:
         body: dict = request.get_json()
