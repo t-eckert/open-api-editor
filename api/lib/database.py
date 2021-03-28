@@ -1,16 +1,14 @@
-from typing import Any, Callable
-
-
 from lib.config import DATABASE_CONNECTION_STRING
 from mongoengine import connect, disconnect
 
 
-def db(function: Callable) -> Callable:
-    def connect_to_database(*args, **kwargs) -> Any:
-        connect(DATABASE_CONNECTION_STRING)
-        return_value = function(*args, **kwargs)
-        disconnect()
+def connect_to_database():
+    """Initiates a connection to the database using the connection string"""
 
-        return return_value
+    connect(DATABASE_CONNECTION_STRING)
 
-    return connect_to_database
+
+def disconnect_from_database():
+    """Disconnects the application from the database"""
+
+    disconnect()
