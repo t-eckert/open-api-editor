@@ -36,8 +36,8 @@ def fetch_access_token(code: str, state: str) -> Optional[str]:
     if response.status_code != 200:
         logging.error("Request for access token from GitHub failed")
         return None
-
-    return response.json()["access_token"]
+    return response
+    # return response.json()["access_token"]
 
 
 def fetch_user_data(access_token: str) -> Optional[dict]:
