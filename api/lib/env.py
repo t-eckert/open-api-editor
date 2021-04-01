@@ -1,5 +1,7 @@
 from typing import Optional
 
+import os
+
 
 def get_required_env_var(env_var: str) -> str:
     """Ensures an environment variable is set by throwing a ValueError if it is not
