@@ -32,6 +32,10 @@ if FUNC_ENV == "production":
     SENTRY_URL: str = get_required_env_var("SENTRY_URL")
     SENTRY_CONFIG: dict = {"debug": False, "environment": FUNC_ENV}
 
+    # JWT
+    VALID_TIME: int = 3600  # seconds
+    JWT_SECRET: str = get_required_env_var("JWT_SECRET")
+
 
 elif FUNC_ENV == "development":
     # Database
@@ -47,6 +51,11 @@ elif FUNC_ENV == "development":
     SENTRY_URL: str = get_required_env_var("SENTRY_URL")
     SENTRY_CONFIG: dict = {"debug": True, "environment": FUNC_ENV}
 
+    # JWT
+    VALID_TIME: int = 3600  # seconds
+    JWT_SECRET: str = get_required_env_var("JWT_SECRET")
+
+
 elif FUNC_ENV == "test":
     # Database
     DATABASE_CONNECTION_STRING: str = get_required_env_var("DB_CONNECTION_TEST")
@@ -61,6 +70,11 @@ elif FUNC_ENV == "test":
     SENTRY_URL: str = get_required_env_var("SENTRY_URL")
     SENTRY_CONFIG: dict = {"debug": True, "environment": FUNC_ENV}
 
+    # JWT
+    VALID_TIME: int = 3600  # seconds
+    JWT_SECRET: str = get_required_env_var("JWT_SECRET")
+
+
 else:  # Local mode
     # Database
     DATABASE_CONNECTION_STRING: str = get_required_env_var("DB_CONNECTION_LOCAL")
@@ -74,3 +88,7 @@ else:  # Local mode
     # Sentry
     SENTRY_URL: str = get_required_env_var("SENTRY_URL")
     SENTRY_CONFIG: dict = {"debug": True, "environment": FUNC_ENV}
+
+    # JWT
+    VALID_TIME: int = 3600  # seconds
+    JWT_SECRET: str = get_required_env_var("JWT_SECRET")
