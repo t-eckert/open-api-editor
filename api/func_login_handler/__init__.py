@@ -27,15 +27,13 @@ def handle_login_request(request: HttpRequest) -> HttpResponse:
         code: str = body["code"]
         state: str = body["state"]
     except ValueError:
-        return HttpResponse(
-            "Format body as JSON with `code` and `state` parameters", status_code=400
-        )
+        return HttpResponse("Format body as JSON with `code` and `state` parameters", status_code=400)
 
     access_token: str = github.fetch_access_token(code, state)
 
     user_data: dict = github.fetch_user_data(access_token)
-
-    user = User.objects(github_id=user_data["id"]) or User.from_github_data(**user_data)
+    # User.objects(github_id=user_data["id"]) or
+    user = User.from_github_data(**user_data)
 
     token = jwt.encode(json.loads(user.to_json()))
 
