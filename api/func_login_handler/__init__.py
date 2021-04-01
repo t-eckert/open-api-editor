@@ -1,11 +1,9 @@
 from azure.functions import HttpRequest, HttpResponse
-from lib.auth import github
+from lib.auth import github, jwt
 from lib.models import User
 from lib.sentry import connect_to_sentry, serverless_function
 
-
 import json
-import jwt
 import logging
 
 connect_to_sentry()
@@ -37,10 +35,8 @@ def handle_login_request(request: HttpRequest) -> HttpResponse:
 
     user_data: dict = github.fetch_user_data(access_token)
 
-    # user: Optional[User] = User.objects(github_id=user_data["id"])
+    user = User.objects(github_id=user_data["id"]) or User.from_github_data(**user_data)
 
-    user = User.from_github_data(**user_data)
-
-    token = jwt.encode(json.loads(user.to_json()), "")
+    token = jwt.encode(json.loads(user.to_json()))
 
     return HttpResponse(token)
