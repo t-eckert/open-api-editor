@@ -1,9 +1,9 @@
 from datetime import datetime
-from mongoengine.fields import DateTimeField
 from lib.config import MAX_FREE_DOCUMENTS
 from lib.models import OpenApiDocument, Settings
 from mongoengine import (
     BooleanField,
+    DateTimeField,
     Document,
     ListField,
     ReferenceField,
@@ -48,9 +48,7 @@ class User(Document):
     settings = ReferenceField(Settings)
 
     def can_create_document(self) -> bool:
-        return self.isPro or (
-            len(self.documents) < MAX_FREE_DOCUMENTS and not self.isPro
-        )
+        return self.isPro or (len(self.documents) < MAX_FREE_DOCUMENTS and not self.isPro)
 
     @staticmethod
     def from_github_data(**kwargs) -> "User":
