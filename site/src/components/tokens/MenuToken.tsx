@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { observer } from "mobx-react-lite"
+
+import { UserStoreContext } from "../../stores/user"
 
 import Menu from "../Menu"
 import LogoutButton from "../buttons/LogoutButton"
@@ -8,7 +11,7 @@ import FeedbackIcon from "../icons/FeedbackIcon"
 import SettingsIcon from "../icons/SettingsIcon"
 
 const menuToggleClasses = (showMenu: boolean) =>
-  "border-l pl-1 pr-2 py-1.5 rounded-r-xl cursor-pointer hover:bg-gray-100 " +
+  "border-l pl-1 pr-2 py-1.5 rounded-r-xl cursor-pointer hover:bg-gray-100 focus:outline-none focus:ring " +
   (showMenu ? "bg-gray-100" : "bg-white")
 
 type MenuItem = {
@@ -21,18 +24,7 @@ type MenuItem = {
 const itemClasses =
   "flex flex-row items-center gap-3 w-full text-left px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 "
 
-const menuItems = [
-  {
-    text: "Feedback",
-    icon: FeedbackIcon({ classes: "h-4 w-4 text-gray-700" }),
-    link: "/feedback",
-  },
-  {
-    text: "Settings",
-    icon: SettingsIcon({ classes: "h-4 w-4 text-gray-700" }),
-    link: "/settings",
-  },
-].map((menuItem: MenuItem) => (
+const formatMenuItem = (menuItem: MenuItem) => (
   <Link
     className={itemClasses}
     role="menuitem"
@@ -42,12 +34,32 @@ const menuItems = [
     {menuItem.icon}
     {menuItem.text}
   </Link>
-))
+)
 
-menuItems.push(<LogoutButton className={itemClasses} />)
+const MenuToken = observer(() => {
+  const userStore = useContext(UserStoreContext)
+  const user = userStore.user
 
-const MenuToken = () => {
-  let [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
+
+  const menuItems = [
+    formatMenuItem({
+      text: "Feedback",
+      icon: FeedbackIcon({ classes: "h-4 w-4 text-gray-700" }),
+      link: "/feedback",
+    }),
+  ]
+
+  if (user) {
+    menuItems.push(
+      formatMenuItem({
+        text: "Settings",
+        icon: SettingsIcon({ classes: "h-4 w-4 text-gray-700" }),
+        link: "/settings",
+      })
+    )
+    menuItems.push(<LogoutButton className={itemClasses} />)
+  }
 
   return (
     <div>
@@ -68,6 +80,6 @@ const MenuToken = () => {
       )}
     </div>
   )
-}
+})
 
 export default MenuToken
