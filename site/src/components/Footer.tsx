@@ -8,7 +8,7 @@ const Footer = () => {
       <section className="mx-auto pt-8 container grid grid-cols-3">
         <div className="font-medium text-white">
           <p>
-            Open API Editor version <code>0.1.0</code>
+            Open API Editor version <code>0.0.1</code>
           </p>
           <AnchorLink href="#page-top">
             <Link to="/changelog">Changelog</Link>
