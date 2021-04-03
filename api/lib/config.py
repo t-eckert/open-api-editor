@@ -87,7 +87,7 @@ else:  # Local mode
 
     # Sentry
     SENTRY_URL: str = get_required_env_var("SENTRY_URL")
-    SENTRY_CONFIG: dict = {"debug": True, "environment": FUNC_ENV}
+    SENTRY_CONFIG: dict = {"environment": FUNC_ENV}
 
     # JWT
     VALID_TIME: int = 3600  # seconds
