@@ -7,13 +7,23 @@ type Props = {
 }
 
 const classRoles = new Map([
-  ["primary", ""],
+  [
+    "primary",
+    [
+      "font-medium text-white rounded-full px-3 py-1 shadow transition bg-yellow-500",
+      "hover:bg-yellow-600 hover:text-white focus",
+    ].join(" "),
+  ],
   [
     "secondary",
-    "font-medium text-yellow-500 shadow bg-white px-3 py-1 rounded-full hover:text-white hover:bg-yellow-500 transition focus:outline-none focus:ring",
+    [
+      "font-medium text-yellow-500 shadow bg-white px-3 py-1 rounded-full",
+      "hover:text-white hover:bg-yellow-500 transition",
+      "focus",
+    ].join(" "),
   ],
   ["tertiary", "font-medium text-yellow-500 hover:text-yellow-600 transition"],
-  ["link", "font-medium text-gray-600 hover:text-gray-900 transition"],
+  ["link", "font-medium text-gray-600 hover:text-gray-900 transition focus"],
 ])
 
 const Button = (props: Props) => {
