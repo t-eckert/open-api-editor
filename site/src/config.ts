@@ -1,4 +1,5 @@
 export const CHANGELOG_URL = "https://raw.githubusercontent.com/t-eckert/open-api-editor/main/CHANGELOG.md"
+export const GITHUB_OAUTH_URL = "https://github.com/login/oauth/authorize"
 
 const environment = process.env.NODE_ENV
 
