@@ -1,0 +1,18 @@
+{
+  "scriptFile": "__init__.py",
+  "entryPoint": "handle_feedback_request",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "request",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
