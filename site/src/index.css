@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.focus {
+  @apply focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-60;
+}
+
 .markdown h1 {
   @apply font-medium text-2xl;
 }
@@ -11,7 +15,7 @@
 }
 
 .markdown code {
-  @apply font-mono text-yellow-600;
+  @apply font-mono text-yellow-500;
 }
 
 .markdown p {
