@@ -8,7 +8,7 @@
       "direction": "in",
       "name": "request",
       "methods": ["get", "post", "put", "delete"],
-      "route": "users/{id}"
+      "route": "users/{id?}"
     },
     {
       "type": "http",
