@@ -15,6 +15,9 @@ const LoginWithGitHubButton = observer(() => {
     <a
       className="font-medium transition text-sm px-2 py-1.5 underline rounded-l-xl focus"
       href={url.toString()}
+      onClick={() => {
+        userStore.status = "loggingIn"
+      }}
     >
       Login with GitHub
     </a>
