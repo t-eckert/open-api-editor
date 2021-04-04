@@ -18,7 +18,7 @@ const LoginWithGitHubButton = observer(() => {
 
   return (
     <a
-      className="font-medium text-sm px-2 py-1.5 underline"
+      className="font-medium transition text-sm px-2 py-1.5 underline rounded-l-xl focus"
       href={url.toString()}
     >
       Login with GitHub
