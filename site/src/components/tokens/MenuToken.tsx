@@ -11,8 +11,11 @@ import FeedbackIcon from "../icons/FeedbackIcon"
 import SettingsIcon from "../icons/SettingsIcon"
 
 const menuToggleClasses = (showMenu: boolean) =>
-  "border-l pl-1 pr-2 py-1.5 rounded-r-xl cursor-pointer hover:bg-gray-100 focus:outline-none focus:ring " +
-  (showMenu ? "bg-gray-100" : "bg-white")
+  [
+    "border-l pl-1 pr-2 py-1.5 rounded-r-xl cursor-pointer hover:bg-gray-100",
+    "focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-60",
+    showMenu ? "bg-gray-100" : "bg-white",
+  ].join(" ")
 
 type MenuItem = {
   text: string
@@ -21,8 +24,11 @@ type MenuItem = {
   classes?: string
 }
 
-const itemClasses =
-  "flex flex-row items-center gap-3 w-full text-left px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 "
+const itemClasses = [
+  "flex flex-row items-center gap-3 w-full text-left px-4 py-1.5 text-sm text-gray-700",
+  "hover:bg-gray-100 hover:text-gray-900",
+  "focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-60",
+].join(" ")
 
 const formatMenuItem = (menuItem: MenuItem) => (
   <Link
@@ -63,20 +69,17 @@ const MenuToken = observer(() => {
 
   return (
     <div>
-      <div
-        tabIndex={1}
+      <button
         onClick={() => setShowMenu(!showMenu)}
         className={menuToggleClasses(showMenu)}
       >
         <MenuIcon classes="h-5 w-5" />
-      </div>
-      {showMenu ? (
+      </button>
+      {showMenu && (
         <Menu
-          wrappingClasses="z-50 mt-2 origin-top-right absolute right-2"
+          wrappingClasses="mt-2 origin-top-right absolute right-2"
           menuItems={menuItems}
         />
-      ) : (
-        <div></div>
       )}
     </div>
   )
