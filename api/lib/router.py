@@ -1,4 +1,4 @@
-from typing import Any, Callable, Optional
+from typing import Any, Callable
 
 
 class Router:
@@ -51,9 +51,7 @@ class Router:
         func: Callable = self._routes.get(method)
 
         if func is None:
-            raise ValueError(
-                f"Method name {method} does not exist in the routes dictionary"
-            )
+            raise ValueError(f"Method name {method} does not exist in the routes dictionary")
 
         return func(*args, **kwargs)
 
