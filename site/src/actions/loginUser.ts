@@ -9,7 +9,7 @@ import { API } from "../config"
  */
 const loginUser = async (code: string, state: string): Promise<string | null> => {
   const body = JSON.stringify({ code, state })
-  const response = await fetch(API + "/login", { method: "POST", body })
+  const response = await fetch(API + "/users", { method: "POST", body })
 
   return response.status === 200 ? response.text() : null;
 }
