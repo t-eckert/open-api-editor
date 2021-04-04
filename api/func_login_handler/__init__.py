@@ -1,4 +1,5 @@
 from azure.functions import HttpRequest, HttpResponse
+from lib.database import db
 from lib.auth import github, jwt
 from lib.models import User
 from lib.sentry import connect_to_sentry, serverless_function
@@ -32,9 +33,18 @@ def handle_login_request(request: HttpRequest) -> HttpResponse:
     access_token: str = github.fetch_access_token(code, state)
 
     user_data: dict = github.fetch_user_data(access_token)
-    # User.objects(github_id=user_data["id"]) or
-    user = User.from_github_data(**user_data)
+
+    try:
+        user = get_or_create_user(user_data)
+    except:
+        return HttpResponse("Could not find or create user", 500)
 
     token = jwt.encode(json.loads(user.to_json()))
 
     return HttpResponse(token)
+
+
+@db
+def get_or_create_user(user_data: dict) -> User:
+
+    return User.objects(github_id=user_data["id"]) or User.from_github_data(**user_data)
