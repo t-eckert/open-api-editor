@@ -3,7 +3,7 @@
   "entryPoint": "handle_feedback_request",
   "bindings": [
     {
-      "authLevel": "function",
+      "authLevel": "anonymous",
       "type": "httpTrigger",
       "direction": "in",
       "name": "request",
