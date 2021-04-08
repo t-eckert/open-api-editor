@@ -1,26 +1,36 @@
+import { useState } from "react"
+import { useHistory } from "react-router-dom"
+
 import { useInput } from "../hooks"
 import { submitFeedback } from "../actions"
+import { validateFeedback } from "../functions"
+
 import Button from "./buttons/Button"
 import TextArea from "./inputs/TextArea"
 import TextInput from "./inputs/TextInput"
+import XCircleIcon from "./icons/XCircleIcon"
 
 const FeedbackForm = () => {
-  const {
-    value: feedbackBody,
-    bind: bindFeedbackBody,
-    reset: resetFeedbackBody,
-  } = useInput("")
-  const { value: email, bind: bindEmail, reset: resetEmail } = useInput("")
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const history = useHistory()
+
+  const { value: feedbackBody, bind: bindFeedbackBody } = useInput("")
+  const { value: email, bind: bindEmail } = useInput("")
 
   const onSubmit = (evt: any) => {
     evt.preventDefault()
-    submitFeedback({ feedbackBody, email })
-    resetFeedbackBody()
-    resetEmail()
+    const error: string | null = validateFeedback({ feedbackBody, email })
+    if (error === null) {
+      submitFeedback({ feedbackBody, email })
+      history.push("/")
+    } else {
+      setErrorMessage(error)
+    }
   }
 
   return (
-    <form className="flex flex-col gap-3 items-end" onSubmit={onSubmit}>
+    <form className="flex flex-col gap-3" onSubmit={onSubmit}>
       <TextArea
         className="h-40 flex flex-col w-full"
         label="Feedback"
@@ -38,9 +48,29 @@ const FeedbackForm = () => {
         isOptional={true}
         {...bindEmail}
       />
-      <Button role="primary" action={() => {}}>
-        Submit feedback
-      </Button>
+      <div className="flex flex-row justify-between items-center">
+        {errorMessage ? (
+          <div className="flex flex-row gap-1">
+            <XCircleIcon classes="h-5 w-5 text-red-400" />
+            <p className="text-sm font-medium text-red-800">{errorMessage}</p>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <div className="flex flex-row gap-2">
+          <Button role="primary" action={() => {}}>
+            Submit feedback
+          </Button>
+          <Button
+            role="link"
+            action={() => {
+              history.goBack()
+            }}
+          >
+            Cancel
+          </Button>
+        </div>
+      </div>
     </form>
   )
 }
