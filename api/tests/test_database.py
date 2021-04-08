@@ -1,11 +1,14 @@
 from lib.database import database
 from mongoengine import Document, StringField
 
+import pytest
+
 
 class SampleDocument(Document):
     name = StringField(required=True)
 
 
+@pytest.mark.skip()
 def test_save_and_fetch_document():
     # Given
     expected = SampleDocument(name="Bill Posters")
