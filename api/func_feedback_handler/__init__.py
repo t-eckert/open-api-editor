@@ -35,7 +35,7 @@ def handle_feedback_request(request: HttpRequest) -> HttpResponse:
 
     save_feedback(feedback)
 
-    subject = "Feedback from " + (feedback.email if feedback.email else "anonymous")
+    subject = "Feedback from " + (feedback.email or "anonymous")
     email_message = Email(feedback.email or DEV_EMAIL, [DEV_EMAIL], subject, feedback.feedbackBody)
     email_message.send()
 
