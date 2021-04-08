@@ -1,4 +1,4 @@
-const FeedbackIcon = (props: { classes?: string; onClick?: any }) => {
+const CloseIcon = (props: { classes?: string; onClick?: any }) => {
   return (
     <svg
       className={props.classes}
@@ -16,4 +16,4 @@ const FeedbackIcon = (props: { classes?: string; onClick?: any }) => {
   )
 }
 
-export default FeedbackIcon
+export default CloseIcon
