@@ -10,7 +10,12 @@ import TextArea from "./inputs/TextArea"
 import TextInput from "./inputs/TextInput"
 import XCircleIcon from "./icons/XCircleIcon"
 
-const FeedbackForm = () => {
+type Props = {
+  onSubmit?: any
+  redirectDelay?: number
+}
+
+const FeedbackForm = (props: Props) => {
   const [errorMessage, setErrorMessage] = useState("")
 
   const history = useHistory()
@@ -23,7 +28,8 @@ const FeedbackForm = () => {
     const error: string | null = validateFeedback({ feedbackBody, email })
     if (error === null) {
       submitFeedback({ feedbackBody, email })
-      history.push("/")
+      props.onSubmit?.()
+      setTimeout(() => history.goBack(), props.redirectDelay || 0)
     } else {
       setErrorMessage(error)
     }
