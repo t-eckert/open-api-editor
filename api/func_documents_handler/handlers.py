@@ -1,12 +1,12 @@
 from azure.functions import HttpRequest, HttpResponse
-from lib.database import db
+from lib.database import database
 from lib.models import User, OpenApiDocument
 from typing import Optional
 
 import logging
 
 
-@db
+@database
 def handle_get(user: User, request: HttpRequest) -> HttpResponse:
     """Retrieves an Open API document from the database by its id if the user has access to it
 
@@ -36,7 +36,7 @@ def handle_get(user: User, request: HttpRequest) -> HttpResponse:
     return HttpResponse("Fetched Open API document", body=open_api_document)
 
 
-@db
+@database
 def handle_post(user: User, _: HttpRequest) -> HttpResponse:
     """Tries to create an Open API document in the database and returns it to the caller
 
@@ -56,7 +56,7 @@ def handle_post(user: User, _: HttpRequest) -> HttpResponse:
     return HttpResponse("Created Open API Document", status_code=201, body=open_api_document.to_json())
 
 
-@db
+@database
 def handle_put(user: User, request: HttpRequest) -> HttpResponse:
     """Tries to update the Open API document passed in on the request
 
@@ -73,7 +73,7 @@ def handle_put(user: User, request: HttpRequest) -> HttpResponse:
     return HttpResponse("Recieved PUT request")
 
 
-@db
+@database
 def handle_delete(user: User, request: HttpRequest) -> HttpResponse:
     """Tries to delete the Open API document by the id passed in on the request
 
