@@ -1,8 +1,10 @@
 from lib.models.feedback import Feedback
 from azure.functions import HttpRequest, HttpResponse
 from lib.config import DEV_EMAIL
+from lib.database import database
 from lib.email import Email
 from lib.sentry import connect_to_sentry, serverless_function
+from typing import Optional
 
 import logging
 
@@ -20,19 +22,26 @@ def handle_feedback_request(request: HttpRequest) -> HttpResponse:
         HttpResponse:           response to the caller
     """
 
-    logging.info("api/feedback called")
+    logging.info("/feedback called")
 
     try:
         body: dict = request.get_json()
         feedbackBody: str = body.get("feedbackBody")
-        email: str = body.get("email")
+        email: Optional[str] = body.get("email")
     except ValueError:
         return HttpResponse("Body not formatted as JSON", status_code=400)
 
-    feedback = Feedback(feedbackBody=feedbackBody, email=email)
+    feedback = Feedback(feedbackBody=feedbackBody, email=email if email != "" else None)
 
-    subject = "Feedback from " + (feedback.email if feedback.email != "" else "anonymous")
+    save_feedback(feedback)
+
+    subject = "Feedback from " + (feedback.email if feedback.email else "anonymous")
     email_message = Email(feedback.email or DEV_EMAIL, [DEV_EMAIL], subject, feedback.feedbackBody)
-    response = email_message.send()
+    email_message.send()
 
     return HttpResponse("Ok")
+
+
+@database
+def save_feedback(feedback: Feedback):
+    feedback.save()
