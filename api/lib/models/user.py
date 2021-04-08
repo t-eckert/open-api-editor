@@ -6,6 +6,7 @@ from mongoengine import (
     DateTimeField,
     Document,
     ListField,
+    IntField,
     ReferenceField,
     StringField,
     URLField,
@@ -35,7 +36,7 @@ class User(Document):
 
     name = StringField(required=True)
     email = StringField(required=True)
-    githubUid = StringField()
+    githubUid = IntField()
 
     picture = URLField()
 
