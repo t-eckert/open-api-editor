@@ -36,8 +36,10 @@ def handle_feedback_request(request: HttpRequest) -> HttpResponse:
     save_feedback(feedback)
 
     subject = "Feedback from " + (feedback.email or "anonymous")
-    email_message = Email(feedback.email or DEV_EMAIL, [DEV_EMAIL], subject, feedback.feedbackBody)
-    email_message.send()
+    email_message = Email(
+        "thomas@openapieditor.com", [DEV_EMAIL], subject, feedback.feedbackBody, reply_to=feedback.email
+    )
+    response = email_message.send()
 
     return HttpResponse("Ok")
 
