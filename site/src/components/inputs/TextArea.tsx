@@ -1,5 +1,6 @@
 type Props = {
   value: string
+  onChange?: any
   label: string
   placeholder: string
   id: string
@@ -27,6 +28,8 @@ const TextArea = (props: Props) => {
           name={props.id}
           id={props.id}
           placeholder={props.placeholder}
+          value={props.value}
+          onChange={props.onChange}
         />
       </div>
     </div>
