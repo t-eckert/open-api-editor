@@ -9,7 +9,7 @@ connect_to_sentry()
 
 @serverless_function
 def handle_settings_request(request: HttpRequest) -> HttpResponse:
-    logging.info("api/settings recieved a request")
+    logging.info("/settings recieved a request")
 
     response: HttpResponse = settings_router.route(request.method, request)
 
