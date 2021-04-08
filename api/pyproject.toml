@@ -1,6 +1,6 @@
 [project]
 name = "Open API Editor API"
-version = "0.0.1"
+version = "0.0.2"
 description = "Backend to openapieditor.com"
 requires-python = ">=3.9"
 maintainers = [
