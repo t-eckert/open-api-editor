@@ -29,10 +29,10 @@ def handle_feedback_request(request: HttpRequest) -> HttpResponse:
     except ValueError:
         return HttpResponse("Body not formatted as JSON", status_code=400)
 
-    feedback = Feedback(feedbackBody, email)
+    feedback = Feedback(feedbackBody=feedbackBody, email=email)
 
-    subject = "Feedback from " + feedback.email or "anonymous"
+    subject = "Feedback from " + (feedback.email if feedback.email != "" else "anonymous")
     email_message = Email(feedback.email or DEV_EMAIL, [DEV_EMAIL], subject, feedback.feedbackBody)
-    email_message.send()
+    response = email_message.send()
 
     return HttpResponse("Ok")
