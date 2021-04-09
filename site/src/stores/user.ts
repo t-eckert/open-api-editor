@@ -3,9 +3,10 @@ import { makeAutoObservable } from "mobx";
 import { createContext } from "react";
 import { User } from "../interfaces/user";
 
-class UserStore {
+export class UserStore {
   user: User | null
   jwt: string | null
+  status: "loggedIn" | "loggingIn" | "loggedOut"
 
   stateToken: string = ""
 
@@ -13,21 +14,27 @@ class UserStore {
     makeAutoObservable(this)
 
     this.jwt = localStorage.getItem("JWT")
-    if (this.jwt)
+    if (this.jwt) {
       this.user = jwt_decode<User>(this.jwt)
-    else
+      this.status = "loggedIn"
+    }
+    else {
       this.user = null
+      this.status = "loggedOut"
+    }
   }
 
   setUserFromJwt(jwt: string) {
     this.user = jwt_decode<User>(jwt)
     this.jwt = jwt
+    this.status = "loggedIn"
     localStorage.setItem("JWT", jwt)
   }
 
   logoutUser() {
     this.user = null
     this.jwt = null
+    this.status = "loggedOut"
     localStorage.removeItem("JWT")
   }
 }

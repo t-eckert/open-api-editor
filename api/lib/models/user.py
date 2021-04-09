@@ -1,11 +1,12 @@
 from datetime import datetime
-from mongoengine.fields import DateTimeField
 from lib.config import MAX_FREE_DOCUMENTS
 from lib.models import OpenApiDocument, Settings
 from mongoengine import (
     BooleanField,
+    DateTimeField,
     Document,
     ListField,
+    IntField,
     ReferenceField,
     StringField,
     URLField,
@@ -35,7 +36,7 @@ class User(Document):
 
     name = StringField(required=True)
     email = StringField(required=True)
-    githubUid = StringField()
+    githubUid = IntField()
 
     picture = URLField()
 
@@ -48,17 +49,7 @@ class User(Document):
     settings = ReferenceField(Settings)
 
     def can_create_document(self) -> bool:
-        return self.is_pro or (
-            len(self.documents) < MAX_FREE_DOCUMENTS and not self.is_pro
-        )
-
-    @staticmethod
-    def create(name: str, email: str, password: str) -> "User":
-        hashed_password: str = password
-
-        return User(
-            name=name, email=email, hashed_password=hashed_password, is_pro=False
-        )
+        return self.isPro or (len(self.documents) < MAX_FREE_DOCUMENTS and not self.isPro)
 
     @staticmethod
     def from_github_data(**kwargs) -> "User":

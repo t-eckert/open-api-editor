@@ -1,4 +1,4 @@
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import AnchorLink from "react-anchor-link-smooth-scroll"
 
 const Navigation = () => {
   const navItems = [
@@ -21,19 +21,19 @@ const Navigation = () => {
   ].map((navItem) => (
     <li key={navItem.title}>
       <AnchorLink
-        className="cursor-pointer font-medium text-gray-600 hover:text-gray-900 transition"
+        className="cursor-pointer font-medium rounded text-gray-600 hover:text-gray-900 focus focus:ring-offset-2 transition"
         href={navItem.anchor}
       >
         {navItem.title}
       </AnchorLink>
     </li>
-  ));
+  ))
 
   return (
     <nav className="sticky">
       <ul>{navItems}</ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation

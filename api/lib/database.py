@@ -1,13 +1,34 @@
+from lib.config import DATABASE_CONNECTION_STRING
+from mongoengine import connect, disconnect
 from typing import Any, Callable
 
 
-from lib.config import DATABASE_CONNECTION_STRING
-from mongoengine import connect, disconnect
+def database(function: Callable) -> Callable:
+    """Decorator providing a database connection for the lifetime of a function
 
+    Usage:
 
-def db(function: Callable) -> Callable:
+    ```python
+    @database
+    def save_document(document: Document):
+        document.save()
+    ```
+
+    Args:
+        function (Callable):    function to be decorated with database access
+
+    Returns:
+        Callable:               function, decorated with database access
+    """
+
     def connect_to_database(*args, **kwargs) -> Any:
-        connect(DATABASE_CONNECTION_STRING)
+        """Connects to the database prior to calling the curried function. Disposes connection after call completes.
+
+        Returns:
+            Any:                value returned by the decorated function
+        """
+
+        connect(host=DATABASE_CONNECTION_STRING)
         return_value = function(*args, **kwargs)
         disconnect()
 

@@ -1,14 +1,14 @@
 {
   "scriptFile": "__init__.py",
-  "entryPoint": "handle_login_request",
+  "entryPoint": "handle_feedback_request",
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "request",
       "methods": ["post"],
-      "route": "login"
+      "route": "feedback"
     },
     {
       "type": "http",

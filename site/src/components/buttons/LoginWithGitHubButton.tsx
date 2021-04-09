@@ -2,24 +2,22 @@ import { observer } from "mobx-react-lite"
 import { useContext } from "react"
 
 import { UserStoreContext } from "../../stores/user"
-import { GITHUB_APP_CLIENT_ID } from "../../config"
-import { generateRandomString } from "../../functions"
+import { generateGitHubLoginUrl, generateRandomString } from "../../functions"
 
 const LoginWithGitHubButton = observer(() => {
   const userStore = useContext(UserStoreContext)
 
   const state = generateRandomString()
-
-  let url = new URL("https://github.com/login/oauth/authorize")
-  url.searchParams.set("client_id", GITHUB_APP_CLIENT_ID)
-  url.searchParams.set("state", state)
-
+  const url = generateGitHubLoginUrl(state)
   userStore.stateToken = state
 
   return (
     <a
-      className="font-medium text-sm px-2 py-1.5 underline"
+      className="font-medium transition text-sm px-2 py-1.5 underline rounded-l-xl focus"
       href={url.toString()}
+      onClick={() => {
+        userStore.status = "loggingIn"
+      }}
     >
       Login with GitHub
     </a>

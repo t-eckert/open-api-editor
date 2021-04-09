@@ -1,0 +1,11 @@
+[project]
+name = "Open API Editor API"
+version = "0.0.2"
+description = "Backend to openapieditor.com"
+requires-python = ">=3.9"
+maintainers = [
+  {name = "Thomas Eckert", email = "thomas.james.eckert@gmail.com"}
+]
+
+[tool.black]
+line-length = 120

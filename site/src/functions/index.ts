@@ -1,3 +1,6 @@
+import generateGitHubLoginUrl from "./generateGitHubLoginUrl"
 import generateRandomString from "./generateRandomString"
+import validateFeedback from "./validateFeedback"
 
-export { generateRandomString }
+
+export { generateGitHubLoginUrl, generateRandomString, validateFeedback }

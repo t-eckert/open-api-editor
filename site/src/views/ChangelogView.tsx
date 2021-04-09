@@ -1,26 +1,17 @@
-import { useEffect, useState } from "react"
 import ReactMarkdown from "react-markdown"
 
-import { fetchChangelog } from "../actions"
+import { useChangelog, useScrollTo } from "../hooks"
 
 const ChangelogView = (): JSX.Element => {
-  const [changelog, setChangelog] = useState("")
-
-  useEffect(() => {
-    const loadChangelog = async () => {
-      setChangelog(await fetchChangelog())
-    }
-    loadChangelog()
-  }, [setChangelog])
+  const changelog = useChangelog()
+  useScrollTo(0, 0)
 
   return (
     <article className="mx-auto mt-8 max-w-xl">
-      {changelog ? (
+      {changelog && (
         <ReactMarkdown className="markdown p-6 rounded-xl bg-white shadow">
           {changelog}
         </ReactMarkdown>
-      ) : (
-        <div></div>
       )}
     </article>
   )
