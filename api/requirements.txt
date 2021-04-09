@@ -21,9 +21,12 @@ pymongo==3.11.3
 pyparsing==2.4.7
 pytest==6.2.2
 python-dotenv==0.15.0
+python-http-client==3.3.2
 regex==2021.3.17
 requests==2.25.1
+sendgrid==6.6.0
 sentry-sdk==1.0.0
+starkbank-ecdsa==1.1.0
 toml==0.10.2
 typed-ast==1.4.2
 typing-extensions==3.7.4.3
