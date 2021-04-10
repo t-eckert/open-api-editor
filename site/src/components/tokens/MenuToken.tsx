@@ -24,15 +24,9 @@ type MenuItem = {
   classes?: string
 }
 
-const itemClasses = [
-  "flex flex-row items-center gap-3 w-full text-left px-4 py-1.5 text-sm text-gray-700",
-  "hover:bg-gray-100 hover:text-gray-900",
-  "focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-60",
-].join(" ")
-
 const formatMenuItem = (menuItem: MenuItem) => (
   <Link
-    className={itemClasses}
+    className="menuitem"
     role="menuitem"
     key={menuItem.link}
     to={menuItem.link}
@@ -64,7 +58,7 @@ const MenuToken = observer(() => {
         link: "/settings",
       })
     )
-    menuItems.push(<LogoutButton className={itemClasses} />)
+    menuItems.push(<LogoutButton className="menuitem" />)
   }
 
   return (
