@@ -1,7 +1,7 @@
 import jwt_decode from "jwt-decode"
 import { makeAutoObservable } from "mobx";
 import { createContext } from "react";
-import { User } from "../interfaces/user";
+import { User } from "../interfaces";
 
 export class UserStore {
   user: User | null
