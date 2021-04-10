@@ -1,22 +1,23 @@
 import jwt_decode from "jwt-decode"
 import { makeAutoObservable } from "mobx";
 import { createContext } from "react";
+
 import { User } from "../interfaces";
 
 export class UserStore {
-  user: User | null
+  user?: User | null
   jwt: string | null
-  status: "loggedIn" | "loggingIn" | "loggedOut"
+  status: "checkingIsLoggedIn" | "loggedIn" | "loggingIn" | "loggingOut" | "loggedOut"
 
   stateToken: string = ""
 
   constructor() {
     makeAutoObservable(this)
 
+    this.status = "checkingIsLoggedIn"
     this.jwt = localStorage.getItem("JWT")
     if (this.jwt) {
-      this.user = jwt_decode<User>(this.jwt)
-      this.status = "loggedIn"
+      this.setUserFromJwt(this.jwt)
     }
     else {
       this.user = null
@@ -25,17 +26,19 @@ export class UserStore {
   }
 
   setUserFromJwt(jwt: string) {
+    this.status = "loggingIn"
     this.user = jwt_decode<User>(jwt)
     this.jwt = jwt
-    this.status = "loggedIn"
     localStorage.setItem("JWT", jwt)
+    this.status = "loggedIn"
   }
 
   logoutUser() {
+    this.status = "loggingOut"
     this.user = null
     this.jwt = null
-    this.status = "loggedOut"
     localStorage.removeItem("JWT")
+    this.status = "loggedOut"
   }
 }
 
