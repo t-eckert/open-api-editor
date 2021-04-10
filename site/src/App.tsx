@@ -8,6 +8,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import View from "./View"
 
+// Sentry is used for error and performance monitoring
 Sentry.init({
   dsn: SENTRY_DSN,
   release: "site@" + VERSION,
@@ -15,6 +16,10 @@ Sentry.init({
   tracesSampleRate: 1.0,
 })
 
+/** `App` component
+ *
+ * The root component of the React application
+ */
 const App = () => {
   return (
     <Router>

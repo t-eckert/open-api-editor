@@ -7,6 +7,10 @@ import ChangelogView from "./views/ChangelogView"
 import FeedbackView from "./views/FeedbackView"
 import LoginView from "./views/LoginView"
 
+/** `View` component
+ *
+ * Renders a component from the `views` directory based on the path using react-router
+ */
 const View = () => {
   return (
     <div>

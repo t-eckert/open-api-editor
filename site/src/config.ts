@@ -8,12 +8,15 @@ const environment = process.env.NODE_ENV
 let API: string
 let GITHUB_APP_CLIENT_ID: string
 if ("production" === environment) {
+  // Production configuration settings
   API = "https://api.openapieditor.com"
   GITHUB_APP_CLIENT_ID = "c107f43307dff88c2d16"
 } else if ("development" === environment) {
+  // Development (pre-production) configuration settings
   API = "http://localhost:7071"
   GITHUB_APP_CLIENT_ID = "d2e20ee498c0e3d317fe"
 } else {
+  // Test configuration settings
   API = "http://localhost:7071"
   GITHUB_APP_CLIENT_ID = "d2e20ee498c0e3d317fe"
 }
