@@ -35,7 +35,7 @@ class User(Document):
     """
 
     name = StringField(required=True)
-    email = StringField(required=True)
+    email = StringField()
     githubUid = IntField()
 
     picture = URLField()
@@ -54,8 +54,8 @@ class User(Document):
     @staticmethod
     def from_github_data(**kwargs) -> "User":
         return User(
-            name=kwargs["name"],
-            email=kwargs["email"],
-            githubUid=kwargs["id"],
-            picture=kwargs["avatar_url"],
+            name=kwargs.get("name"),
+            email=kwargs.get("email"),
+            githubUid=kwargs.get("id"),
+            picture=kwargs.get("avatar_url"),
         )

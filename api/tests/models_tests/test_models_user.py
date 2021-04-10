@@ -30,6 +30,34 @@ def test_from_json():
 
 
 @pytest.mark.parametrize(
+    "github_data",
+    [
+        {
+            "name": "Bill Posters",
+            "email": "bill.posters@gmail.com",
+            "id": 1234,
+            "avatar_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=7FTwFAtLWc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+        },
+        {
+            "name": "Bill Posters",
+            "id": 1234,
+            "avatar_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=7FTwFAtLWc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+        },
+    ],
+)
+def test_from_github_data(github_data: dict):
+    # When
+    user = User.from_github_data(**github_data)
+
+    # Then
+    assert github_data.get("name") == user.name
+    assert github_data.get("email") == user.email
+    assert github_data.get("id") == user.githubUid
+    assert github_data.get("avatar_url") == user.picture
+    assert False == user.isPro
+
+
+@pytest.mark.parametrize(
     "user,expected",
     [
         [
