@@ -4,6 +4,10 @@ import { createContext } from "react";
 
 import { User } from "../interfaces";
 
+/** `UserStore` MobX class
+ * 
+ * Handles state for user authentication and data
+ */
 export class UserStore {
   user?: User | null
   jwt: string | null
