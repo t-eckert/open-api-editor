@@ -2,6 +2,12 @@
   "name": "site",
   "version": "0.0.2",
   "private": true,
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
+  },
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@sentry/react": "^6.2.5",
@@ -31,12 +37,6 @@
     "web-vitals": "^1.0.1",
     "xstate": "^4.17.1",
     "yamljs": "^0.3.0"
-  },
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
   },
   "eslintConfig": {
     "extends": [
