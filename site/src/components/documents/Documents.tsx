@@ -15,7 +15,7 @@ const Documents = (props: Props) => {
       <div className="w-full flex flex-row justify-between items-baseline">
         <h1 className="mb-4 font-medium text-xl">Documents</h1>
       </div>
-      <div className="flex flex-col md:flex-row flex-wrap md:gap-4">
+      <div className="mb-4 flex flex-col md:flex-row flex-wrap md:gap-4">
         {documentPreviews}
         <DocumentCreate />
       </div>
