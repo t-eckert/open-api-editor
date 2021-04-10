@@ -1,5 +1,5 @@
-const MainCenter = (props: any) => {
-  return <div className="flex-grow">{props.children || ""}</div>;
-};
+const MainCenter = (props: { children?: any }) => {
+  return <div className="flex-grow">{props.children}</div>
+}
 
-export default MainCenter;
+export default MainCenter
