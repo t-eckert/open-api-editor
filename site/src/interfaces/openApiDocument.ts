@@ -1,21 +1,33 @@
-export interface OpenApiDocument {
+import User from "./user";
+
+interface Info { }
+
+interface Server { }
+
+interface Paths { }
+
+interface Components { }
+
+interface Security { }
+
+interface Tag { }
+
+interface ExternalDocs { }
+
+interface OpenApiDocument {
   id: string
 
-  title: string
-  version: string
-  description: string
-  termsOfService?: string
+  authors: User[]
 
-  contactInformation?: {
-    name?: string
-    email?: string
-    website?: string
-  }
+  isDeleted: boolean
 
-  license?: {
-    name?: string
-    url?: string
-  }
-
-  servers: {}[]
+  info: Info
+  servers: Server[]
+  paths: Paths
+  components: Components
+  security: Security[]
+  tags: Tag[]
+  externalDocs: ExternalDocs
 }
+
+export default OpenApiDocument
