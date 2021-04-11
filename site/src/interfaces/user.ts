@@ -4,6 +4,8 @@ interface User {
   name: string
   picture?: string
   isPro: boolean
+  documentIds: string[]
+  settingsId: string
 }
 
 export default User
