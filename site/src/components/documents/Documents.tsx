@@ -2,7 +2,7 @@ import DocumentPreview from "./DocumentPreview"
 import DocumentCreate from "./DocumentCreate"
 
 type Props = {
-  documents: { title: string; version: string }[]
+  documents: Document[]
 }
 
 const Documents = (props: Props) => {
