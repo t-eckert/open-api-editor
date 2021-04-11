@@ -35,7 +35,12 @@ def decode(token: str) -> dict:
         dict:                   payload of the JWT
     """
 
-    return jwt.decode(token, JWT_SECRET, algorithms="HS256")
+    token_body = jwt.decode(token, JWT_SECRET, algorithms="HS256")
+
+    if not token_body.get("exp"):
+        raise ValueError("Token does not have an expiration")
+
+    return token_body
 
 
 def renew(token: str) -> Optional[str]:
