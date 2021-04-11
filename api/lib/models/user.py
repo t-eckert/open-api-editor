@@ -1,6 +1,5 @@
 from datetime import datetime
 from lib.config import MAX_FREE_DOCUMENTS
-from lib.models import OpenApiDocument, Settings
 from mongoengine import (
     BooleanField,
     DateTimeField,
@@ -45,8 +44,8 @@ class User(Document):
     created = DateTimeField(default=datetime.now())
     lastLogin = DateTimeField(default=datetime.now())
 
-    documents = ListField(ReferenceField(OpenApiDocument), default=[])
-    settings = ReferenceField(Settings)
+    documents = ListField(ReferenceField("OpenApiDocument"), default=[])
+    settings = ReferenceField("Settings")
 
     def can_create_document(self) -> bool:
         return self.isPro or (len(self.documents) < MAX_FREE_DOCUMENTS and not self.isPro)
