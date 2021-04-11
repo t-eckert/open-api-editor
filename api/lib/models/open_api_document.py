@@ -60,6 +60,6 @@ class OpenApiDocument(Document):
     servers = ListField(EmbeddedDocumentField(Server))
     paths = EmbeddedDocumentField(Paths)
     components = EmbeddedDocumentField(Components)
-    security = ListField(EmbeddedDocument(Security))
-    tags = ListField(EmbeddedDocument(Tag))
+    security = ListField(EmbeddedDocumentField(Security))
+    tags = ListField(EmbeddedDocumentField(Tag))
     externalDocs = EmbeddedDocumentField(ExternalDocs)
