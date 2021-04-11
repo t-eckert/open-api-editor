@@ -1,4 +1,5 @@
 from lib.auth import jwt
+from lib.config import JWT_SECRET
 from time import sleep
 
 import jwt as pyjwt
@@ -35,6 +36,25 @@ def test_decoding_a_bad_token_raises_an_exception():
 
     # When
     with pytest.raises(pyjwt.exceptions.InvalidSignatureError):
+        jwt.decode(bad_token)
+
+
+def test_tokens_without_expiration_fail_decode():
+    # Given
+    bad_token = pyjwt.encode({}, JWT_SECRET)
+
+    # When
+    with pytest.raises(ValueError):
+        jwt.decode(bad_token)
+
+
+def test_expired_tokens_fail_decode():
+    # Given
+    payload = {"exp": 1600000000}
+    bad_token = pyjwt.encode(payload, JWT_SECRET)
+
+    # When
+    with pytest.raises(pyjwt.exceptions.ExpiredSignatureError):
         jwt.decode(bad_token)
 
 
