@@ -23,7 +23,7 @@ const UserToken = observer(() => {
         </div>
       ) : status === "loggedOut" ? (
         <div className="bg-white rounded-l-xl flex flex-row items-center">
-          <LoginWithGitHub />
+          <LoginWithGitHub className="font-medium transition text-sm px-2 py-1.5 underline rounded-l-xl focus" />
         </div>
       ) : (
         <div className="bg-white rounded-l-xl flex flex-row items-center">
