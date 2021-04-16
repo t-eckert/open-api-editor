@@ -13,7 +13,7 @@ from mongoengine import (
 
 
 class Info(EmbeddedDocument):
-    ...
+    title = StringField()
 
 
 class Server(EmbeddedDocument):
