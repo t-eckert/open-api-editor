@@ -1,8 +1,10 @@
-import jwt_decode from "jwt-decode"
 import { makeAutoObservable } from "mobx";
 import { createContext } from "react";
 
+import { parseTokenToUser } from "../functions"
 import { User } from "../interfaces";
+
+type Status = "checkingIsLoggedIn" | "loggedIn" | "loggingIn" | "loggingOut" | "loggedOut"
 
 /** `UserStore` MobX class
  * 
@@ -11,7 +13,7 @@ import { User } from "../interfaces";
 export class UserStore {
   user?: User | null
   jwt: string | null
-  status: "checkingIsLoggedIn" | "loggedIn" | "loggingIn" | "loggingOut" | "loggedOut"
+  status: Status
 
   stateToken: string = ""
 
@@ -29,9 +31,13 @@ export class UserStore {
     }
   }
 
+  setStatus(status: Status) {
+    this.status = status
+  }
+
   setUserFromJwt(jwt: string) {
     this.status = "loggingIn"
-    this.user = jwt_decode<User>(jwt)
+    this.user = parseTokenToUser(jwt)
     this.jwt = jwt
     localStorage.setItem("JWT", jwt)
     this.status = "loggedIn"
@@ -43,6 +49,10 @@ export class UserStore {
     this.jwt = null
     localStorage.removeItem("JWT")
     this.status = "loggedOut"
+  }
+
+  isAuthenticated() {
+    return (this.jwt !== null && this.status === "loggedIn")
   }
 }
 
