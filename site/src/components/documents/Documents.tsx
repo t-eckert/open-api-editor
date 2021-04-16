@@ -1,14 +1,18 @@
 import DocumentPreview from "./DocumentPreview"
 import DocumentCreate from "./DocumentCreate"
+import { OpenApiDocument } from "../../interfaces"
 
 type Props = {
-  documents: Document[]
+  documents: OpenApiDocument[]
 }
 
 const Documents = (props: Props) => {
-  const documentPreviews = props.documents.map((document) => (
-    <DocumentPreview document={document} key={document.title} />
-  ))
+  const documents = props.documents
+  const documentPreviews =
+    documents.length > 0 &&
+    props.documents.map((document) => (
+      <DocumentPreview document={document} key="a" />
+    ))
 
   return (
     <div className="pt-8 px-2 mx-auto container">
