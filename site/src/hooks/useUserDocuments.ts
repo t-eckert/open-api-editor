@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react"
+import { OpenApiDocument } from "../interfaces"
 
 import { DocumentsStoreContext } from "../stores/documents"
 
-const useUserDocuments = () => {
+const useUserDocuments = (): OpenApiDocument[] => {
   const documentsStore = useContext(DocumentsStoreContext)
 
-  const [documents, setDocuments] = useState<Document[]>([])
+  const [documents, setDocuments] = useState<OpenApiDocument[]>([])
 
   useEffect(() => {
     const loadDocuments = async () => {
