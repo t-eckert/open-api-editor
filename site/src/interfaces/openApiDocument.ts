@@ -1,6 +1,8 @@
 import User from "./user";
 
-interface Info { }
+interface Info {
+  title: string
+}
 
 interface Server { }
 
@@ -15,7 +17,7 @@ interface Tag { }
 interface ExternalDocs { }
 
 interface OpenApiDocument {
-  id: string
+  _id: { $oid: string }
 
   authors: User[]
 
