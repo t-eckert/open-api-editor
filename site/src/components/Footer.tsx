@@ -2,14 +2,14 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="h-96 bg-yellow-600 mx-auto pt-8">
+    <footer className="h-80 px-2 pt-2 sm:pt-8 bg-yellow-600 mx-auto">
       <div className="mx-auto max-w-5xl text-white">
         <p className="mb-2 font-medium">
           Open API Editor version <code>0.0.2</code>
         </p>
         <section className="grid grid-cols-3 gap-4">
           <div>
-            <h2 className="font-medium mb-2">Links</h2>
+            <h2 className="font-medium mb-1">Links</h2>
             <ul className="leading-tight">
               <li>
                 <Link className="hover:underline" to="/changelog">
