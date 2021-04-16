@@ -1,42 +1,44 @@
 import { makeAutoObservable } from "mobx";
 import { createContext } from "react";
-import { fetchManyDocuments } from "../actions";
+import { fetchUserDocuments } from "../actions";
+import { OpenApiDocument } from "../interfaces";
 
 import { UserStore } from "./user"
 
 export class DocumentsStore {
-  documents: Document[]
-  loadingStatus: "idle" | "documentsRequested" | "documentsLoaded" | "documentLoadingFailed"
+  documents: OpenApiDocument[]
+  status: "idle" | "documentsRequested" | "documentsLoaded" | "documentLoadingFailed"
 
   constructor() {
     makeAutoObservable(this)
 
-    this.loadingStatus = "idle"
+    this.status = "idle"
     this.documents = []
   }
 
   async loadDocuments() {
-    this.loadingStatus = "documentsRequested"
+    this.status = "documentsRequested"
     const userStore = new UserStore()
 
     if (!userStore.user || !userStore.jwt || userStore.status !== "loggedIn") {
-      this.loadingStatus = "documentLoadingFailed"
+      this.status = "documentLoadingFailed"
       return
     }
 
-    const documentIds = userStore.user.documentIds
+    const userId = userStore.user.id
     const token = userStore.jwt
 
-    const response = await fetchManyDocuments(documentIds, token)
+    const response = await fetchUserDocuments(userId, token)
 
     if (!response.ok) {
-      this.loadingStatus = "documentLoadingFailed"
+      this.status = "documentLoadingFailed"
       return
     }
 
     userStore.jwt = await response.headers.get("Authorization")
-    this.documents = JSON.parse(await response.json()) as Document[]
-    this.loadingStatus = "documentsLoaded"
+    const body = await response.json()
+    this.documents = JSON.parse(JSON.stringify(body)) as OpenApiDocument[]
+    this.status = "documentsLoaded"
   }
 }
 
