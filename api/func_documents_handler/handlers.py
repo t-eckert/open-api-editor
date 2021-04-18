@@ -2,7 +2,6 @@ from azure.functions import HttpRequest, HttpResponse
 from lib.auth import jwt
 from lib.database import database
 from lib.models import User, OpenApiDocument
-from mock.open_api_document import mock_open_api_document
 
 import logging
 import json
@@ -21,9 +20,9 @@ def handle_get(request: HttpRequest, user_id: str, token: str) -> HttpResponse:
         HttpResponse:           response to send to the client
     """
 
-    mock_open_api_document.save()
-
     headers = {"Authorization": jwt.renew(token)}
+    mock_open_api_document = OpenApiDocument.objects(pk="6079308fdf4b085dd6e93263").first()
+
     return HttpResponse(
         json.dumps([json.loads(mock_open_api_document.to_json())]), headers=headers, mimetype="application/json"
     )
