@@ -1,9 +1,8 @@
 type Props = {
   className?: string
-  children?: any
 }
 
-const MainCenter = (props: Props) => {
+const MainCenter: React.FC<Props> = (props) => {
   return <div className={"flex-grow " + props.className}>{props.children}</div>
 }
 
