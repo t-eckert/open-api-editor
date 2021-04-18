@@ -33,7 +33,6 @@ jobs:
       - name: Run tests
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          python -m pytest
           popd
 
       - name: Run Azure Functions Action
