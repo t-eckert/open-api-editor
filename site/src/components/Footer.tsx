@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="h-80 px-2 pt-2 sm:pt-8 bg-yellow-600 mx-auto">
       <div className="mx-auto max-w-5xl text-white">
         <p className="mb-2 font-medium">
-          Open API Editor version <code>0.0.2</code>
+          Open API Editor version <code>0.0.3</code>
         </p>
         <section className="grid grid-cols-3 gap-4">
           <div>
