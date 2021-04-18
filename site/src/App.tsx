@@ -6,7 +6,7 @@ import { SENTRY_DSN, VERSION } from "./config"
 
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-import Statuses from "./components/Statuses"
+import Alerts from "./components/alerts/Alerts"
 import View from "./View"
 
 // Sentry is used for error and performance monitoring
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Router>
       <div id="page-top" />
-      <Statuses />
+      <Alerts />
       <div className="bg-yellow-50 min-h-screen overflow-x-hidden">
         <Header />
         <View />
