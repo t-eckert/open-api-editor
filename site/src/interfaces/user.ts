@@ -1,7 +1,13 @@
-export interface User {
+interface User {
   id: string
-  email: string
   name: string
+  email: string
   picture?: string
   isPro: boolean
+  created: Date
+  lastLogin: Date
+  documentIds: string[]
+  settingsId: string
 }
+
+export default User

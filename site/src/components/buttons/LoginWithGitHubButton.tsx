@@ -4,7 +4,11 @@ import { useContext } from "react"
 import { UserStoreContext } from "../../stores/user"
 import { generateGitHubLoginUrl, generateRandomString } from "../../functions"
 
-const LoginWithGitHubButton = observer(() => {
+type Props = {
+  className?: string
+}
+
+const LoginWithGitHubButton = observer((props: Props) => {
   const userStore = useContext(UserStoreContext)
 
   const state = generateRandomString()
@@ -13,7 +17,7 @@ const LoginWithGitHubButton = observer(() => {
 
   return (
     <a
-      className="font-medium transition text-sm px-2 py-1.5 underline rounded-l-xl focus"
+      className={props.className}
       href={url.toString()}
       onClick={() => {
         userStore.status = "loggingIn"

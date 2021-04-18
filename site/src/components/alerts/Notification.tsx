@@ -1,4 +1,6 @@
-const Notification = () => {
+type Props = {}
+
+const Notification = (props: Props) => {
   return (
     <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
       <div className="p-4">
@@ -58,7 +60,7 @@ const Notification = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Notification;
+export default Notification

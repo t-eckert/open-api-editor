@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom"
+import { OpenApiDocument } from "../../interfaces"
 
 type Props = {
-  document: {
-    title: string
-    version: string
-  }
+  document: OpenApiDocument
 }
 
 const classes = [
@@ -17,12 +15,11 @@ const DocumentPreview = (props: Props) => {
   return (
     <div className={classes}>
       <div>
-        <h2 className="font-medium">{props.document.title}</h2>
-        <h3 className="font-medium text-gray-600">{props.document.version}</h3>
+        <h2 className="font-medium">{props.document.info.title}</h2>
       </div>
       <Link
         className="font-medium rounded text-yellow-500 hover:text-yellow-600 focus focus:ring-offset-2 transition"
-        to="/editor/2"
+        to={"/editor/" + props.document._id.$oid}
       >
         Edit
       </Link>

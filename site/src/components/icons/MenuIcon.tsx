@@ -1,7 +1,7 @@
-const MenuIcon = (props: { classes: string }) => {
+const MenuIcon = (props: { className?: string }) => {
   return (
     <svg
-      className={props.classes}
+      className={props?.className}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -14,7 +14,7 @@ const MenuIcon = (props: { classes: string }) => {
         d="M4 6h16M4 12h16M4 18h16"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default MenuIcon;
+export default MenuIcon

@@ -1,7 +1,7 @@
-const FeedbackIcon = (props: { classes: string }) => {
+const FeedbackIcon = (props: { className: string }) => {
   return (
     <svg
-      className={props.classes}
+      className={props.className}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
@@ -12,7 +12,7 @@ const FeedbackIcon = (props: { classes: string }) => {
         clipRule="evenodd"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default FeedbackIcon;
+export default FeedbackIcon

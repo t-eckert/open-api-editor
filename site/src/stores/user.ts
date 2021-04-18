@@ -1,22 +1,29 @@
-import jwt_decode from "jwt-decode"
 import { makeAutoObservable } from "mobx";
 import { createContext } from "react";
-import { User } from "../interfaces/user";
 
+import { parseTokenToUser } from "../functions"
+import { User } from "../interfaces";
+
+type Status = "checkingIsLoggedIn" | "loggedIn" | "loggingIn" | "loggingOut" | "loggedOut"
+
+/** `UserStore` MobX class
+ * 
+ * Handles state for user authentication and data
+ */
 export class UserStore {
-  user: User | null
+  user?: User | null
   jwt: string | null
-  status: "loggedIn" | "loggingIn" | "loggedOut"
+  status: Status
 
   stateToken: string = ""
 
   constructor() {
     makeAutoObservable(this)
 
+    this.status = "checkingIsLoggedIn"
     this.jwt = localStorage.getItem("JWT")
     if (this.jwt) {
-      this.user = jwt_decode<User>(this.jwt)
-      this.status = "loggedIn"
+      this.setUserFromJwt(this.jwt)
     }
     else {
       this.user = null
@@ -24,18 +31,28 @@ export class UserStore {
     }
   }
 
+  setStatus(status: Status) {
+    this.status = status
+  }
+
   setUserFromJwt(jwt: string) {
-    this.user = jwt_decode<User>(jwt)
+    this.status = "loggingIn"
+    this.user = parseTokenToUser(jwt)
     this.jwt = jwt
-    this.status = "loggedIn"
     localStorage.setItem("JWT", jwt)
+    this.status = "loggedIn"
   }
 
   logoutUser() {
+    this.status = "loggingOut"
     this.user = null
     this.jwt = null
-    this.status = "loggedOut"
     localStorage.removeItem("JWT")
+    this.status = "loggedOut"
+  }
+
+  isAuthenticated() {
+    return (this.jwt !== null && this.status === "loggedIn")
   }
 }
 

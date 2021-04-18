@@ -1,5 +1,9 @@
-const MainCenter = (props: any) => {
-  return <div className="flex-grow">{props.children || ""}</div>;
-};
+type Props = {
+  className?: string
+}
 
-export default MainCenter;
+const MainCenter: React.FC<Props> = (props) => {
+  return <div className={"flex-grow " + props.className}>{props.children}</div>
+}
+
+export default MainCenter

@@ -8,6 +8,8 @@ import { loginUser } from "../actions"
 const LoginView = observer(() => {
   const userStore = useContext(UserStoreContext)
 
+  userStore.setStatus("loggingIn")
+
   const code = new URLSearchParams(window.location.search).get("code")
   const state = userStore.stateToken
 

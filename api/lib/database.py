@@ -1,4 +1,4 @@
-from lib.config import DATABASE_CONNECTION_STRING
+from lib.config import DATABASE_CONNECTION_STRING, FUNC_ENV
 from mongoengine import connect, disconnect
 from typing import Any, Callable
 
@@ -28,7 +28,7 @@ def database(function: Callable) -> Callable:
             Any:                value returned by the decorated function
         """
 
-        connect(host=DATABASE_CONNECTION_STRING)
+        connect(db=FUNC_ENV, host=DATABASE_CONNECTION_STRING)
         return_value = function(*args, **kwargs)
         disconnect()
 

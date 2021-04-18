@@ -1,3 +1,4 @@
+from lib.models.user import User
 from mongoengine.fields import EmailField, StringField, URLField
 from mongoengine import (
     Document,
@@ -11,33 +12,54 @@ from mongoengine import (
 )
 
 
-class ContactInformation(EmbeddedDocument):
-    name = StringField()
-    email = EmailField()
-    website = URLField()
+class Info(EmbeddedDocument):
+    title = StringField()
 
 
-class License(EmbeddedDocument):
-    name = StringField()
-    url = URLField()
+class Server(EmbeddedDocument):
+    ...
+
+
+class Paths(EmbeddedDocument):
+    ...
+
+
+class Components(EmbeddedDocument):
+    ...
+
+
+class Security(EmbeddedDocument):
+    ...
+
+
+class Tag(EmbeddedDocument):
+    ...
+
+
+class ExternalDocs(EmbeddedDocument):
+    ...
 
 
 class OpenApiDocument(Document):
-    # authors = ListField(ReferenceField())
+    """Represents the Open API document
 
-    is_deleted = BooleanField(default=False)
+    Implements and extends the [specification](https://swagger.io/specification/)
 
-    title = StringField()
-    version = StringField()
-    description = StringField()
-    terms_of_service = StringField()
+    Attributes:
+        authors (list[User]):   list of document owners
 
-    contact_information = EmbeddedDocumentField(ContactInformation)
+        is_deleted (boolean):   soft delete for the document
 
-    license = EmbeddedDocumentField(License)
+    """
 
-    @staticmethod
-    def from_json(document: dict) -> "OpenApiDocument":
-        return OpenApiDocument(
-            # authors=document["authors"], is_deleted=document["isDeleted"]
-        )
+    authors = ListField(ReferenceField(User))
+
+    isDeleted = BooleanField(default=False)
+
+    info = EmbeddedDocumentField(Info)
+    servers = ListField(EmbeddedDocumentField(Server))
+    paths = EmbeddedDocumentField(Paths)
+    components = EmbeddedDocumentField(Components)
+    security = ListField(EmbeddedDocumentField(Security))
+    tags = ListField(EmbeddedDocumentField(Tag))
+    externalDocs = EmbeddedDocumentField(ExternalDocs)
