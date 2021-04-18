@@ -22,6 +22,7 @@ jobs:
       - name: Run tests
         run: |
           cd site/
+          npm i
           npm test
           cd ..
 
