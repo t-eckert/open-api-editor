@@ -35,3 +35,7 @@
 .markdown ul {
   @apply ml-6 list-disc;
 }
+
+.bg-white-off {
+  background-color: hsl(0, 0%, 99%);
+}
