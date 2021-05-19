@@ -24,7 +24,7 @@ class User(Document):
 
         picture (URLField):                 a picture of the user to show in the UI
 
-        isPro (BooleanField):               if the user has pro feature access
+        plan (StringField):                 tier the user is subscribed to (e.g. "free", "paid")
 
         created (DateTimeField):            when the user object was first created
         lastLogin (DateTimeField):          the last time the user logged in
@@ -39,7 +39,7 @@ class User(Document):
 
     picture = URLField()
 
-    isPro = BooleanField(required=True, default=False)
+    plan = StringField(required=True, default="free")
 
     created = DateTimeField(default=datetime.now())
     lastLogin = DateTimeField(default=datetime.now())
