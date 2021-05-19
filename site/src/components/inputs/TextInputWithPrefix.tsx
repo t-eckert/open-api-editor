@@ -1,7 +1,7 @@
 type Props = {
   value: string
   onChange?: any
-  label: string
+  label?: string
   prefix: string
   placeholder: string
   id: string
@@ -16,12 +16,14 @@ const TextInput = (props: Props) => {
   return (
     <div className={props.className}>
       <div className="mb-1 w-full flex justify-between">
-        <label
-          className="block font-medium leading-5 text-gray-700"
-          htmlFor={props.id}
-        >
-          {props.label}
-        </label>
+        {props.label && (
+          <label
+            className="block font-medium leading-5 text-gray-700"
+            htmlFor={props.id}
+          >
+            {props.label}
+          </label>
+        )}
         <span className="block text-sm font-medium leading-5 text-gray-600">
           {props.isOptional ? "Optional" : ""}
         </span>

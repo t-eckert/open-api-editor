@@ -1,7 +1,7 @@
 type Props = {
   value: string
   onChange?: any
-  label: string
+  label?: string
   placeholder: string
   id: string
   isOptional: boolean
