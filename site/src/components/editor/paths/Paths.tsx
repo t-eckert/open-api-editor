@@ -16,7 +16,7 @@ const Paths = (props: Props) => {
           Add Path
         </Button>
       </header>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="w-full flex flex-cols gap-4">
         <Path />
       </div>
     </section>

@@ -1,32 +1,18 @@
 import TextInputWithPrefix from "../../inputs/TextInputWithPrefix"
-import TextArea from "../../inputs/TextArea"
 
 const General = () => {
   return (
-    <>
-      <TextInputWithPrefix
-        label="Path"
-        prefix="/"
-        placeholder="path"
-        id={"path"}
-        value=""
-        isOptional={false}
-      />
-      <TextArea
-        label="Summary"
-        placeholder="A short summary of the path"
-        id={"summary"}
-        value=""
-        isOptional={true}
-      />
-      <TextArea
-        label="Description"
-        placeholder="A short description of your path"
-        id={"description"}
-        value=""
-        isOptional={true}
-      />
-    </>
+    <div className="p-2 bg-white rounded-t-xl">
+      <div className="w-96">
+        <TextInputWithPrefix
+          prefix="/"
+          placeholder="path"
+          id={"path"}
+          value=""
+          isOptional={false}
+        />
+      </div>
+    </div>
   )
 }
 
