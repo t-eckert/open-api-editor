@@ -33,7 +33,7 @@ const TextInput = (props: Props) => {
           {props.prefix}
         </span>
         <input
-          className="block appearance-none w-full bg-white transition border border-gray-400 hover:border-gray-500 px-3 py-2 leading-tight focus focus:border-yellow-400 flex-1 min-w-0 rounded-none rounded-r-xl focus:ring-indigo-500"
+          className="block appearance-none w-full bg-white transition border border-gray-200 hover:border-gray-500 px-3 py-2 leading-tight focus focus:border-yellow-400 flex-1 min-w-0 rounded-none rounded-r-xl focus:ring-indigo-500"
           type={type}
           name={props.id}
           id={props.id}
