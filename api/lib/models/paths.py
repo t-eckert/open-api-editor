@@ -1,6 +1,6 @@
-from mongoengine import Document
+from mongoengine import EmbeddedDocument, DictField
 
 
-class Paths(Document):
-    # TODO how do I implement this?
-    ...
+class Paths(EmbeddedDocument):
+    # TODO Not sure how to implement this.
+    path = DictField()

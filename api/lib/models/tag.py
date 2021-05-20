@@ -1,7 +1,7 @@
-from mongoengine import Document, StringField
+from mongoengine import EmbeddedDocument, StringField
 
 
-class Tag(Document):
+class Tag(EmbeddedDocument):
 
     name: str = StringField()
     description: str = StringField()

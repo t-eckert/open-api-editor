@@ -1,7 +1,7 @@
-from mongoengine import Document, StringField
+from mongoengine import EmbeddedDocument, StringField
 
 
-class ExternalDocs(Document):
+class ExternalDocs(EmbeddedDocument):
 
     description: str = StringField()
     url: str = StringField()

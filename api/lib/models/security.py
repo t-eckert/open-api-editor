@@ -1,5 +1,5 @@
-from mongoengine import Document
+from mongoengine import EmbeddedDocument
 
 
-class Security(Document):
+class Security(EmbeddedDocument):
     ...

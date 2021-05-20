@@ -1,6 +1,6 @@
-from mongoengine import Document, StringField
+from mongoengine import EmbeddedDocument, StringField
 
 
-class License(Document):
+class License(EmbeddedDocument):
     name: str = StringField()
     url: str = StringField()

@@ -1,7 +1,7 @@
-from mongoengine import Document, MapField, StringField
+from mongoengine import EmbeddedDocument, DictField, StringField
 
 
-class Server(Document):
+class Server(EmbeddedDocument):
     """Represents a server
 
     Attributes
@@ -18,4 +18,4 @@ class Server(Document):
 
     url: str = StringField()
     description: str = StringField()
-    variables: dict = MapField()
+    variables: dict = DictField()

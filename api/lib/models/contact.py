@@ -1,7 +1,7 @@
-from mongoengine import Document, StringField
+from mongoengine import EmbeddedDocument, StringField
 
 
-class Contact(Document):
+class Contact(EmbeddedDocument):
     name: str = StringField()
     url: str = StringField()
     email: str = StringField()

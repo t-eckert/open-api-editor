@@ -1,9 +1,9 @@
 from lib.models.contact import Contact
 from lib.models.license import License
-from mongoengine import Document, EmbeddedDocumentField, StringField
+from mongoengine import EmbeddedDocument, EmbeddedDocumentField, StringField
 
 
-class Info(Document):
+class Info(EmbeddedDocument):
     """Provides metadata about the API. The metadata may be used by the clients if needed, and may be presented in
         editing or documentation generation tools for convenience.
 

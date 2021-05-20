@@ -1,7 +1,7 @@
-from mongoengine import Document, MapField
+from mongoengine import EmbeddedDocument, DictField
 
 
-class Components(Document):
+class Components(EmbeddedDocument):
     """An element to hold various schemas for the specification.
 
     Attributes
@@ -10,12 +10,12 @@ class Components(Document):
     schemas: dict               Holds reusable schema objects.
     """
 
-    schemas: dict = MapField()
-    responses: dict = MapField()
-    parameters: dict = MapField()
-    examples: dict = MapField()
-    requestBodies: dict = MapField()
-    headers: dict = MapField()
-    securitySchemas: dict = MapField()
-    links: dict = MapField()
-    callbacks: dict = MapField()
+    schemas: dict = DictField()
+    responses: dict = DictField()
+    parameters: dict = DictField()
+    examples: dict = DictField()
+    requestBodies: dict = DictField()
+    headers: dict = DictField()
+    securitySchemas: dict = DictField()
+    links: dict = DictField()
+    callbacks: dict = DictField()
