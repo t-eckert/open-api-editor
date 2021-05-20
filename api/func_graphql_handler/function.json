@@ -1,14 +1,14 @@
 {
   "scriptFile": "__init__.py",
-  "entryPoint": "handle_documents_request",
+  "entryPoint": "handle_graphql_request",
   "bindings": [
     {
       "authLevel": "anonymous",
       "type": "httpTrigger",
       "direction": "in",
       "name": "request",
-      "methods": ["get", "post", "put", "delete"],
-      "route": "documents/{id?}"
+      "methods": ["get", "post"],
+      "route": "graphql"
     },
     {
       "type": "http",
