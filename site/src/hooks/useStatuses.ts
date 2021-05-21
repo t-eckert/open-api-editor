@@ -1,11 +1,9 @@
 import { useContext } from "react"
 
 import { UserStoreContext } from "../stores/user"
-import { DocumentsStoreContext } from "../stores/documents"
 
 const useStatuses = (): string[] => {
   const userStore = useContext(UserStoreContext)
-  const documentsStore = useContext(DocumentsStoreContext)
 
   const statuses = []
 
@@ -15,8 +13,6 @@ const useStatuses = (): string[] => {
     statuses.push("Logging in")
   if (userStore.status === "loggingOut")
     statuses.push("Logging out")
-  if (documentsStore.status === "documentsRequested")
-    statuses.push("Loading documents")
 
   return statuses
 }

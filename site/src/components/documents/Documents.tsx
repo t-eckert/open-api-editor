@@ -8,10 +8,11 @@ type Props = {
 
 const Documents = (props: Props) => {
   const documents = props.documents
+
   const documentPreviews =
-    documents.length > 0 &&
-    props.documents.map((document) => (
-      <DocumentPreview document={document} key="a" />
+    documents &&
+    documents.map((document) => (
+      <DocumentPreview document={document} key={document._id.$oid} />
     ))
 
   return (
