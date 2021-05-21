@@ -10,27 +10,30 @@ const classRoles = new Map([
   [
     "primary",
     [
-      "font-medium text-white rounded-full px-3 py-1 shadow transition bg-yellow-500",
+      "font-medium text-white rounded-full px-3 py-1 shadow transition select-none bg-yellow-500",
       "hover:bg-yellow-600 hover:text-white focus",
     ].join(" "),
   ],
   [
     "secondary",
     [
-      "font-medium text-yellow-500 shadow bg-white px-3 py-1 rounded-full",
+      "font-medium text-yellow-500 shadow bg-white px-3 py-1 select-none rounded-full",
       "hover:text-white hover:bg-yellow-500 transition",
       "focus",
     ].join(" "),
   ],
-  ["tertiary", "font-medium text-yellow-500 hover:text-yellow-600 transition"],
+  [
+    "tertiary",
+    "font-medium text-yellow-500 select-none hover:text-yellow-600 transition",
+  ],
   ["link", "font-medium text-gray-600 hover:text-gray-900 transition focus"],
 ])
 
 const Button = (props: Props) => {
-  const classes = classRoles.get(props.role) ?? ""
+  const className = classRoles.get(props.role) ?? ""
 
   return (
-    <button className={classes} onClick={props.action}>
+    <button className={className} onClick={props.action}>
       {props.children}
     </button>
   )
