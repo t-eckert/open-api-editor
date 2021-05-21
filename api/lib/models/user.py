@@ -39,6 +39,8 @@ class User(Document):
 
     picture = URLField()
 
+    # TODO remove this field
+    isPro = BooleanField()
     plan = StringField(required=True, default="free")
 
     created = DateTimeField(default=datetime.now())
@@ -46,9 +48,6 @@ class User(Document):
 
     documents = ListField(ReferenceField("OpenApiDocument"), default=[])
     settings = ReferenceField("Settings")
-
-    def can_create_document(self) -> bool:
-        return self.isPro or (len(self.documents) < MAX_FREE_DOCUMENTS and not self.isPro)
 
     @staticmethod
     def from_github_data(**kwargs) -> "User":
