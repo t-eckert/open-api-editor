@@ -7,7 +7,16 @@ from lib.models.security import Security
 from lib.models.server import Server
 from lib.models.tag import Tag
 from lib.models.user import User
-from mongoengine import BooleanField, Document, DateField, EmbeddedDocumentField, ListField, ReferenceField, StringField
+from mongoengine import (
+    BooleanField,
+    Document,
+    DateField,
+    DictField,
+    EmbeddedDocumentField,
+    ListField,
+    ReferenceField,
+    StringField,
+)
 
 
 class OpenApiDocument(Document):
@@ -42,6 +51,8 @@ class OpenApiDocument(Document):
                                 organized randomly or based on the tools' logic. Each tag name in the list MUST be unique.
     externalDocs: ExternalDocs  Additional external documentation
     """
+
+    _id: dict = DictField()
 
     authors: list[User] = ListField(ReferenceField(User))
 
