@@ -1,7 +1,7 @@
-const SettingsIcon = (props: { classes: string }) => {
+const SettingsIcon = (props: { className?: string }) => {
   return (
     <svg
-      className={props.classes}
+      className={props.className}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
@@ -12,7 +12,7 @@ const SettingsIcon = (props: { classes: string }) => {
         clipRule="evenodd"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default SettingsIcon;
+export default SettingsIcon
