@@ -1,12 +1,13 @@
 import CloseIcon from "../../icons/CloseIcon"
 import TextInput from "../../inputs/TextInput"
+
 const License = (props: { closeAction: any }) => {
   return (
     <div className="bg-white rounded-xl shadow flex flex-col gap-3">
       <header className="px-3 pt-3 flex flex-row justify-between items-center">
         <h2 className="font-medium">License</h2>
         <CloseIcon
-          classes="h-4 w-4 text-gray-900 hover:text-yellow-500 cursor-pointer"
+          className="h-4 w-4 text-gray-900 hover:text-yellow-500 cursor-pointer"
           onClick={props.closeAction}
         />
       </header>

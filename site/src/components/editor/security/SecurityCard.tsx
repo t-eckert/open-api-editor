@@ -7,7 +7,7 @@ const SecurityCard = () => {
     <section className="bg-gray-50 rounded-xl shadow flex flex-col">
       <header className="px-4 py-1 flex items-center justify-between">
         <h2 className="font-medium text-gray-900">Security</h2>
-        <CloseIcon classes="h-4 w-4" />
+        <CloseIcon className="h-4 w-4" />
       </header>
       <main className="p-3 flex flex-col gap-3 bg-white rounded-xl">
         <TextArea

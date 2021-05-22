@@ -11,7 +11,7 @@ const Server = (props: Props) => {
     <section className="bg-gray-50 w-96 rounded-lg shadow flex flex-col">
       <header className="px-4 py-1 flex flex-row items-center justify-between">
         <h2 className="font-medium">Server</h2>
-        <CloseIcon classes="h-4 w-4" />
+        <CloseIcon className="h-4 w-4" />
       </header>
       <main className="bg-white p-4 flex flex-col gap-2 rounded-lg">
         <TextInput
