@@ -37,5 +37,8 @@ def handle_graphql_request(request: HttpRequest) -> HttpResponse:
     except Exception:
         return HttpResponse("Invalid auth token", status_code=401)
 
+    if (document_id := request.params.get("id")):
+        return HttpResponse(body=json.dumps(json.loads(mock_open_api_document_1.to_json())))
+
     return HttpResponse(body=json.dumps(json.loads(f"[{mock_open_api_document_1.to_json()}]")))
     # return schema.execute()
