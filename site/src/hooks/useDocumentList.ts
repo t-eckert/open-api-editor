@@ -2,12 +2,16 @@ import { API } from "../config"
 import { useQuery } from "react-query"
 import { OpenApiDocument } from "../interfaces"
 
+import useAlerts from "./useAlerts"
+
 type DocumentListQuery = {
   documents: OpenApiDocument[]
 }
 
 const useDocumentList = (token: string): DocumentListQuery => {
-  const { data: documents } = useQuery("documentList", async () => {
+  const alertStore = useAlerts()
+
+  const { data: documents, status, error } = useQuery("documentList", async () => {
     const response = await fetch(
       `${API}/graphql`,
       { method: "get", headers: { "Authorization": token } }
@@ -18,6 +22,17 @@ const useDocumentList = (token: string): DocumentListQuery => {
 
     return response.json()
   })
+
+
+  if (status === "loading")
+    alertStore.addStatus({ statusKey: "loadingDocuments", text: "Loading documents" })
+  else
+    alertStore.removeStatus("loadingDocuments")
+
+  if (status === "error") {
+    const errorText = typeof error === "string" ? error : "error"
+    alertStore.addNotification({ notificationKey: "errorLoadingDocuments", title: "Could not load documents", text: `Server responded with ${errorText}.`, role: "error" })
+  }
 
   return { documents }
 }
