@@ -1,7 +1,7 @@
-const CloseIcon = (props: { classes?: string; onClick?: any }) => {
+const CloseIcon = (props: { className?: string; onClick?: any }) => {
   return (
     <svg
-      className={props.classes}
+      className={props.className}
       onClick={props.onClick}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
