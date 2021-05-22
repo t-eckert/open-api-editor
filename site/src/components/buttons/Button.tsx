@@ -24,7 +24,7 @@ const classRoles = new Map([
   ],
   [
     "tertiary",
-    "font-medium text-yellow-500 select-none hover:text-yellow-600 transition",
+    "font-medium text-sm text-yellow-500 select-none hover:text-yellow-600 transition",
   ],
   ["link", "font-medium text-gray-600 hover:text-gray-900 transition focus"],
 ])
