@@ -16,7 +16,6 @@ const DocumentsView = () => {
     <main className="flex flex-col sm:flex-row w-screen">
       <MainLeading />
       <MainCenter>
-        {/* @ts-ignore */}
         <Documents documents={documents} />
       </MainCenter>
       <MainFollowing />
