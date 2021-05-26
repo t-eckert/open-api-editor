@@ -1,5 +1,4 @@
 from datetime import datetime
-from lib.config import MAX_FREE_DOCUMENTS
 from mongoengine import (
     BooleanField,
     DateTimeField,
