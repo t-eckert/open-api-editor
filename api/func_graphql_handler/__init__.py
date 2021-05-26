@@ -28,17 +28,12 @@ def handle_graphql_request(request: HttpRequest) -> HttpResponse:
 
     token: Optional[str] = request.headers.get("Authorization")
 
-    if not token:
-        return HttpResponse("Invalid authorization token", status_code=401)
-
     try:
-        token_payload: dict = jwt.decode(token)
-        user_id: str = token_payload["_id"]["$oid"]
-    except Exception:
-        return HttpResponse("Invalid auth token", status_code=401)
+        logging.info(request.get_json())
+        query = request.get_json()["query"]
+    except:
+        return HttpRequest("Invalid schema", 400)
 
-    if (document_id := request.params.get("id")):
-        return HttpResponse(body=json.dumps(json.loads(mock_open_api_document_1.to_json())))
+    result = schema.execute(query)
 
-    return HttpResponse(body=json.dumps(json.loads(f"[{mock_open_api_document_1.to_json()}]")))
-    # return schema.execute()
+    return HttpResponse(json.dumps(result.data))

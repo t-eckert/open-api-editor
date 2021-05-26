@@ -7,7 +7,7 @@
       "type": "httpTrigger",
       "direction": "in",
       "name": "request",
-      "methods": ["get", "post"],
+      "methods": ["post"],
       "route": "graphql"
     },
     {
