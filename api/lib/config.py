@@ -13,7 +13,7 @@ load_dotenv(env_path)
 
 FUNC_ENV: str = os.getenv("FUNC_ENV", "local")
 
-MAX_FREE_DOCUMENTS: int = 2
+MAX_DOCUMENTS: int = 1024
 
 
 logging.info(f"Loading environment variables for {FUNC_ENV}")
