@@ -1,3 +1,4 @@
+from lib.graphql.schema.settings import SettingsType
 from graphene import Schema
 from lib.database import database
 from lib.graphql.mutation import Mutation

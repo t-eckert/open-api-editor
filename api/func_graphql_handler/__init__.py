@@ -30,6 +30,10 @@ def handle_graphql_request(request: HttpRequest) -> HttpResponse:
         query = request.get_json()["query"]
         result = execute_query(query)
     except Exception:
-        return HttpRequest("Invalid query", 400)
+        return HttpResponse("Invalid query", status_code=400)
+
+    if (errors := result.errors) :
+        logging.error(errors)
+        return HttpResponse("Invalid query", status_code=400)
 
     return HttpResponse(json.dumps(result.data))
