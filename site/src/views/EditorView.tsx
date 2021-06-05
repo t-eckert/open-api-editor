@@ -7,6 +7,7 @@ import MainFollowing from "../components/layout/MainFollowing"
 import Navigation from "../components/editor/Navigation"
 import FeedbackToken from "../components/tokens/FeedbackToken"
 import { useDocument, useDocumentStore, useUserStore } from "../hooks"
+import TextEditor from "../components/editor/textEditor/TextEditor"
 
 type Props = {
   match: { params: { id: string } }
@@ -19,9 +20,12 @@ const EditorView = observer((props: Props) => {
 
   const token = userStore.jwt || ""
 
-  const { openApiDocument } = useDocument(token, documentId)
+  const openApiDocument = useDocument(token, documentId)
 
-  const documentStore = useDocumentStore(openApiDocument)
+  const documentStore = useDocumentStore()
+  documentStore.setOpenApiDocument(openApiDocument)
+
+  const showTextEditor = true
 
   return (
     <main className="flex flex-col sm:flex-row w-screen">
@@ -31,10 +35,10 @@ const EditorView = observer((props: Props) => {
         </div>
       </MainLeading>
       <MainCenter>
-        <pre>
-          <code>{JSON.stringify(documentStore.openApiDocument)}</code>
-        </pre>
         <Editor />
+        {showTextEditor && (
+          <TextEditor className="fixed z-20 right-4 bottom-4" />
+        )}
       </MainCenter>
       <MainFollowing />
       <FeedbackToken className="fixed left-4 bottom-4" />

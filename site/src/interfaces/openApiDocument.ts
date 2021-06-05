@@ -2,6 +2,9 @@ import User from "./user";
 
 interface Info {
   title: string
+  version: string
+  termsOfService?: string
+  description: string
 }
 
 interface Server { }
@@ -24,12 +27,12 @@ interface OpenApiDocument {
   isDeleted: boolean
 
   info: Info
-  servers: Server[]
-  paths: Paths
-  components: Components
-  security: Security[]
-  tags: Tag[]
-  externalDocs: ExternalDocs
+  // servers: Server[]
+  // paths: Paths
+  // components: Components
+  // security: Security[]
+  // tags: Tag[]
+  // externalDocs: ExternalDocs
 }
 
 export default OpenApiDocument

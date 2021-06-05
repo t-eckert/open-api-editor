@@ -1,24 +1,23 @@
-import { useQuery } from "react-query"
-
-import { API } from "../config"
 import { OpenApiDocument } from "../interfaces"
 
-const useDocument = (token: string, documentId: string): { openApiDocument?: OpenApiDocument, status: string } => {
+const mockOpenApiDocument: OpenApiDocument = {
+  "_id": {
+    "$oid": "a867b112-85ac-4bb0-86e1-0a6c6f555e0c"
+  },
+  "authors": [],
+  "isDeleted": false,
+  "info": {
+    "title": "Test",
+    "version": "1.0.0",
+    termsOfService: "",
+    description: "Description"
+  },
+}
 
-  const { data: openApiDocument, status, error } = useQuery<OpenApiDocument, Error>(`document:${documentId}`, async () => {
-    const response = await fetch(
-      `${API}/graphql?id=${documentId}`,
-      { method: "get", headers: { "Authorization": token } }
-    )
+const useDocument = (token: string, documentId: string): OpenApiDocument => {
+  console.log("Running useDocument")
 
-    if (!response.ok) {
-      throw new Error(`Could not load document with id ${documentId}`)
-    }
-
-    return response.json()
-  })
-
-  return { openApiDocument, status }
+  return mockOpenApiDocument
 }
 
 export default useDocument

@@ -1,3 +1,4 @@
 import commands from "./commands"
+import defaultOpenApiDocument from "./defaultOpenApiDocument"
 
-export { commands }
+export { commands, defaultOpenApiDocument }

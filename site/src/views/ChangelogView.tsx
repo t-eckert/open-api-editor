@@ -8,15 +8,21 @@ import { useChangelog, useScrollTo } from "../hooks"
  * Mapped to /changelog route
  */
 const ChangelogView = (): JSX.Element => {
-  const changelog = useChangelog()
+  const {
+    data: { changelog },
+    status,
+    error,
+  } = useChangelog()
   useScrollTo(0, 0)
 
   return (
     <article className="mx-auto mt-8 max-w-xl">
-      {changelog && (
+      {status === "success" ? (
         <ReactMarkdown className="markdown p-6 rounded-xl bg-white shadow">
           {changelog}
         </ReactMarkdown>
+      ) : status === "error" ? (
+        <section>Could not </section>
       )}
     </article>
   )
