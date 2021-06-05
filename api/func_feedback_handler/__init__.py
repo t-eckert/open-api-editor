@@ -39,11 +39,17 @@ def handle_feedback_request(request: HttpRequest) -> HttpResponse:
     email_message = Email(
         "thomas@openapieditor.com", [DEV_EMAIL], subject, feedback.feedbackBody, reply_to=feedback.email
     )
-    response = email_message.send()
+    email_message.send()
 
     return HttpResponse("Ok")
 
 
 @database
 def save_feedback(feedback: Feedback):
+    """Saves feedback to the database
+
+    Args:
+        feedback (Feedback):    feedback to be saved
+    """
+
     feedback.save()
