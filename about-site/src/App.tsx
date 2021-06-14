@@ -1,8 +1,16 @@
+import { BrowserRouter as Router } from "react-router-dom"
+
+import View from "./View"
+
+/** `App` component
+ *
+ * The root component for the React application
+ */
 const App = () => {
   return (
-    <div className="App">
-      <h1>About Open API Editor</h1>
-    </div>
+    <Router>
+      <View />
+    </Router>
   )
 }
 

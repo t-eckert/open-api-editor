@@ -16,6 +16,7 @@
     "@types/react-anchor-link-smooth-scroll": "^1.0.1",
     "@types/react-dom": "^17.0.2",
     "@types/react-router-dom": "^5.1.7",
+    "csv-string": "^4.0.1",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "json5": "^2.2.0",
@@ -63,6 +64,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
+    "jest": "^27.0.4",
     "postcss": "^7.0.36",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.4"
   }
