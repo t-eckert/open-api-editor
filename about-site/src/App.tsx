@@ -1,6 +1,9 @@
+import { QueryClient, QueryClientProvider } from "react-query"
 import { BrowserRouter as Router } from "react-router-dom"
 
 import View from "./View"
+
+const queryClient = new QueryClient()
 
 /** `App` component
  *
@@ -8,9 +11,11 @@ import View from "./View"
  */
 const App = () => {
   return (
-    <Router>
-      <View />
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <View />
+      </Router>
+    </QueryClientProvider>
   )
 }
 

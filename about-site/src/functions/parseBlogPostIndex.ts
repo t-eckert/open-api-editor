@@ -1,10 +1,12 @@
 import * as CSV from "csv-string"
 
-import { BlogPostIndex } from "../types"
+import { BlogPost } from "../types"
 
-export const parseBlogPostIndex = (blogPostIndex: string): BlogPostIndex | undefined => {
+export const parseBlogPostIndex = (blogPostIndex?: string): BlogPost[] | undefined => {
+	if (!blogPostIndex)
+		return undefined
+
 	const parsedCsv = CSV.parse(blogPostIndex)
 
-
-	return undefined
+	return parsedCsv.slice(1).map((row: string[]) => ({ id: row[0], title: row[1], slug: row[2], date: new Date(row[3]) }))
 }

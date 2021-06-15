@@ -4,7 +4,7 @@ import Documents from "../components/Documents"
 
 const HomepageView = () => {
   return (
-    <div className="bg-yellow-100 w-screen h-screen">
+    <div className="bg-yellow-50 w-screen h-screen">
       <div className="mx-auto container">
         <header className="pt-60 mb-20">
           <h1 className="font-medium text-xl text-yellow-800">About</h1>
