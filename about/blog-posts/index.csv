@@ -1,3 +1,2 @@
-id, title, slug, date
-000, Beginning one year in, beginning-one-year-in, 13-6-21
-001, Migrating the backend from Serverless to Flask, migrating-serverless-to-flask, 15-6-21
+id,title,slug,date
+000,Migrating from Serverless to Flask,migrating-serverless-to-flask,2021-6-16
