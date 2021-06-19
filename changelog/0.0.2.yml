@@ -1,0 +1,12 @@
+version: 0.0.2
+
+title: This is Dr. Frasier Crane. I'm listening.
+
+released: 9 April 2021
+
+updates:
+  - A user can send feedback to me
+  - API persists data to the database
+  - Sentry listens to API logs and errors
+  - Show user logging in status
+  - Some of the editor UI is roughly fleshed out

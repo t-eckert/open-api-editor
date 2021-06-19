@@ -1,0 +1,9 @@
+version: 0.0.1
+
+title: I know you from somewhere
+
+released: 1 April 2021
+
+updates:
+  - A user can log in with GitHub OAuth
+  - A user can view the changelog
