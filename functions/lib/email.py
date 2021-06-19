@@ -1,5 +1,5 @@
 from typing import Optional
-from lib.config import SENDGRID_API_KEY
+from app.config import SENDGRID_API_KEY
 from sendgrid.helpers.mail import Email as EmailAddress, Mail, To
 
 import sendgrid
