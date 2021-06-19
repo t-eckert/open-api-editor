@@ -1,12 +1,14 @@
+import { useDocument } from "../hooks/useDocument"
+
 type Props = {
-  documentName: string
+  documentId: string
 }
 
 /** `DocumentView` component
  *
  * Grabs a markdown document using the `useDocument` hook and displays it, parsing the markdown to HTML
  */
-const DocumentView = ({ documentName }: Props) => {
+const BlogPostView = ({ documentId }: Props) => {
   return <div>Document</div>
 }
 

@@ -1,6 +1,6 @@
 import * as CSV from "csv-string"
 
-import { BlogPost } from "../types"
+import { BlogPost } from "../types/BlogPost"
 
 export const parseBlogPostIndex = (blogPostIndex?: string): BlogPost[] | undefined => {
 	if (!blogPostIndex)

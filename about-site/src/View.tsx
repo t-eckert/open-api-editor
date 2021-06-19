@@ -10,8 +10,8 @@ import DocumentView from "./views/DocumentView"
 const View = () => {
   return (
     <>
-      <Route path="/" component={HomepageView} />
-      <Route path="/:id" component={DocumentView} />
+      <Route exact path="/" component={HomepageView} />
+      <Route exact path="/posts/:slug" component={DocumentView} />
     </>
   )
 }
