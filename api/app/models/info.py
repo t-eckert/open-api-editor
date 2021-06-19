@@ -1,5 +1,5 @@
-from lib.models.contact import Contact
-from lib.models.license import License
+from app.models.contact import Contact
+from app.models.license import License
 from mongoengine import EmbeddedDocument, EmbeddedDocumentField, StringField
 
 

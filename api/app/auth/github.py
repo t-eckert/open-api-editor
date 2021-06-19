@@ -1,4 +1,4 @@
-from lib.config import (
+from app.config import (
     GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET,
     GITHUB_OAUTH_API,

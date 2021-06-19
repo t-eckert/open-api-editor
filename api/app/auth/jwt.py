@@ -1,4 +1,4 @@
-from lib.config import JWT_SECRET, VALID_TIME
+from app.config import JWT_SECRET, VALID_TIME
 from time import time
 from typing import Optional
 

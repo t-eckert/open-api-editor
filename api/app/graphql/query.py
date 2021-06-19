@@ -1,8 +1,8 @@
-from lib.models.settings import Settings
+from app.models.settings import Settings
 from graphene import ObjectType, List, String
 from graphene_mongo import MongoengineConnectionField
-from lib.changelog import get_changelog
-from lib.graphql.schema.settings import SettingsType
+from app.changelog import get_changelog
+from app.graphql.schema.settings import SettingsType
 
 
 class Query(ObjectType):

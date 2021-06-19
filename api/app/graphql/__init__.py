@@ -1,8 +1,8 @@
-from lib.graphql.schema.settings import SettingsType
+from app.graphql.schema.settings import SettingsType
 from graphene import Schema
-from lib.database import database
-from lib.graphql.mutation import Mutation
-from lib.graphql.query import Query
+from app.database import database
+from app.graphql.mutation import Mutation
+from app.graphql.query import Query
 from typing import Any
 
 schema = Schema(query=Query)

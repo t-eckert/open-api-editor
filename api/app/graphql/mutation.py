@@ -1,5 +1,5 @@
 from graphene import ObjectType
-from lib.graphql.schema.settings import CreateSettings
+from app.graphql.schema.settings import CreateSettings
 
 
 class Mutation(ObjectType):

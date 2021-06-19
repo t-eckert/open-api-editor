@@ -1,12 +1,12 @@
 from datetime import datetime
-from lib.models.components import Components
-from lib.models.external_docs import ExternalDocs
-from lib.models.paths import Paths
-from lib.models.info import Info
-from lib.models.security import Security
-from lib.models.server import Server
-from lib.models.tag import Tag
-from lib.models.user import User
+from app.models.components import Components
+from app.models.external_docs import ExternalDocs
+from app.models.paths import Paths
+from app.models.info import Info
+from app.models.security import Security
+from app.models.server import Server
+from app.models.tag import Tag
+from app.models.user import User
 from mongoengine import (
     BooleanField,
     Document,
