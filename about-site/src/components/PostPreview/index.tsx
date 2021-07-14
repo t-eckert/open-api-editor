@@ -1,7 +1,15 @@
 import React from "react"
 
-const PostPreview = () => {
-	return <div>Post Preview</div>
+import { Post } from "../../types"
+
+type Props = {
+	post: Post
+}
+
+const PostPreview = ({post}: Props) => {
+	return <div>
+		<h3>{ post.title }</h3>
+	</div>
 }
 
 export default PostPreview

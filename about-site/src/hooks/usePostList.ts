@@ -1,13 +1,10 @@
 import { useQuery } from "react-query"
 
+import { Post } from "../types"
+import { fetchPostList } from "../actions"
+
 const usePostList = () => {
-
-	const { data: postList } = useQuery("postList", async () => {
-		const result = await fetch("")
-		return result.json()
-	})
-
-	return postList
+	return useQuery<Post[]>("postList", fetchPostList)
 }
 
 export default usePostList

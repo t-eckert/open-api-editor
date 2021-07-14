@@ -1,16 +1,25 @@
 import React from "react";
+
+import { QueryClient, QueryClientProvider } from "react-query"
 import { BrowserRouter as Router } from "react-router-dom"
 
 import View from "./components/View"
+
+
+const queryClient = new QueryClient()
 
 /** `App` component
  *
  * The root component for the React application 
  */
 const App = () => {
-  return <Router>
-    <View />
-  </Router>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <View />
+      </Router>
+    </QueryClientProvider>
+  )
 };
 
 export default App;

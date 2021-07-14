@@ -1,5 +1,6 @@
 type Post = {
-	id: number
+	id: string
+	title: string
 }
 
 export type { Post }
