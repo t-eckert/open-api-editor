@@ -1,6 +1,6 @@
 # sourcery skip: hoist-statement-from-if
 from dotenv import load_dotenv
-from lib.env import get_required_env_var
+from app.env import get_required_env_var
 from pathlib import Path
 from typing import Optional
 
@@ -19,6 +19,9 @@ MAX_DOCUMENTS: int = 1024
 logging.info(f"Loading environment variables for {FUNC_ENV}")
 
 if FUNC_ENV == "production":
+    # Changelog
+    CHANGELOG_URL: str = "https://raw.githubusercontent.com/t-eckert/open-api-editor/main/changelog"
+
     # Database
     DATABASE_CONNECTION_STRING: str = get_required_env_var("DB_CONNECTION_PRODUCTION")
 
@@ -42,6 +45,9 @@ if FUNC_ENV == "production":
 
 
 elif FUNC_ENV == "development":
+    # Changelog
+    CHANGELOG_URL: str = "https://raw.githubusercontent.com/t-eckert/open-api-editor/main/changelog"
+
     # Database
     DATABASE_CONNECTION_STRING: str = get_required_env_var("DB_CONNECTION_DEVELOPMENT")
 
@@ -60,11 +66,14 @@ elif FUNC_ENV == "development":
     SENTRY_CONFIG: dict = {"debug": True, "environment": FUNC_ENV}
 
     # JWT
-    VALID_TIME: int = 3600  # seconds
+    VALID_TIME: int = 3600  # seconds (1 hour)
     JWT_SECRET: str = get_required_env_var("JWT_SECRET")
 
 
 elif FUNC_ENV == "test":
+    # Changelog
+    CHANGELOG_URL: str = "https://raw.githubusercontent.com/t-eckert/open-api-editor/main/changelog"
+
     # Database
     DATABASE_CONNECTION_STRING: str = get_required_env_var("DB_CONNECTION_TEST")
 

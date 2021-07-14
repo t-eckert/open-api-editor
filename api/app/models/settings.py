@@ -1,4 +1,4 @@
-from lib.models.user import User
+from app.models.user import User
 from mongoengine import Document, BooleanField, ListField, ReferenceField
 
 

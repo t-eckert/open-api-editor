@@ -1,0 +1,70 @@
+{
+  "name": "about-site",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "@headlessui/react": "^1.2.0",
+    "@sentry/react": "^6.2.5",
+    "@sentry/tracing": "^6.2.5",
+    "@tailwindcss/forms": "^0.3.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/node": "^14.14.34",
+    "@types/react": "^17.0.3",
+    "@types/react-anchor-link-smooth-scroll": "^1.0.1",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-router-dom": "^5.1.7",
+    "csv-string": "^4.0.1",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
+    "json5": "^2.2.0",
+    "jwt-decode": "^3.1.2",
+    "mobx": "^6.1.8",
+    "mobx-react-lite": "^3.2.0",
+    "react": "^17.0.1",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-dom": "^17.0.1",
+    "react-markdown": "^5.0.3",
+    "react-query": "^3.16.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-spring": "^9.1.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "validator": "^13.5.2",
+    "web-vitals": "^1.0.1",
+    "xstate": "^4.17.1",
+    "yamljs": "^0.3.0"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "jest",
+    "eject": "craco eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.4"
+  }
+}

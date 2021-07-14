@@ -1,4 +1,4 @@
-from lib.config import SENTRY_URL, SENTRY_CONFIG
+from app.config import SENTRY_URL, SENTRY_CONFIG
 from sentry_sdk.integrations.serverless import serverless_function
 
 import sentry_sdk

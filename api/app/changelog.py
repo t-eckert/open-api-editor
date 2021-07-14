@@ -1,16 +1,24 @@
-from functools import lru_cache
+from app.cache import cache
+from app.config import CHANGELOG_URL
+from app.models.changelog import Changelog
+from app.models.changelog_version import ChangelogVersion
 
 import requests
 
 
-@lru_cache
-def get_changelog() -> str:
-    """Fetches the Open API Editor changelog from GitHub result is cached for the lifetime of the Azure Function
+def get_changelog() -> Changelog:
+    """Fetches the Open API Editor changelog from GitHub or the cache
 
     Returns:
-        str:                    raw content from the CHANGELOG.md or "" if the request fails
+        Changelog:              formatted changelog from GitHub
     """
 
-    response = requests.get("https://raw.githubusercontent.com/t-eckert/open-api-editor/main/CHANGELOG.md")
+    return cache.get("changelog") or hydrate_changelog()
 
-    return response.text if response.ok else ""
+
+def hydrate_changelog() -> Changelog:
+
+    # TODO properly implement this
+    changelog_yaml = requests.get(CHANGELOG_URL).text
+
+    return Changelog(versions=[ChangelogVersion.from_yaml(yaml) for yaml in changelog_yaml])
