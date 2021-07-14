@@ -1,4 +1,3 @@
-export const CHANGELOG_URL = "https://raw.githubusercontent.com/t-eckert/open-api-editor/main/CHANGELOG.md"
 export const GITHUB_OAUTH_URL = "https://github.com/login/oauth/authorize"
 export const SENTRY_DSN = "https://edcad8a8d01c429b8be28ac2ba8d2737@o559088.ingest.sentry.io/5693462"
 export const VERSION = process.env.npm_package_version

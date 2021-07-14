@@ -25,6 +25,16 @@ const App = () => {
   return (
     <Router>
       <div id="page-top" />
+      <div className="w-full py-1 bg-yellow-700 font-medium text-center text-white">
+        Open API Editor is still in alpha (0.0.3). You can follow updates in the{" "}
+        <a
+          className="underline focus"
+          href="https://github.com/t-eckert/open-api-editor"
+        >
+          repository
+        </a>
+        .
+      </div>
       <Alerts />
       <div className="bg-yellow-50 min-h-screen overflow-x-hidden">
         <Header />

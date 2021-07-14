@@ -1,4 +1,5 @@
 import Button from "../../buttons/Button"
+import Path from "./Path"
 
 type Props = {
   className?: string
@@ -7,7 +8,7 @@ type Props = {
 const Paths = (props: Props) => {
   return (
     <section className={"" + props.className}>
-      <header className="flex flex-row justify-between">
+      <header className="mb-2 flex flex-row justify-between">
         <h2 className="text-xl font-medium text-gray-900" id="paths">
           Paths
         </h2>
@@ -15,6 +16,9 @@ const Paths = (props: Props) => {
           Add Path
         </Button>
       </header>
+      <div className="w-full flex flex-cols gap-4">
+        <Path />
+      </div>
     </section>
   )
 }

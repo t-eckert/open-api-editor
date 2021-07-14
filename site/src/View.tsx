@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 
 import { useUserStore } from "./hooks"
 
-import GuardedRoute from "./components/GuardedRoute"
+import RouteGuard from "./components/RouteGuard"
 import SplashView from "./views/SplashView"
 import DocumentsView from "./views/DocumentsView"
 import EditorView from "./views/EditorView"
@@ -23,20 +23,20 @@ const View = observer(() => {
 
   return (
     <>
-      <GuardedRoute
+      <RouteGuard
         exact={true}
         path="/"
         component={DocumentsView}
         fallback={SplashView}
         isAuthenticated={isAuthenticated}
       />
-      <GuardedRoute
+      <RouteGuard
         path="/editor/:id"
         component={EditorView}
         fallback={SplashView}
         isAuthenticated={isAuthenticated}
       />
-      <GuardedRoute
+      <RouteGuard
         path="/settings"
         component={SettingsView}
         fallback={SplashView}

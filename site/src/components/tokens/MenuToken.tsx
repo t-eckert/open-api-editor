@@ -1,85 +1,68 @@
 import { Link } from "react-router-dom"
-import { useContext, useRef } from "react"
+import { useContext, Fragment } from "react"
 import { observer } from "mobx-react-lite"
+import { Menu, Transition } from "@headlessui/react"
 
 import { UserStoreContext } from "../../stores/user"
 
-import Menu from "../Menu"
 import LogoutButton from "../buttons/LogoutButton"
 import MenuIcon from "../icons/MenuIcon"
 import FeedbackIcon from "../icons/FeedbackIcon"
 import SettingsIcon from "../icons/SettingsIcon"
-import { useClickToggler } from "../../hooks"
-
-type MenuItem = {
-  text: string
-  icon: any
-  link: string
-  className?: string
-}
-
-const formatMenuItem = (menuItem: MenuItem) => (
-  <Link
-    className="menu-item"
-    role="menuitem"
-    key={menuItem.link}
-    to={menuItem.link}
-  >
-    {menuItem.icon}
-    {menuItem.text}
-  </Link>
-)
 
 /** `MenuToken` component
  *
  * Toggles a menu for handling universal options and routing to Settings and Feedback views
  */
 const MenuToken = observer(() => {
-  const menuRef = useRef<HTMLDivElement>(null)
-  const { toggleMode: showMenu, setToggleMode: setShowMenu } = useClickToggler(
-    menuRef,
-    false
-  )
-
   const userStore = useContext(UserStoreContext)
   const user = userStore.user
 
-  // Define the menu items based on if the user is logged in
-
-  const menuItems = [
-    formatMenuItem({
-      text: "Feedback",
-      icon: FeedbackIcon({ className: "h-4 w-4 text-gray-700" }),
-      link: "/feedback",
-    }),
-  ]
-
-  // If a user is logged in, give them the ability to view settings or log out
-  if (user) {
-    menuItems.push(
-      formatMenuItem({
-        text: "Settings",
-        icon: SettingsIcon({ classes: "h-4 w-4 text-gray-700" }),
-        link: "/settings",
-      })
-    )
-    menuItems.push(<LogoutButton className="menu-item" />)
-  }
-
   return (
-    <div ref={menuRef}>
-      <button
-        onClick={() => setShowMenu(!showMenu)}
-        className={"menu-toggle " + (showMenu ? "bg-gray-100" : "bg-white")}
-      >
-        <MenuIcon className="h-5 w-5" />
-      </button>
-      {showMenu && (
-        <Menu wrappingClasses="mt-2 origin-top-right absolute right-2">
-          {menuItems}
-        </Menu>
-      )}
-    </div>
+    <Menu>
+      <Menu.Button className="border-l pl-1 pr-2 py-1.5 rounded-r-xl cursor-pointer bg-white hover:bg-gray-100 focus:outline-none focus">
+        <MenuIcon className="h-5 w-5 text-gray-800" />
+      </Menu.Button>
+      <Menu.Items className="py-2 absolute origin-top-right right-2 mt-10 flex flex-col rounded-xl bg-white shadow focus:outline-none">
+        <Menu.Item>
+          {({ active }) => (
+            <Link
+              className={`menu-item ${active && "bg-yellow-400 text-gray-900"}`}
+              to="/feedback"
+            >
+              <FeedbackIcon className="h-4 w-4" />
+              <span>Feedback</span>
+            </Link>
+          )}
+        </Menu.Item>
+        {user && (
+          <>
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  className={`menu-item ${
+                    active && "bg-yellow-400 text-gray-900"
+                  }`}
+                  to="/settings"
+                >
+                  <SettingsIcon className="h-4 w-4" />
+                  <span>Settings</span>
+                </Link>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <LogoutButton
+                  className={`menu-item ${
+                    active && "bg-yellow-400 text-gray-900"
+                  }`}
+                />
+              )}
+            </Menu.Item>
+          </>
+        )}
+      </Menu.Items>
+    </Menu>
   )
 })
 

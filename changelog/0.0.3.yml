@@ -1,0 +1,15 @@
+version: 0.0.3
+
+title: Ten-four good buddy
+
+released: 17 April 2021
+
+updates:
+  - Added analytics so I can track the site's usage and catch errors
+  - Communicate with different databases based on the runtime environment (`test`, `local`, `development`, `production`)
+  - User can see their info in the settings page
+  - Loading status is presented in a little pill and is properly set when returning from OAuth
+  - The Footer is cleaner, but not done
+  - User is rerouted to a home page if they are not logged in
+  - JWTs must have an expiration
+  - Started creating some animation hooks using react-spring

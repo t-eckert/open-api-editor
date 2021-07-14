@@ -12,17 +12,18 @@ const Footer = () => {
             <h2 className="font-medium mb-1">Links</h2>
             <ul className="leading-tight">
               <li>
-                <Link className="hover:underline" to="/changelog">
+                <Link className="hover:underline focus" to="/changelog">
                   Changelog
                 </Link>
               </li>
               <li>
-                <Link className="hover:underline" to="/feedback">
+                <Link className="hover:underline focus" to="/feedback">
                   Feedback
                 </Link>
               </li>
               <li className="hover:underline">
                 <a
+                  className="focus"
                   href="https://github.com/t-eckert/open-api-editor/discussions"
                   target="_blank"
                   rel="noreferrer"
@@ -32,6 +33,7 @@ const Footer = () => {
               </li>
               <li className="hover:underline">
                 <a
+                  className="focus"
                   href="https://github.com/t-eckert/open-api-editor"
                   target="_blank"
                   rel="noreferrer"

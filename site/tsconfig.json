@@ -11,15 +11,14 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "experimentalDecorators": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "noEmit": true
   },
   "include": [
     "src"

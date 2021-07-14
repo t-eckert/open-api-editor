@@ -1,4 +1,5 @@
 import Button from "../../buttons/Button"
+import SecurityCard from "./SecurityCard"
 
 type Props = {
   className?: string
@@ -7,7 +8,7 @@ type Props = {
 const Security = (props: Props) => {
   return (
     <section className={"" + props.className}>
-      <header className="flex flex-row justify-between">
+      <header className="mb-2 flex flex-row justify-between">
         <h2 className="text-xl font-medium text-gray-900" id="security">
           Security
         </h2>
@@ -15,6 +16,9 @@ const Security = (props: Props) => {
           Add Security
         </Button>
       </header>
+      <main className="grid grid-cols-4">
+        <SecurityCard />
+      </main>
     </section>
   )
 }
