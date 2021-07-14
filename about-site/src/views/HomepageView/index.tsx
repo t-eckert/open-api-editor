@@ -1,23 +1,24 @@
 import React from "react"
 
+import Header from "../../components/Header"
 import PostList from "../../components/PostList"
 
 const HomepageView = () => {
 	return <div className="bg-gradient-to-b from-yellow-50 to-yellow-100 w-screen min-h-screen">
-      <section className="mx-auto max-w-4xl">
-        <header className="">
-          <h2 className="font-medium text-xl text-yellow-800">
-						About
-					</h2>
-          <h1 className="font-medium text-6xl text-gray-900">
-            Open API Editor
-          </h1>
-					<p>
-
-					</p>
-        </header>
-        <main className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-					<PostList />
+      <section className="pt-8 px-4 mx-auto max-w-3xl">
+        <Header className="mb-4"/>
+        <main className="flex flex-row justify-between gap-2">
+          <section>
+            <h3 className="text-md font-medium text-gray-600">Links</h3>
+            <ul>
+              <li className="font-medium text-gray-800 hover:text-gray-900 hover:underline"><a href="https://openapieditor.com" target="blank_" rel="noopener noreferrer">OpenAPI Editor</a></li>
+              <li className="font-medium text-gray-800 hover:text-gray-900 hover:underline"><a href="https://github.com/t-eckert/open-api-editor" target="blank_" rel="noopener noreferrer">Source code</a></li>
+            </ul>
+          </section>
+          <section className="w-text">
+            <h3 className="text-md font-medium text-gray-600">Development log</h3>
+            <PostList />
+          </section>
         </main>
       </section>
     </div>

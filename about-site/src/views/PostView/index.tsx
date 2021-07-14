@@ -4,10 +4,10 @@ type Props = {
 	documentId: string
 }
 
-const PostView = ({ documentId }: Props) => {
+const PostView = () => {
 	return (
 		<div>
-			<h1>{documentId}</h1>
+			<h1>Post View</h1>
 		</div>
 	)
 }
