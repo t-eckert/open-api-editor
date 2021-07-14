@@ -1,1 +1,0 @@
-export const BLOG_POST_INDEX_URL = "https://raw.githubusercontent.com/t-eckert/open-api-editor/dev/about/blog-posts/"
