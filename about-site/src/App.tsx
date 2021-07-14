@@ -8,7 +8,9 @@ import View from "./components/View"
  * The root component for the React application 
  */
 const App = () => {
-  return <Router><View /></Router>
+  return <Router>
+    <View />
+  </Router>
 };
 
 export default App;

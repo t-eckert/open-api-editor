@@ -12,4 +12,4 @@ const BlogPostView = ({ documentId }: Props) => {
   return <div>Document</div>
 }
 
-export default DocumentView
+export default BlogPostView
