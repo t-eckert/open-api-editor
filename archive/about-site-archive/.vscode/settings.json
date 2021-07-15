@@ -1,0 +1,6 @@
+{
+	"css.validate": false,
+	"prettier.configPath": ".prettierrc",
+	"editor.tabSize": 2,
+	"jest.jestCommandLine": "npm run test --"
+}
