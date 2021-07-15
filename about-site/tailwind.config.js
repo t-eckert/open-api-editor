@@ -5,7 +5,11 @@ module.exports = {
 		extend: {},
 	},
 	variants: {
-		extend: { borderWidth: ["first", "last"], borderRadius: ['first', 'last'] },
+		extend: {
+			borderWidth: ["first", "last"],
+			borderRadius: ['first', 'last'],
+			rotate: ["group-hover"]
+		},
 	},
 	plugins: [
 		require('@tailwindcss/forms'),

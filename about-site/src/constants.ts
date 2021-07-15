@@ -1,0 +1,1 @@
+export const POST_LIST_URL = "https://raw.githubusercontent.com/t-eckert/open-api-editor/dev/about/posts/index.json"
