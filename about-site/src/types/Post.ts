@@ -2,7 +2,7 @@ type Post = {
 	id: string
 	title: string
 	published: string
-	readTime: string
+	readTime: number
 	display: boolean
 	preview: string
 }

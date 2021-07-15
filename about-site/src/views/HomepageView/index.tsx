@@ -7,7 +7,7 @@ const HomepageView = () => {
 	return <div className="bg-gradient-to-b from-yellow-50 to-yellow-100 w-screen min-h-screen">
       <section className="pt-8 px-4 mx-auto max-w-3xl">
         <Header className="mb-4"/>
-        <main className="flex flex-row justify-between gap-2">
+        <main className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-2">
           <section>
             <h3 className="text-md font-medium text-gray-600">Links</h3>
             <ul>

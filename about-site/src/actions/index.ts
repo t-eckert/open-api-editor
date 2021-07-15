@@ -1,3 +1,4 @@
+import fetchPost from './fetchPost';
 import fetchPostList from "./fetchPostList"
 
-export { fetchPostList }
+export { fetchPost, fetchPostList }
