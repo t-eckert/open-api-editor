@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 import Post from "../../components/Post"
 
@@ -8,6 +8,8 @@ type Props = {
 }
 
 const PostView = () => {
+	const { id } = useParams<{ id: string }>()
+
 	return <div className="bg-gradient-to-b from-yellow-50 to-yellow-100 w-screen min-h-screen">
 		<section className="pt-8 px-4 mx-auto w-text">
 			<Link className="mb-2 flex flex-row items-center group text-gray-800 hover:text-gray-900" to="/">
@@ -16,7 +18,7 @@ const PostView = () => {
 				</svg>
 				<span className="font-medium">Home</span>
 			</Link>
-			<Post className="mx-auto" id={"000"}/>
+			<Post className="mx-auto" id={id}/>
 		</section>
 	</div>
 }
